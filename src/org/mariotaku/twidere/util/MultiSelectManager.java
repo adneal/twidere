@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.model.ParcelableStatus;
 import org.mariotaku.twidere.model.ParcelableUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MultiSelectManager implements Constants {
 

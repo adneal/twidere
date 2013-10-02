@@ -19,15 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.fragment.iface.IBaseFragment;
-import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
-import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.MultiSelectManager;
-import org.mariotaku.twidere.util.Utils;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -42,6 +33,15 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.fragment.iface.IBaseFragment;
+import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
+import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.MultiSelectManager;
+import org.mariotaku.twidere.util.Utils;
 
 public class BaseSupportListFragment extends ListFragment implements IBaseFragment, Constants, OnScrollListener,
 		RefreshScrollTopInterface {

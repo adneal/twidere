@@ -19,14 +19,14 @@
 
 package org.mariotaku.twidere.fragment;
 
-import java.util.List;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.content.Loader;
 
 import org.mariotaku.twidere.loader.IntentExtrasUsersLoader;
 import org.mariotaku.twidere.model.ParcelableUser;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.content.Loader;
+import java.util.List;
 
 public class UsersListFragment extends BaseUsersListFragment {
 

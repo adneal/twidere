@@ -19,16 +19,16 @@
 
 package org.mariotaku.twidere.util;
 
-import java.util.HashMap;
-
-import org.mariotaku.twidere.Constants;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.util.Log;
+
+import org.mariotaku.twidere.Constants;
+
+import java.util.HashMap;
 
 public final class ServiceUtils implements Constants {
 

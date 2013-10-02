@@ -19,6 +19,10 @@
 
 package org.mariotaku.twidere.provider;
 
+import android.content.ContentResolver;
+import android.net.Uri;
+import android.provider.BaseColumns;
+
 import org.mariotaku.querybuilder.Columns;
 import org.mariotaku.querybuilder.Columns.Column;
 import org.mariotaku.querybuilder.OrderBy;
@@ -27,10 +31,6 @@ import org.mariotaku.querybuilder.Selectable;
 import org.mariotaku.querybuilder.Tables;
 import org.mariotaku.querybuilder.Where;
 import org.mariotaku.twidere.util.Utils;
-
-import android.content.ContentResolver;
-import android.net.Uri;
-import android.provider.BaseColumns;
 
 public final class TweetStore {
 

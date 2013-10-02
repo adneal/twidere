@@ -285,13 +285,10 @@ public class Extractor {
 	}
 
 	/*
-	 * Modify Unicode-based indices of the entities to UTF-16 based indices.
-	 * 
-	 * In UTF-16 based indices, Unicode supplementary characters are counted as
-	 * two characters.
-	 * 
-	 * This method requires that the list of entities be in ascending order by
-	 * start index.
+	 * Modify Unicode-based indices of the entities to UTF-16 based indices. In
+	 * UTF-16 based indices, Unicode supplementary characters are counted as two
+	 * characters. This method requires that the list of entities be in
+	 * ascending order by start index.
 	 * 
 	 * @param text original text
 	 * 
@@ -307,13 +304,10 @@ public class Extractor {
 	}
 
 	/*
-	 * Modify UTF-16-based indices of the entities to Unicode-based indices.
-	 * 
-	 * In Unicode-based indices, Unicode supplementary characters are counted as
-	 * single characters.
-	 * 
-	 * This method requires that the list of entities be in ascending order by
-	 * start index.
+	 * Modify UTF-16-based indices of the entities to Unicode-based indices. In
+	 * Unicode-based indices, Unicode supplementary characters are counted as
+	 * single characters. This method requires that the list of entities be in
+	 * ascending order by start index.
 	 * 
 	 * @param text original text
 	 * 

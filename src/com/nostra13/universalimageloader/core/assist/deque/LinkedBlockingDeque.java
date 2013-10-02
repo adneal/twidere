@@ -17,13 +17,11 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * An optionally-bounded {@linkplain BlockingDeque blocking deque} based on
  * linked nodes.
- * 
  * <p>
  * The optional capacity bound constructor argument serves as a way to prevent
  * excessive expansion. The capacity, if unspecified, is equal to
  * {@link Integer#MAX_VALUE}. Linked nodes are dynamically created upon each
  * insertion unless this would bring the deque above capacity.
- * 
  * <p>
  * Most operations run in constant time (ignoring time spent blocking).
  * Exceptions include {@link #remove(Object) remove},
@@ -31,11 +29,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * {@link #removeLastOccurrence removeLastOccurrence}, {@link #contains
  * contains}, {@link #iterator iterator.remove()}, and the bulk operations, all
  * of which run in linear time.
- * 
  * <p>
  * This class and its iterator implement all of the <em>optional</em> methods of
  * the {@link Collection} and {@link Iterator} interfaces.
- * 
  * <p>
  * This class is a member of the <a href="{@docRoot}
  * /../technotes/guides/collections/index.html"> Java Collections Framework</a>.
@@ -48,19 +44,17 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
 	/*
 	 * Implemented as a simple doubly-linked list protected by a single lock and
-	 * using conditions to manage blocking.
-	 * 
-	 * To implement weakly consistent iterators, it appears we need to keep all
-	 * Nodes GC-reachable from a predecessor dequeued Node. That would cause two
-	 * problems: - allow a rogue Iterator to cause unbounded memory retention -
-	 * cause cross-generational linking of old Nodes to new Nodes if a Node was
-	 * tenured while live, which generational GCs have a hard time dealing with,
-	 * causing repeated major collections. However, only non-deleted Nodes need
-	 * to be reachable from dequeued Nodes, and reachability does not
-	 * necessarily have to be of the kind understood by the GC. We use the trick
-	 * of linking a Node that has just been dequeued to itself. Such a self-link
-	 * implicitly means to jump to "first" (for next links) or "last" (for prev
-	 * links).
+	 * using conditions to manage blocking. To implement weakly consistent
+	 * iterators, it appears we need to keep all Nodes GC-reachable from a
+	 * predecessor dequeued Node. That would cause two problems: - allow a rogue
+	 * Iterator to cause unbounded memory retention - cause cross-generational
+	 * linking of old Nodes to new Nodes if a Node was tenured while live, which
+	 * generational GCs have a hard time dealing with, causing repeated major
+	 * collections. However, only non-deleted Nodes need to be reachable from
+	 * dequeued Nodes, and reachability does not necessarily have to be of the
+	 * kind understood by the GC. We use the trick of linking a Node that has
+	 * just been dequeued to itself. Such a self-link implicitly means to jump
+	 * to "first" (for next links) or "last" (for prev links).
 	 */
 
 	/*
@@ -145,7 +139,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * Inserts the specified element at the end of this deque unless it would
 	 * violate capacity restrictions. When using a capacity-restricted deque, it
 	 * is generally preferable to use method {@link #offer offer}.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #addLast}.
 	 * 
@@ -229,7 +222,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * Returns an iterator over the elements in this deque in reverse sequential
 	 * order. The elements will be returned in order from last (tail) to first
 	 * (head).
-	 * 
 	 * <p>
 	 * The returned iterator is a "weakly consistent" iterator that will never
 	 * throw {@link java.util.ConcurrentModificationException
@@ -285,7 +277,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * Retrieves, but does not remove, the head of the queue represented by this
 	 * deque. This method differs from {@link #peek peek} only in that it throws
 	 * an exception if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #getFirst() getFirst}.
 	 * 
@@ -320,7 +311,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	/**
 	 * Returns an iterator over the elements in this deque in proper sequence.
 	 * The elements will be returned in order from first (head) to last (tail).
-	 * 
 	 * <p>
 	 * The returned iterator is a "weakly consistent" iterator that will never
 	 * throw {@link java.util.ConcurrentModificationException
@@ -592,7 +582,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * the absence of memory or resource constraints) accept without blocking.
 	 * This is always equal to the initial capacity of this deque less the
 	 * current {@code size} of this deque.
-	 * 
 	 * <p>
 	 * Note that you <em>cannot</em> always tell if an attempt to insert an
 	 * element will succeed by inspecting {@code remainingCapacity} because it
@@ -614,7 +603,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * Retrieves and removes the head of the queue represented by this deque.
 	 * This method differs from {@link #poll poll} only in that it throws an
 	 * exception if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirst() removeFirst}.
 	 * 
@@ -633,7 +621,6 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * such an element exists). Returns {@code true} if this deque contained the
 	 * specified element (or equivalently, if this deque changed as a result of
 	 * the call).
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirstOccurrence(Object)
 	 * removeFirstOccurrence}.
@@ -760,12 +747,10 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	/**
 	 * Returns an array containing all of the elements in this deque, in proper
 	 * sequence (from first to last element).
-	 * 
 	 * <p>
 	 * The returned array will be "safe" in that no references to it are
 	 * maintained by this deque. (In other words, this method must allocate a
 	 * new array). The caller is thus free to modify the returned array.
-	 * 
 	 * <p>
 	 * This method acts as bridge between array-based and collection-based APIs.
 	 * 
@@ -793,18 +778,15 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	 * array. If the deque fits in the specified array, it is returned therein.
 	 * Otherwise, a new array is allocated with the runtime type of the
 	 * specified array and the size of this deque.
-	 * 
 	 * <p>
 	 * If this deque fits in the specified array with room to spare (i.e., the
 	 * array has more elements than this deque), the element in the array
 	 * immediately following the end of the deque is set to {@code null}.
-	 * 
 	 * <p>
 	 * Like the {@link #toArray()} method, this method acts as bridge between
 	 * array-based and collection-based APIs. Further, this method allows
 	 * precise control over the runtime type of the output array, and may, under
 	 * certain circumstances, be used to save allocation costs.
-	 * 
 	 * <p>
 	 * Suppose {@code x} is a deque known to contain only strings. The following
 	 * code can be used to dump the deque into a newly allocated array of
@@ -872,11 +854,10 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 	}
 
 	/*
-	 * TODO: Add support for more efficient bulk operations.
-	 * 
-	 * We don't want to acquire the lock for every iteration, but we also want
-	 * other threads a chance to interact with the collection, especially when
-	 * count is close to capacity.
+	 * TODO: Add support for more efficient bulk operations. We don't want to
+	 * acquire the lock for every iteration, but we also want other threads a
+	 * chance to interact with the collection, especially when count is close to
+	 * capacity.
 	 */
 
 	// /**

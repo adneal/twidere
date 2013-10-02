@@ -21,10 +21,6 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.showErrorMessage;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.activity.BaseSupportActivity;
-import org.mariotaku.twidere.view.WebSettingsAccessor;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -40,6 +36,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewFragment;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.activity.BaseSupportActivity;
+import org.mariotaku.twidere.view.WebSettingsAccessor;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class BaseWebViewFragment extends WebViewFragment implements Constants {

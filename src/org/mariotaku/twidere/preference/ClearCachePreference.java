@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.preference;
 
-import java.io.File;
-import java.io.FileFilter;
-
 import android.content.Context;
 import android.util.AttributeSet;
+
+import java.io.File;
+import java.io.FileFilter;
 
 public class ClearCachePreference extends AsyncTaskPreference {
 

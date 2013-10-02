@@ -21,8 +21,8 @@ package org.mariotaku.twidere.util;
 
 import static org.mariotaku.twidere.util.Utils.getTwitterInstance;
 
-import java.io.File;
-import java.util.List;
+import android.content.Context;
+import android.net.Uri;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.R;
@@ -34,8 +34,9 @@ import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
-import android.content.Context;
-import android.net.Uri;
+
+import java.io.File;
+import java.util.List;
 
 public class TwitterWrapper implements Constants {
 

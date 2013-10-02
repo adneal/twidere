@@ -24,19 +24,20 @@ import static org.mariotaku.twidere.util.Utils.getAsBoolean;
 import static org.mariotaku.twidere.util.Utils.getAsLong;
 import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 
-import java.io.Serializable;
-import java.util.Comparator;
-import java.util.Date;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
 import org.mariotaku.twidere.util.ParseUtils;
 
 import twitter4j.DirectMessage;
 import twitter4j.User;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.os.Parcel;
-import android.os.Parcelable;
+
+import java.io.Serializable;
+import java.util.Comparator;
+import java.util.Date;
 
 public class ParcelableDirectMessage implements Parcelable, Serializable, Comparable<ParcelableDirectMessage> {
 

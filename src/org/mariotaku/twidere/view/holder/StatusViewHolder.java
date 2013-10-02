@@ -22,13 +22,6 @@ package org.mariotaku.twidere.view.holder;
 import static org.mariotaku.twidere.util.Utils.getStatusTypeIconRes;
 import static org.mariotaku.twidere.util.Utils.getUserTypeIconRes;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.animation.CardItemAnimation;
-import org.mariotaku.twidere.util.Utils;
-import org.mariotaku.twidere.view.ShortTimeView;
-import org.mariotaku.twidere.view.iface.IColorLabelView;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -38,6 +31,13 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.animation.CardItemAnimation;
+import org.mariotaku.twidere.util.Utils;
+import org.mariotaku.twidere.view.ShortTimeView;
+import org.mariotaku.twidere.view.iface.IColorLabelView;
 
 public class StatusViewHolder implements Constants {
 

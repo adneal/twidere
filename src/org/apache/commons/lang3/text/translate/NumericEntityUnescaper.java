@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.commons.lang3.text.translate;
 
 import java.io.IOException;
@@ -23,9 +24,7 @@ import java.util.EnumSet;
 
 /**
  * Translate XML numeric entities of the form &#[xX]?\d+;? to the specific
- * codepoint.
- * 
- * Note that the semi-colon is optional.
+ * codepoint. Note that the semi-colon is optional.
  * 
  * @since 3.0
  * @version $Id: NumericEntityUnescaper.java 1199894 2011-11-09 17:53:59Z
@@ -38,17 +37,13 @@ public class NumericEntityUnescaper extends CharSequenceTranslator {
 	private final EnumSet<OPTION> options;
 
 	/**
-	 * Create a UnicodeUnescaper.
-	 * 
-	 * The constructor takes a list of options, only one type of which is
-	 * currently available (whether to allow, error or ignore the semi-colon on
-	 * the end of a numeric entity to being missing).
-	 * 
+	 * Create a UnicodeUnescaper. The constructor takes a list of options, only
+	 * one type of which is currently available (whether to allow, error or
+	 * ignore the semi-colon on the end of a numeric entity to being missing).
 	 * For example, to support numeric entities without a ';': new
 	 * NumericEntityUnescaper(NumericEntityUnescaper.OPTION.semiColonOptional)
 	 * and to throw an IllegalArgumentException when they're missing: new
 	 * NumericEntityUnescaper(NumericEntityUnescaper.OPTION.errorIfNoSemiColon)
-	 * 
 	 * Note that the default behaviour is to ignore them.
 	 * 
 	 * @param options to apply to this unescaper

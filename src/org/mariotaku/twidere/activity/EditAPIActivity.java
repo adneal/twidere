@@ -25,10 +25,6 @@ import static org.mariotaku.twidere.util.Utils.getNonEmptyString;
 import static org.mariotaku.twidere.util.Utils.isValidUrl;
 import static org.mariotaku.twidere.util.Utils.trim;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-
-import twitter4j.TwitterConstants;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -41,6 +37,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+
+import twitter4j.TwitterConstants;
 
 public class EditAPIActivity extends BaseSupportDialogActivity implements TwitterConstants, OnCheckedChangeListener,
 		OnClickListener {

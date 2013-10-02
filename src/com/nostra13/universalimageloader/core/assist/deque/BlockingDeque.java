@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
  * A {@link Deque} that additionally supports blocking operations that wait for
  * the deque to become non-empty when retrieving an element, and wait for space
  * to become available in the deque when storing an element.
- * 
  * <p>
  * <tt>BlockingDeque</tt> methods come in four forms, with different ways of
  * handling operations that cannot be satisfied immediately, but may be
@@ -24,7 +23,6 @@ import java.util.concurrent.TimeUnit;
  * the operation), the third blocks the current thread indefinitely until the
  * operation can succeed, and the fourth blocks for only a given maximum time
  * limit before giving up. These methods are summarized in the following table:
- * 
  * <p>
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
  * <tr>
@@ -90,17 +88,14 @@ import java.util.concurrent.TimeUnit;
  * <td><em>not applicable</em></td>
  * </tr>
  * </table>
- * 
  * <p>
  * Like any {@link BlockingQueue}, a <tt>BlockingDeque</tt> is thread safe, does
  * not permit null elements, and may (or may not) be capacity-constrained.
- * 
  * <p>
  * A <tt>BlockingDeque</tt> implementation may be used directly as a FIFO
  * <tt>BlockingQueue</tt>. The methods inherited from the <tt>BlockingQueue</tt>
  * interface are precisely equivalent to <tt>BlockingDeque</tt> methods as
  * indicated in the following table:
- * 
  * <p>
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
  * <tr>
@@ -157,14 +152,12 @@ import java.util.concurrent.TimeUnit;
  * <td>{@link #peekFirst() peekFirst()}</td>
  * </tr>
  * </table>
- * 
  * <p>
  * Memory consistency effects: As with other concurrent collections, actions in
  * a thread prior to placing an object into a {@code BlockingDeque} <a
  * href="package-summary.html#MemoryVisibility"><i>happen-before</i></a> actions
  * subsequent to the access or removal of that element from the
  * {@code BlockingDeque} in another thread.
- * 
  * <p>
  * This interface is a member of the <a href="{@docRoot}
  * /../technotes/guides/collections/index.html"> Java Collections Framework</a>.
@@ -210,7 +203,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
 	 * if no space is currently available. When using a capacity-restricted
 	 * deque, it is generally preferable to use {@link #offer offer}.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #addLast addLast}.
 	 * 
@@ -262,7 +254,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * deque (in other words, the first element of this deque). This method
 	 * differs from {@link #peek peek} only in that it throws an exception if
 	 * this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #getFirst() getFirst}.
 	 * 
@@ -289,7 +280,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * available. When using a capacity-restricted deque, this method is
 	 * generally preferable to the {@link #add} method, which can fail to insert
 	 * an element only by throwing an exception.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #offerLast offerLast}.
 	 * 
@@ -307,7 +297,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Inserts the specified element into the queue represented by this deque
 	 * (in other words, at the tail of this deque), waiting up to the specified
 	 * wait time if necessary for space to become available.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #offerLast offerLast}.
 	 * 
@@ -400,7 +389,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Retrieves, but does not remove, the head of the queue represented by this
 	 * deque (in other words, the first element of this deque), or returns
 	 * <tt>null</tt> if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #peekFirst() peekFirst}.
 	 * 
@@ -415,7 +403,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Retrieves and removes the head of the queue represented by this deque (in
 	 * other words, the first element of this deque), or returns <tt>null</tt>
 	 * if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #pollFirst()}.
 	 * 
@@ -428,7 +415,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Retrieves and removes the head of the queue represented by this deque (in
 	 * other words, the first element of this deque), waiting up to the
 	 * specified wait time if necessary for an element to become available.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #pollFirst(long,TimeUnit) pollFirst}.
 	 * 
@@ -471,7 +457,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Pushes an element onto the stack represented by this deque. In other
 	 * words, inserts the element at the front of this deque unless it would
 	 * violate capacity restrictions.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #addFirst addFirst}.
 	 * 
@@ -487,7 +472,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Inserts the specified element into the queue represented by this deque
 	 * (in other words, at the tail of this deque), waiting if necessary for
 	 * space to become available.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #putLast putLast}.
 	 * 
@@ -535,7 +519,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * other words, the first element of this deque). This method differs from
 	 * {@link #poll poll} only in that it throws an exception if this deque is
 	 * empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirst() removeFirst}.
 	 * 
@@ -552,7 +535,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * such an element exists). Returns <tt>true</tt> if this deque contained
 	 * the specified element (or equivalently, if this deque changed as a result
 	 * of the call).
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirstOccurrence
 	 * removeFirstOccurrence}.
@@ -604,7 +586,6 @@ public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
 	 * Retrieves and removes the head of the queue represented by this deque (in
 	 * other words, the first element of this deque), waiting if necessary until
 	 * an element becomes available.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #takeFirst() takeFirst}.
 	 * 

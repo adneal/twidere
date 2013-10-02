@@ -21,9 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static android.text.TextUtils.isEmpty;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.PermissionsManager;
-
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -34,6 +31,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.PermissionsManager;
 
 public class RequestPermissionsActivity extends BaseSupportDialogActivity implements OnClickListener {
 

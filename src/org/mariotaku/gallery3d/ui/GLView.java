@@ -16,14 +16,14 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import java.util.ArrayList;
+import android.annotation.SuppressLint;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 
 import org.mariotaku.gallery3d.anim.CanvasAnimation;
 import org.mariotaku.gallery3d.util.GalleryUtils;
 
-import android.annotation.SuppressLint;
-import android.graphics.Rect;
-import android.view.MotionEvent;
+import java.util.ArrayList;
 
 // GLView is a UI component. It can render to a GLCanvas and accept touch
 // events. A GLView may have zero or more child GLView and they form a tree

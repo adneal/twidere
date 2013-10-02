@@ -23,12 +23,6 @@ import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.createFragmentForIntent;
 import static org.mariotaku.twidere.util.Utils.matchLinkId;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.fragment.BasePullToRefreshListFragment;
-import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
-import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
-import org.mariotaku.twidere.util.MultiSelectEventHandler;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
@@ -43,6 +37,12 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.fragment.BasePullToRefreshListFragment;
+import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
+import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
+import org.mariotaku.twidere.util.MultiSelectEventHandler;
 
 public class LinkHandlerActivity extends TwidereSwipeBackActivity implements OnClickListener, OnLongClickListener {
 
@@ -174,7 +174,7 @@ public class LinkHandlerActivity extends TwidereSwipeBackActivity implements OnC
 				break;
 			}
 			case LINK_ID_USER_TIMELINE: {
-				setTitle(R.string.tweets);
+				setTitle(R.string.statuses);
 				break;
 			}
 			case LINK_ID_USER_FAVORITES: {
@@ -238,7 +238,7 @@ public class LinkHandlerActivity extends TwidereSwipeBackActivity implements OnC
 				break;
 			}
 			case LINK_ID_STATUSES: {
-				setTitle(R.string.tweets);
+				setTitle(R.string.statuses);
 				break;
 			}
 			case LINK_ID_STATUS_RETWEETERS: {

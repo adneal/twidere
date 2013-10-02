@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.loader.CursorSupportUsersLoader;
-import org.mariotaku.twidere.loader.UserListSubscribersLoader;
-
 import android.content.Context;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.loader.CursorSupportUsersLoader;
+import org.mariotaku.twidere.loader.UserListSubscribersLoader;
 
 public class UserListSubscribersFragment extends CursorSupportUsersListFragment {
 

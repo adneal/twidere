@@ -19,7 +19,7 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.List;
+import android.content.Context;
 
 import org.mariotaku.twidere.model.ParcelableActivity;
 
@@ -27,7 +27,8 @@ import twitter4j.Activity;
 import twitter4j.Paging;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import android.content.Context;
+
+import java.util.List;
 
 public class ActivitiesAboutMeLoader extends Twitter4JActivitiesLoader {
 

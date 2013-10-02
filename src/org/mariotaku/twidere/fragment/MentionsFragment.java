@@ -19,9 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.provider.TweetStore.Mentions;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +26,9 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.provider.TweetStore.Mentions;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
 
 public class MentionsFragment extends CursorStatusesListFragment {
 

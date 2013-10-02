@@ -19,15 +19,15 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.support.v4.content.AsyncTaskLoader;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.model.ParcelableUser;
 import org.mariotaku.twidere.util.NoDuplicatesArrayList;
 
-import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class ParcelableUsersLoader extends AsyncTaskLoader<List<ParcelableUser>> implements Constants {
 

@@ -22,12 +22,6 @@ package org.mariotaku.twidere.activity;
 import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.getDefaultAccountScreenName;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
-
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,6 +31,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ParseUtils;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 public class DonateActivity extends BaseSupportActivity implements OnClickListener, TextWatcher {
 

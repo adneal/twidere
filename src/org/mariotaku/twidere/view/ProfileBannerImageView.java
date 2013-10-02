@@ -19,10 +19,6 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.view.iface.IExtendedView;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -33,6 +29,10 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.view.iface.IExtendedView;
 
 public class ProfileBannerImageView extends ClickableImageView implements IExtendedView, Constants {
 

@@ -1,8 +1,5 @@
 package me.imid.swipebacklayout.lib;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ViewDragHelperAccessor;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,6 +13,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ViewDragHelperAccessor;
 
 public class SwipeBackLayout extends FrameLayout {
 	/**

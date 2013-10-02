@@ -16,18 +16,18 @@
 
 package twitter4j.conf;
 
-import java.io.ObjectStreamException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import twitter4j.TwitterConstants;
 import twitter4j.Version;
 import twitter4j.http.HostAddressResolver;
 import twitter4j.http.HttpClient;
 import twitter4j.http.HttpClientConfiguration;
 import twitter4j.http.HttpClientImpl;
+
+import java.io.ObjectStreamException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Configuration base class with default settings.

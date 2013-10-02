@@ -22,11 +22,11 @@ package org.mariotaku.twidere.model;
 import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.matcherGroup;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.mariotaku.twidere.util.HtmlLinkExtractor;
 import org.mariotaku.twidere.util.HtmlLinkExtractor.HtmlLink;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PreviewImage {
 

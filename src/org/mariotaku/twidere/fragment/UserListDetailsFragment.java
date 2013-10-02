@@ -31,27 +31,6 @@ import static org.mariotaku.twidere.util.Utils.openUserListSubscribers;
 import static org.mariotaku.twidere.util.Utils.openUserListTimeline;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
-import java.util.Locale;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ListActionAdapter;
-import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
-import org.mariotaku.twidere.model.ListAction;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableUserList;
-import org.mariotaku.twidere.model.SingleResponse;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.OnLinkClickHandler;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.TwidereLinkify;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.UserList;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -86,6 +65,28 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ListActionAdapter;
+import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
+import org.mariotaku.twidere.model.ListAction;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableUserList;
+import org.mariotaku.twidere.model.SingleResponse;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.OnLinkClickHandler;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.TwidereLinkify;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.UserList;
+
+import java.util.Locale;
 
 public class UserListDetailsFragment extends BaseSupportListFragment implements OnClickListener, OnLongClickListener,
 		OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener,

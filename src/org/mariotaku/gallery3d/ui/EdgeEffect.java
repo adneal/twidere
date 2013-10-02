@@ -16,9 +16,6 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ThemeUtils;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -28,6 +25,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ThemeUtils;
 
 // This is copied from android.widget.EdgeEffect with some small modifications:
 // (1) Copy the images (overscroll_{edge|glow}.png) to local resources.
@@ -40,7 +40,6 @@ import android.view.animation.Interpolator;
 /**
  * This class performs the graphical effect used at the edges of scrollable
  * widgets when the user scrolls beyond the content bounds in 2D space.
- * 
  * <p>
  * EdgeEffect is stateful. Custom widgets using EdgeEffect should create an
  * instance for each edge that should show the effect, feed it input data using
@@ -51,7 +50,6 @@ import android.view.animation.Interpolator;
  * animation is not yet complete and the widget should schedule another drawing
  * pass to continue the animation.
  * </p>
- * 
  * <p>
  * When drawing, widgets should draw their main content and child views first,
  * usually by invoking <code>super.draw(canvas)</code> from an overridden
@@ -214,7 +212,6 @@ public class EdgeEffect {
 	/**
 	 * Call when the effect absorbs an impact at the given velocity. Used when a
 	 * fling reaches the scroll boundary.
-	 * 
 	 * <p>
 	 * When using a {@link android.widget.Scroller} or
 	 * {@link android.widget.OverScroller}, the method

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package de.keyboardsurfer.android.widget.crouton;
 
 /**
@@ -87,7 +88,6 @@ public class CroutonConfiguration {
 		 * 
 		 * @param duration The durationInMilliseconds the crouton will be
 		 *            displayed {@link Crouton} in milliseconds.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setDuration(final int duration) {
@@ -102,7 +102,6 @@ public class CroutonConfiguration {
 		 * @param inAnimationResId The resource identifier for the animation
 		 *            that's being shown when the {@link Crouton} is going to be
 		 *            displayed.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setInAnimation(final int inAnimationResId) {
@@ -117,7 +116,6 @@ public class CroutonConfiguration {
 		 * @param outAnimationResId The resource identifier for the animation
 		 *            that's being shown when the {@link Crouton} is going to be
 		 *            removed.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setOutAnimation(final int outAnimationResId) {

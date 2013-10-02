@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.commons.lang3.text.translate;
 
 /**
@@ -139,7 +140,7 @@ public class EntityArrays {
 			// <!-- Latin Extended-B -->
 			{ "\u0192", "&fnof;" }, // latin small f with hook = function=
 									// florin, U+0192 ISOtech -->
-			// <!-- Greek -->
+									// <!-- Greek -->
 			{ "\u0391", "&Alpha;" }, // greek capital letter alpha, U+0391 -->
 			{ "\u0392", "&Beta;" }, // greek capital letter beta, U+0392 -->
 			{ "\u0393", "&Gamma;" }, // greek capital letter gamma,U+0393
@@ -163,7 +164,8 @@ public class EntityArrays {
 										// -->
 			{ "\u03A0", "&Pi;" }, // greek capital letter pi, U+03A0 ISOgrk3 -->
 			{ "\u03A1", "&Rho;" }, // greek capital letter rho, U+03A1 -->
-			// <!-- there is no Sigmaf, and no U+03A2 character either -->
+									// <!-- there is no Sigmaf, and no U+03A2
+									// character either -->
 			{ "\u03A3", "&Sigma;" }, // greek capital letter sigma,U+03A3
 										// ISOgrk3 -->
 			{ "\u03A4", "&Tau;" }, // greek capital letter tau, U+03A4 -->
@@ -221,10 +223,11 @@ public class EntityArrays {
 			{ "\u03D2", "&upsih;" }, // greek upsilon with hook symbol,U+03D2
 										// NEW -->
 			{ "\u03D6", "&piv;" }, // greek pi symbol, U+03D6 ISOgrk3 -->
-			// <!-- General Punctuation -->
+									// <!-- General Punctuation -->
 			{ "\u2022", "&bull;" }, // bullet = black small circle,U+2022 ISOpub
 									// -->
-			// <!-- bullet is NOT the same as bullet operator, U+2219 -->
+									// <!-- bullet is NOT the same as bullet
+									// operator, U+2219 -->
 			{ "\u2026", "&hellip;" }, // horizontal ellipsis = three dot
 										// leader,U+2026 ISOpub -->
 			{ "\u2032", "&prime;" }, // prime = minutes = feet, U+2032 ISOtech
@@ -234,7 +237,7 @@ public class EntityArrays {
 			{ "\u203E", "&oline;" }, // overline = spacing overscore,U+203E NEW
 										// -->
 			{ "\u2044", "&frasl;" }, // fraction slash, U+2044 NEW -->
-			// <!-- Letterlike Symbols -->
+										// <!-- Letterlike Symbols -->
 			{ "\u2118", "&weierp;" }, // script capital P = power set=
 										// Weierstrass p, U+2118 ISOamso -->
 			{ "\u2111", "&image;" }, // blackletter capital I = imaginary
@@ -244,10 +247,12 @@ public class EntityArrays {
 			{ "\u2122", "&trade;" }, // trade mark sign, U+2122 ISOnum -->
 			{ "\u2135", "&alefsym;" }, // alef symbol = first transfinite
 										// cardinal,U+2135 NEW -->
-			// <!-- alef symbol is NOT the same as hebrew letter alef,U+05D0
-			// although the
-			// same glyph could be used to depict both characters -->
-			// <!-- Arrows -->
+										// <!-- alef symbol is NOT the same as
+										// hebrew letter alef,U+05D0
+										// although the
+										// same glyph could be used to depict
+										// both characters -->
+										// <!-- Arrows -->
 			{ "\u2190", "&larr;" }, // leftwards arrow, U+2190 ISOnum -->
 			{ "\u2191", "&uarr;" }, // upwards arrow, U+2191 ISOnum-->
 			{ "\u2192", "&rarr;" }, // rightwards arrow, U+2192 ISOnum -->
@@ -257,24 +262,32 @@ public class EntityArrays {
 										// carriage return, U+21B5 NEW -->
 			{ "\u21D0", "&lArr;" }, // leftwards double arrow, U+21D0 ISOtech
 									// -->
-			// <!-- ISO 10646 does not say that lArr is the same as the 'is
-			// implied by'
-			// arrow but also does not have any other character for that
-			// function.
-			// So ? lArr canbe used for 'is implied by' as ISOtech suggests -->
+									// <!-- ISO 10646 does not say that lArr is
+									// the same as the 'is
+									// implied by'
+									// arrow but also does not have any other
+									// character for that
+									// function.
+									// So ? lArr canbe used for 'is implied by'
+									// as ISOtech suggests
+									// -->
 			{ "\u21D1", "&uArr;" }, // upwards double arrow, U+21D1 ISOamsa -->
 			{ "\u21D2", "&rArr;" }, // rightwards double arrow,U+21D2 ISOtech
 									// -->
-			// <!-- ISO 10646 does not say this is the 'implies' character but
-			// does not
-			// have another character with this function so ?rArr can be used
-			// for
-			// 'implies' as ISOtech suggests -->
+									// <!-- ISO 10646 does not say this is the
+									// 'implies' character
+									// but
+									// does not
+									// have another character with this function
+									// so ?rArr can be
+									// used
+									// for
+									// 'implies' as ISOtech suggests -->
 			{ "\u21D3", "&dArr;" }, // downwards double arrow, U+21D3 ISOamsa
 									// -->
 			{ "\u21D4", "&hArr;" }, // left right double arrow,U+21D4 ISOamsa
 									// -->
-			// <!-- Mathematical Operators -->
+									// <!-- Mathematical Operators -->
 			{ "\u2200", "&forall;" }, // for all, U+2200 ISOtech -->
 			{ "\u2202", "&part;" }, // partial differential, U+2202 ISOtech -->
 			{ "\u2203", "&exist;" }, // there exists, U+2203 ISOtech -->
@@ -285,16 +298,21 @@ public class EntityArrays {
 			{ "\u2208", "&isin;" }, // element of, U+2208 ISOtech -->
 			{ "\u2209", "&notin;" }, // not an element of, U+2209 ISOtech -->
 			{ "\u220B", "&ni;" }, // contains as member, U+220B ISOtech -->
-			// <!-- should there be a more memorable name than 'ni'? -->
+									// <!-- should there be a more memorable
+									// name than 'ni'? -->
 			{ "\u220F", "&prod;" }, // n-ary product = product sign,U+220F
 									// ISOamsb -->
-			// <!-- prod is NOT the same character as U+03A0 'greek capital
-			// letter pi'
-			// though the same glyph might be used for both -->
+									// <!-- prod is NOT the same character as
+									// U+03A0 'greek capital
+									// letter pi'
+									// though the same glyph might be used for
+									// both -->
 			{ "\u2211", "&sum;" }, // n-ary summation, U+2211 ISOamsb -->
-			// <!-- sum is NOT the same character as U+03A3 'greek capital
-			// letter sigma'
-			// though the same glyph might be used for both -->
+									// <!-- sum is NOT the same character as
+									// U+03A3 'greek capital
+									// letter sigma'
+									// though the same glyph might be used for
+									// both -->
 			{ "\u2212", "&minus;" }, // minus sign, U+2212 ISOtech -->
 			{ "\u2217", "&lowast;" }, // asterisk operator, U+2217 ISOtech -->
 			{ "\u221A", "&radic;" }, // square root = radical sign,U+221A
@@ -310,9 +328,11 @@ public class EntityArrays {
 			{ "\u2234", "&there4;" }, // therefore, U+2234 ISOtech -->
 			{ "\u223C", "&sim;" }, // tilde operator = varies with = similar
 									// to,U+223C ISOtech -->
-			// <!-- tilde operator is NOT the same character as the tilde,
-			// U+007E,although
-			// the same glyph might be used to represent both -->
+									// <!-- tilde operator is NOT the same
+									// character as the tilde,
+									// U+007E,although
+									// the same glyph might be used to represent
+									// both -->
 			{ "\u2245", "&cong;" }, // approximately equal to, U+2245 ISOtech
 									// -->
 			{ "\u2248", "&asymp;" }, // almost equal to = asymptotic to,U+2248
@@ -323,12 +343,16 @@ public class EntityArrays {
 			{ "\u2265", "&ge;" }, // greater-than or equal to,U+2265 ISOtech -->
 			{ "\u2282", "&sub;" }, // subset of, U+2282 ISOtech -->
 			{ "\u2283", "&sup;" }, // superset of, U+2283 ISOtech -->
-			// <!-- note that nsup, 'not a superset of, U+2283' is not covered
-			// by the
-			// Symbol font encoding and is not included. Should it be, for
-			// symmetry?
-			// It is in ISOamsn --> <!ENTITY nsub", "8836"},
-			// not a subset of, U+2284 ISOamsn -->
+									// <!-- note that nsup, 'not a superset of,
+									// U+2283' is not
+									// covered
+									// by the
+									// Symbol font encoding and is not included.
+									// Should it be, for
+									// symmetry?
+									// It is in ISOamsn --> <!ENTITY
+									// nsub", "8836"},
+									// not a subset of, U+2284 ISOamsn -->
 			{ "\u2286", "&sube;" }, // subset of or equal to, U+2286 ISOtech -->
 			{ "\u2287", "&supe;" }, // superset of or equal to,U+2287 ISOtech
 									// -->
@@ -339,9 +363,11 @@ public class EntityArrays {
 			{ "\u22A5", "&perp;" }, // up tack = orthogonal to =
 									// perpendicular,U+22A5 ISOtech -->
 			{ "\u22C5", "&sdot;" }, // dot operator, U+22C5 ISOamsb -->
-			// <!-- dot operator is NOT the same character as U+00B7 middle dot
-			// -->
-			// <!-- Miscellaneous Technical -->
+									// <!-- dot operator is NOT the same
+									// character as U+00B7 middle
+									// dot
+									// -->
+									// <!-- Miscellaneous Technical -->
 			{ "\u2308", "&lceil;" }, // left ceiling = apl upstile,U+2308
 										// ISOamsc -->
 			{ "\u2309", "&rceil;" }, // right ceiling, U+2309 ISOamsc -->
@@ -350,19 +376,25 @@ public class EntityArrays {
 			{ "\u230B", "&rfloor;" }, // right floor, U+230B ISOamsc -->
 			{ "\u2329", "&lang;" }, // left-pointing angle bracket = bra,U+2329
 									// ISOtech -->
-			// <!-- lang is NOT the same character as U+003C 'less than' or
-			// U+2039 'single left-pointing angle quotation
-			// mark' -->
+									// <!-- lang is NOT the same character as
+									// U+003C 'less than' or
+									// U+2039 'single left-pointing angle
+									// quotation
+									// mark' -->
 			{ "\u232A", "&rang;" }, // right-pointing angle bracket = ket,U+232A
 									// ISOtech -->
-			// <!-- rang is NOT the same character as U+003E 'greater than' or
-			// U+203A
-			// 'single right-pointing angle quotation mark' -->
-			// <!-- Geometric Shapes -->
+									// <!-- rang is NOT the same character as
+									// U+003E 'greater than'
+									// or
+									// U+203A
+									// 'single right-pointing angle quotation
+									// mark' -->
+									// <!-- Geometric Shapes -->
 			{ "\u25CA", "&loz;" }, // lozenge, U+25CA ISOpub -->
-			// <!-- Miscellaneous Symbols -->
+									// <!-- Miscellaneous Symbols -->
 			{ "\u2660", "&spades;" }, // black spade suit, U+2660 ISOpub -->
-			// <!-- black here seems to mean filled as opposed to hollow -->
+										// <!-- black here seems to mean filled
+										// as opposed to hollow -->
 			{ "\u2663", "&clubs;" }, // black club suit = shamrock,U+2663 ISOpub
 										// -->
 			{ "\u2665", "&hearts;" }, // black heart suit = valentine,U+2665
@@ -374,19 +406,21 @@ public class EntityArrays {
 										// ISOlat2 -->
 			{ "\u0153", "&oelig;" }, // -- latin small ligature oe, U+0153
 										// ISOlat2 -->
-			// <!-- ligature is a misnomer, this is a separate character in some
-			// languages -->
+										// <!-- ligature is a misnomer, this is
+										// a separate character in
+										// some
+										// languages -->
 			{ "\u0160", "&Scaron;" }, // -- latin capital letter S with
 										// caron,U+0160 ISOlat2 -->
 			{ "\u0161", "&scaron;" }, // -- latin small letter s with
 										// caron,U+0161 ISOlat2 -->
 			{ "\u0178", "&Yuml;" }, // -- latin capital letter Y with
 									// diaeresis,U+0178 ISOlat2 -->
-			// <!-- Spacing Modifier Letters -->
+									// <!-- Spacing Modifier Letters -->
 			{ "\u02C6", "&circ;" }, // -- modifier letter circumflex
 									// accent,U+02C6 ISOpub -->
 			{ "\u02DC", "&tilde;" }, // small tilde, U+02DC ISOdia -->
-			// <!-- General Punctuation -->
+										// <!-- General Punctuation -->
 			{ "\u2002", "&ensp;" }, // en space, U+2002 ISOpub -->
 			{ "\u2003", "&emsp;" }, // em space, U+2003 ISOpub -->
 			{ "\u2009", "&thinsp;" }, // thin space, U+2009 ISOpub -->
@@ -416,10 +450,12 @@ public class EntityArrays {
 			{ "\u2030", "&permil;" }, // per mille sign, U+2030 ISOtech -->
 			{ "\u2039", "&lsaquo;" }, // single left-pointing angle quotation
 										// mark,U+2039 ISO proposed -->
-			// <!-- lsaquo is proposed but not yet ISO standardized -->
+										// <!-- lsaquo is proposed but not yet
+										// ISO standardized -->
 			{ "\u203A", "&rsaquo;" }, // single right-pointing angle quotation
 										// mark,U+203A ISO proposed -->
-			// <!-- rsaquo is proposed but not yet ISO standardized -->
+										// <!-- rsaquo is proposed but not yet
+										// ISO standardized -->
 			{ "\u20AC", "&euro;" }, // -- euro sign, U+20AC NEW -->
 	};
 	private static final String[][] HTML40_EXTENDED_UNESCAPE = invert(HTML40_EXTENDED_ESCAPE);
@@ -433,9 +469,8 @@ public class EntityArrays {
 	private static final String[][] BASIC_UNESCAPE = invert(BASIC_ESCAPE);
 
 	/**
-	 * Mapping to escape the basic XML and HTML character entities.
-	 * 
-	 * Namely: {@code " & < >}
+	 * Mapping to escape the basic XML and HTML character entities. Namely:
+	 * {@code " & < >}
 	 * 
 	 * @return the mapping table
 	 */

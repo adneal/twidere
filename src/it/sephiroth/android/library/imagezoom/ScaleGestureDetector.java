@@ -31,9 +31,7 @@ import android.view.ViewConfiguration;
  * ("multitouch") using the supplied {@link MotionEvent}s. The
  * {@link OnScaleGestureListener} callback will notify users when a particular
  * gesture event has occurred. This class should only be used with
- * {@link MotionEvent}s reported via touch.
- * 
- * To use this class:
+ * {@link MotionEvent}s reported via touch. To use this class:
  * <ul>
  * <li>Create an instance of the {@code ScaleGestureDetector} for your
  * {@link View}
@@ -408,9 +406,8 @@ public class ScaleGestureDetector {
 	 * The listener for receiving notifications when gestures occur. If you want
 	 * to listen for all the different gestures then implement this interface.
 	 * If you only want to listen for a subset it might be easier to extend
-	 * {@link SimpleOnScaleGestureListener}.
-	 * 
-	 * An application will receive events in the following order:
+	 * {@link SimpleOnScaleGestureListener}. An application will receive events
+	 * in the following order:
 	 * <ul>
 	 * <li>One {@link OnScaleGestureListener#onScaleBegin(ScaleGestureDetector)}
 	 * <li>Zero or more
@@ -449,9 +446,8 @@ public class ScaleGestureDetector {
 
 		/**
 		 * Responds to the end of a scale gesture. Reported by existing pointers
-		 * going up.
-		 * 
-		 * Once a scale has ended, {@link ScaleGestureDetector#getFocusX()} and
+		 * going up. Once a scale has ended,
+		 * {@link ScaleGestureDetector#getFocusX()} and
 		 * {@link ScaleGestureDetector#getFocusY()} will return the location of
 		 * the pointer remaining on the screen.
 		 * 

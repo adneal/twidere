@@ -21,14 +21,15 @@ package org.mariotaku.twidere.model;
 
 import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.mariotaku.jsonserializer.JSONParcel;
 import org.mariotaku.jsonserializer.JSONParcelable;
 import org.mariotaku.twidere.util.ParseUtils;
 
 import twitter4j.User;
 import twitter4j.UserList;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class ParcelableUserList implements Parcelable, JSONParcelable, Comparable<ParcelableUserList> {
 

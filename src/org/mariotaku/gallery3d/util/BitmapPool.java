@@ -16,9 +16,9 @@
 
 package org.mariotaku.gallery3d.util;
 
-import java.util.ArrayList;
-
 import android.graphics.Bitmap;
+
+import java.util.ArrayList;
 
 public class BitmapPool {
 	@SuppressWarnings("unused")

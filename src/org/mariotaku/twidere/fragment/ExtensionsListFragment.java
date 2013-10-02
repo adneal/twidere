@@ -19,18 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import java.util.List;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ExtensionsAdapter;
-import org.mariotaku.twidere.loader.ExtensionsListLoader;
-import org.mariotaku.twidere.loader.ExtensionsListLoader.ExtensionInfo;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.util.PermissionsManager;
-
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Intent;
 import android.content.Loader;
@@ -48,6 +36,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ExtensionsAdapter;
+import org.mariotaku.twidere.loader.ExtensionsListLoader;
+import org.mariotaku.twidere.loader.ExtensionsListLoader.ExtensionInfo;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.util.PermissionsManager;
+
+import java.util.List;
 
 public class ExtensionsListFragment extends BaseListFragment implements Constants,
 		LoaderCallbacks<List<ExtensionInfo>>, OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener,

@@ -16,16 +16,16 @@
 
 package org.mariotaku.gallery3d.ui;
 
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.opengl.GLUtils;
+
+import org.mariotaku.gallery3d.util.GalleryUtils;
+
 import java.util.HashMap;
 
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.khronos.opengles.GL11Ext;
-
-import org.mariotaku.gallery3d.util.GalleryUtils;
-
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.opengl.GLUtils;
 
 // UploadedTextures use a Bitmap for the content of the texture.
 //

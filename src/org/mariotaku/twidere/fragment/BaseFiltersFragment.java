@@ -19,10 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-import org.mariotaku.twidere.util.ArrayUtils;
-
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -44,6 +40,10 @@ import android.view.ViewGroup;
 import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
+import org.mariotaku.twidere.util.ArrayUtils;
 
 public abstract class BaseFiltersFragment extends BaseListFragment implements LoaderCallbacks<Cursor>,
 		MultiChoiceModeListener {

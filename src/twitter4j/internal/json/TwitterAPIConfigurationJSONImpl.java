@@ -13,13 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package twitter4j.internal.json;
 
 import static twitter4j.internal.util.InternalParseUtil.getInt;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +27,10 @@ import twitter4j.TwitterAPIConfiguration;
 import twitter4j.TwitterException;
 import twitter4j.conf.Configuration;
 import twitter4j.http.HttpResponse;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

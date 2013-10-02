@@ -5,11 +5,6 @@ import static org.mariotaku.twidere.util.ParseUtils.parseString;
 import static org.mariotaku.twidere.util.Utils.getNonEmptyString;
 import static org.mariotaku.twidere.util.Utils.trim;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-
-import twitter4j.TwitterConstants;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,6 +18,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+
+import twitter4j.TwitterConstants;
 
 public class DefaultAPIPreference extends DialogPreference implements Constants, TwitterConstants,
 		OnCheckedChangeListener, OnClickListener {

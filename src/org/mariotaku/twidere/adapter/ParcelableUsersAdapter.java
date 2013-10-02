@@ -26,8 +26,11 @@ import static org.mariotaku.twidere.util.Utils.getUserColor;
 import static org.mariotaku.twidere.util.Utils.getUserNickname;
 import static org.mariotaku.twidere.util.Utils.getUserTypeIconRes;
 
-import java.util.List;
-import java.util.Locale;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
@@ -37,11 +40,8 @@ import org.mariotaku.twidere.util.ImageLoaderWrapper;
 import org.mariotaku.twidere.util.MultiSelectManager;
 import org.mariotaku.twidere.view.holder.UserViewHolder;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
+import java.util.List;
+import java.util.Locale;
 
 public class ParcelableUsersAdapter extends ArrayAdapter<ParcelableUser> implements IBaseAdapter, OnClickListener {
 
@@ -50,7 +50,7 @@ public class ParcelableUsersAdapter extends ArrayAdapter<ParcelableUser> impleme
 	private final Context mContext;
 	private final Locale mLocale;
 
-	private boolean mDisplayProfileImage, mShowAccountColor;
+	private boolean mDisplayProfileImage, mShowAccountColor, mNicknameOnly;
 	private float mTextSize;
 
 	private MenuButtonClickListener mListener;
@@ -96,8 +96,8 @@ public class ParcelableUsersAdapter extends ArrayAdapter<ParcelableUser> impleme
 		holder.name.setCompoundDrawablesWithIntrinsicBounds(0, 0,
 				getUserTypeIconRes(user.is_verified, user.is_protected), 0);
 		final String nick = getUserNickname(mContext, user.id);
-		holder.name.setText(TextUtils.isEmpty(nick) ? user.name : mContext.getString(R.string.name_with_nickname,
-				user.name, nick));
+		holder.name.setText(TextUtils.isEmpty(nick) ? user.name : mNicknameOnly ? nick : mContext.getString(
+				R.string.name_with_nickname, user.name, nick));
 		holder.screen_name.setText("@" + user.screen_name);
 		holder.description.setVisibility(TextUtils.isEmpty(user.description_unescaped) ? View.GONE : View.VISIBLE);
 		holder.description.setText(user.description_unescaped);
@@ -162,6 +162,13 @@ public class ParcelableUsersAdapter extends ArrayAdapter<ParcelableUser> impleme
 
 	@Override
 	public void setNameDisplayOption(final String option) {
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		if (mNicknameOnly == nickname_only) return;
+		mNicknameOnly = nickname_only;
+		notifyDataSetChanged();
 	}
 
 	public void setShowAccountColor(final boolean show) {

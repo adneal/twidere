@@ -19,8 +19,6 @@
 
 package org.mariotaku.twidere.graphic;
 
-import org.mariotaku.twidere.util.Utils;
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
@@ -28,6 +26,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+
+import org.mariotaku.twidere.util.Utils;
 
 public final class DropShadowDrawable extends BitmapDrawable {
 

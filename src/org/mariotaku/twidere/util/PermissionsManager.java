@@ -21,16 +21,16 @@ package org.mariotaku.twidere.util;
 
 import static android.text.TextUtils.isEmpty;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.Process;
+
+import org.mariotaku.twidere.Constants;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PermissionsManager implements Constants {
 

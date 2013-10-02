@@ -21,20 +21,20 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ConcurrentModificationException;
-import java.util.List;
-
-import org.mariotaku.jsonserializer.JSONSerializer;
-import org.mariotaku.twidere.adapter.ParcelableActivitiesAdapter;
-import org.mariotaku.twidere.model.ParcelableActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
+
+import org.mariotaku.jsonserializer.JSONSerializer;
+import org.mariotaku.twidere.adapter.ParcelableActivitiesAdapter;
+import org.mariotaku.twidere.model.ParcelableActivity;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ConcurrentModificationException;
+import java.util.List;
 
 public abstract class BaseActivitiesListFragment extends BasePullToRefreshListFragment implements
 		LoaderCallbacks<List<ParcelableActivity>> {

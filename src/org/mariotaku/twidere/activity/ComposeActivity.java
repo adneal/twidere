@@ -43,33 +43,6 @@ import static org.mariotaku.twidere.util.Utils.getUserTypeIconRes;
 import static org.mariotaku.twidere.util.Utils.openImageDirectly;
 import static org.mariotaku.twidere.util.Utils.showErrorMessage;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Locale;
-import java.util.Set;
-
-import org.mariotaku.menubar.MenuBar;
-import org.mariotaku.menubar.MenuBar.OnMenuItemClickListener;
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.fragment.BaseDialogFragment;
-import org.mariotaku.twidere.model.DraftItem;
-import org.mariotaku.twidere.model.ParcelableLocation;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.provider.TweetStore.Drafts;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.AsyncTask;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.util.ViewAccessor;
-import org.mariotaku.twidere.view.AccountsColorFrameLayout;
-import org.mariotaku.twidere.view.holder.StatusViewHolder;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -121,6 +94,33 @@ import com.twitter.Validator;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.menubar.MenuBar;
+import org.mariotaku.menubar.MenuBar.OnMenuItemClickListener;
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.fragment.BaseDialogFragment;
+import org.mariotaku.twidere.model.DraftItem;
+import org.mariotaku.twidere.model.ParcelableLocation;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.provider.TweetStore.Drafts;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.AsyncTask;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.util.ViewAccessor;
+import org.mariotaku.twidere.view.AccountsColorFrameLayout;
+import org.mariotaku.twidere.view.holder.StatusViewHolder;
+
+import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Locale;
+import java.util.Set;
 
 public class ComposeActivity extends BaseSupportDialogActivity implements TextWatcher, LocationListener,
 		OnMenuItemClickListener, OnClickListener, OnLongClickListener, PopupMenu.OnMenuItemClickListener,

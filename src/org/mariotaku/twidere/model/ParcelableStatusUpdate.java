@@ -1,10 +1,10 @@
 package org.mariotaku.twidere.model;
 
-import java.util.Arrays;
-
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.util.Arrays;
 
 public class ParcelableStatusUpdate implements Parcelable {
 

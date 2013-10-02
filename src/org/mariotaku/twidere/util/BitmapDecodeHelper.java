@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.util;
 
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class BitmapDecodeHelper {
 

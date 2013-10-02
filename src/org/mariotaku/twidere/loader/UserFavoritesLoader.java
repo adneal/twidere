@@ -19,7 +19,8 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.List;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import org.mariotaku.twidere.model.ParcelableStatus;
 
@@ -28,8 +29,8 @@ import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+
+import java.util.List;
 
 public class UserFavoritesLoader extends Twitter4JStatusesLoader {
 

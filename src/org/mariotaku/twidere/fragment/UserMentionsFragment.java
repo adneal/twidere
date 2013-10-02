@@ -22,16 +22,16 @@ package org.mariotaku.twidere.fragment;
 import static org.mariotaku.twidere.util.CompareUtils.objectEquals;
 import static org.mariotaku.twidere.util.Utils.getAccountScreenName;
 
-import java.util.List;
-
-import org.mariotaku.twidere.loader.TweetSearchLoader;
-import org.mariotaku.twidere.model.ParcelableStatus;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 
-public class UserMentionsFragment extends SearchTweetsFragment {
+import org.mariotaku.twidere.loader.TweetSearchLoader;
+import org.mariotaku.twidere.model.ParcelableStatus;
+
+import java.util.List;
+
+public class UserMentionsFragment extends SearchStatusesFragment {
 
 	@Override
 	public Loader<List<ParcelableStatus>> newLoaderInstance(final Context context, final Bundle args) {

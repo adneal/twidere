@@ -115,6 +115,7 @@ public interface Constants {
 	public static final String QUERY_PARAM_CONVERSATION_ID = "conversation_id";
 	public static final String QUERY_PARAM_URL = "url";
 	public static final String QUERY_PARAM_FINISH_ONLY = "finish_only";
+	public static final String QUERY_PARAM_NEW_ITEMS_COUNT = "new_items_count";
 
 	public static final String DEFAULT_PROTOCOL = PROTOCOL_HTTPS;
 
@@ -220,6 +221,7 @@ public interface Constants {
 	public static final String PREFERENCE_KEY_FILTERS_IN_HOME_TIMELINE = "filters_in_home_timeline";
 	public static final String PREFERENCE_KEY_FILTERS_IN_MENTIONS = "filters_in_mentions";
 	public static final String PREFERENCE_KEY_FILTERS_FOR_RTS = "filters_for_rts";
+	public static final String PREFERENCE_KEY_NICKNAME_ONLY = "nickname_only";
 
 	public static final String PREFERENCE_DEFAULT_QUOTE_FORMAT = "RT @" + FORMAT_PATTERN_NAME + ": "
 			+ FORMAT_PATTERN_TEXT;
@@ -420,8 +422,6 @@ public interface Constants {
 	public static final String INTENT_KEY_EXTRA_INTENT = "extra_intent";
 	public static final String INTENT_KEY_IS_MY_ACCOUNT = "is_my_account";
 
-	public static final String QUERY_PARAM_NEW_ITEMS_COUNT = "new_items_count";
-
 	public static final int MENU_HOME = android.R.id.home;
 	public static final int MENU_SEARCH = R.id.search;
 	public static final int MENU_ACTIONS = R.id.actions;
@@ -478,6 +478,7 @@ public interface Constants {
 	public static final int MENU_STATUSES = R.id.statuses;
 	public static final int MENU_FAVORITES = R.id.favorites;
 	public static final int MENU_LISTS = R.id.lists;
+	public static final int MENU_LIST_MEMBERSHIPS = R.id.list_memberships;
 	public static final int MENU_CENTER = R.id.center;
 	public static final int MENU_FILTERS = R.id.filters;
 	public static final int MENU_SET_NICKNAME = R.id.set_nickname;
@@ -498,6 +499,8 @@ public interface Constants {
 	public static final int REQUEST_PICK_FILE = 13;
 	public static final int REQUEST_PICK_DIRECTORY = 14;
 	public static final int REQUEST_ADD_TO_LIST = 15;
+	public static final int REQUEST_SELECT_USER = 16;
+	public static final int REQUEST_SELECT_USER_LIST = 17;
 
 	public static final String TABLE_ACCOUNTS = Accounts.TABLE_NAME;
 	public static final String TABLE_STATUSES = Statuses.TABLE_NAME;
@@ -622,5 +625,12 @@ public interface Constants {
 	public static final int ATTACHED_IMAGE_TYPE_NONE = 0;
 	public static final int ATTACHED_IMAGE_TYPE_PHOTO = 1;
 	public static final int ATTACHED_IMAGE_TYPE_IMAGE = 2;
+
+	public static final String TAB_TYPE_HOME_TIMELINE = "home_timeline";
+	public static final String TAB_TYPE_MENTIONS_TIMELINE = "mentions_timeline";
+	public static final String TAB_TYPE_DIRECT_MESSAGES = "direct_messages";
+	public static final String TAB_TYPE_FAVORITES = "favorites";
+	public static final String TAB_TYPE_USER_TIMELINE = "user_timeline";
+	public static final String TAB_TYPE_SEARCH_STATUSES = "search_statuses";
 
 }

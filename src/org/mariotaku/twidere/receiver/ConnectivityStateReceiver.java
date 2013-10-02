@@ -19,15 +19,16 @@
 
 package org.mariotaku.twidere.receiver;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.service.RefreshService;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+
 import edu.ucdavis.earlybird.UCDService;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.service.RefreshService;
 
 public class ConnectivityStateReceiver extends BroadcastReceiver implements Constants {
 

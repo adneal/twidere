@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.fragment;
 
-import java.util.List;
+import android.support.v4.content.Loader;
 
 import org.mariotaku.twidere.loader.UserListMembershipsLoader;
 import org.mariotaku.twidere.model.ParcelableUserList;
 
-import android.support.v4.content.Loader;
+import java.util.List;
 
 public class UserListMembershipsListFragment extends BaseUserListsListFragment {
 

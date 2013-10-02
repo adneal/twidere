@@ -22,11 +22,6 @@ package org.mariotaku.twidere.preference;
 import static org.mariotaku.twidere.util.HtmlEscapeHelper.toPlainText;
 import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.TwidereLinkify;
-import org.mariotaku.twidere.view.holder.StatusViewHolder;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -36,6 +31,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.TwidereLinkify;
+import org.mariotaku.twidere.view.holder.StatusViewHolder;
 
 public class StatusPreviewPreference extends Preference implements Constants, OnSharedPreferenceChangeListener {
 

@@ -29,7 +29,17 @@ import static org.mariotaku.twidere.util.HtmlEscapeHelper.toPlainText;
 import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.getAccountColor;
 import static org.mariotaku.twidere.util.Utils.getUserColor;
+import static org.mariotaku.twidere.util.Utils.getUserNickname;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
+
+import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
@@ -39,22 +49,13 @@ import org.mariotaku.twidere.util.ImageLoaderWrapper;
 import org.mariotaku.twidere.util.MultiSelectManager;
 import org.mariotaku.twidere.view.holder.DirectMessageEntryViewHolder;
 
-import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-
 public class DirectMessagesEntryAdapter extends SimpleCursorAdapter implements IBaseAdapter, OnClickListener {
 
 	private final ImageLoaderWrapper mLazyImageLoader;
 	private final MultiSelectManager mMultiSelectManager;
 
-	private boolean mDisplayProfileImage, mShowAccountColor;
+	private boolean mDisplayProfileImage, mShowAccountColor, mNicknameOnly;
 	private float mTextSize;
-	private int mNameDisplayOption;
 
 	private MenuButtonClickListener mListener;
 
@@ -87,26 +88,11 @@ public class DirectMessagesEntryAdapter extends SimpleCursorAdapter implements I
 		holder.setUserColor(getUserColor(mContext, conversation_id));
 
 		holder.setTextSize(mTextSize);
-		switch (mNameDisplayOption) {
-			case NAME_DISPLAY_OPTION_CODE_NAME: {
-				holder.name.setText(name);
-				holder.screen_name.setText(null);
-				holder.screen_name.setVisibility(View.GONE);
-				break;
-			}
-			case NAME_DISPLAY_OPTION_CODE_SCREEN_NAME: {
-				holder.name.setText("@" + screen_name);
-				holder.screen_name.setText(null);
-				holder.screen_name.setVisibility(View.GONE);
-				break;
-			}
-			default: {
-				holder.name.setText(name);
-				holder.screen_name.setText("@" + screen_name);
-				holder.screen_name.setVisibility(View.VISIBLE);
-				break;
-			}
-		}
+		final String nick = getUserNickname(context, conversation_id);
+		holder.name.setText(TextUtils.isEmpty(nick) ? name : mNicknameOnly ? nick : context.getString(
+				R.string.name_with_nickname, name, nick));
+		holder.screen_name.setText("@" + screen_name);
+		holder.screen_name.setVisibility(View.VISIBLE);
 		holder.text.setText(toPlainText(cursor.getString(IDX_TEXT)));
 		holder.time.setTime(message_timestamp);
 		holder.setIsOutgoing(is_outgoing);
@@ -182,13 +168,13 @@ public class DirectMessagesEntryAdapter extends SimpleCursorAdapter implements I
 
 	@Override
 	public void setNameDisplayOption(final String option) {
-		if (NAME_DISPLAY_OPTION_NAME.equals(option)) {
-			mNameDisplayOption = NAME_DISPLAY_OPTION_CODE_NAME;
-		} else if (NAME_DISPLAY_OPTION_SCREEN_NAME.equals(option)) {
-			mNameDisplayOption = NAME_DISPLAY_OPTION_CODE_SCREEN_NAME;
-		} else {
-			mNameDisplayOption = 0;
-		}
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		if (mNicknameOnly == nickname_only) return;
+		mNicknameOnly = nickname_only;
+		notifyDataSetChanged();
 	}
 
 	public void setShowAccountColor(final boolean show) {

@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.core;
 
-import java.lang.ref.Reference;
+package com.nostra13.universalimageloader.core;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
@@ -24,6 +23,8 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.LoadedFrom;
 import com.nostra13.universalimageloader.core.display.BitmapDisplayer;
 import com.nostra13.universalimageloader.utils.L;
+
+import java.lang.ref.Reference;
 
 /**
  * Displays bitmap in {@link ImageView}. Must be called on UI thread.

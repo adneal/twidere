@@ -19,14 +19,14 @@
 
 package org.mariotaku.twidere.util;
 
-import org.mariotaku.twidere.fragment.PhishingLinkWarningDialogFragment;
-
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.fragment.PhishingLinkWarningDialogFragment;
 
 public class OnDirectMessageLinkClickHandler extends OnLinkClickHandler {
 

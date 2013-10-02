@@ -16,11 +16,6 @@
 
 package uk.co.senab.actionbarpulltorefresh.library;
 
-import java.util.Set;
-import java.util.WeakHashMap;
-
-import org.mariotaku.twidere.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -37,6 +32,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+
+import org.mariotaku.twidere.R;
+
+import java.util.Set;
+import java.util.WeakHashMap;
 
 /**
  * FIXME
@@ -301,9 +301,8 @@ public class PullToRefreshAttacher implements View.OnTouchListener {
 
 	/**
 	 * Call this when your refresh is complete and this view should reset itself
-	 * (header view will be hidden).
-	 * 
-	 * This is the equivalent of calling <code>setRefreshing(false)</code>.
+	 * (header view will be hidden). This is the equivalent of calling
+	 * <code>setRefreshing(false)</code>.
 	 */
 	public final void setRefreshComplete() {
 		setRefreshingInt(null, false, false);

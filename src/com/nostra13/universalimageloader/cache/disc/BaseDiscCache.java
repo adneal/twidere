@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.cache.disc;
 
-import java.io.File;
+package com.nostra13.universalimageloader.cache.disc;
 
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DefaultConfigurationFactory;
+
+import java.io.File;
 
 /**
  * Base disc cache. Implements common functionality for disc cache.

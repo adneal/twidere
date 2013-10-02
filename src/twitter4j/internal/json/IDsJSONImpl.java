@@ -16,8 +16,6 @@
 
 package twitter4j.internal.json;
 
-import java.util.Arrays;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +24,8 @@ import twitter4j.IDs;
 import twitter4j.TwitterException;
 import twitter4j.http.HttpResponse;
 import twitter4j.internal.util.InternalParseUtil;
+
+import java.util.Arrays;
 
 /**
  * A data class representing array of numeric IDs.

@@ -24,9 +24,11 @@ import static org.mariotaku.twidere.util.ContentResolverUtils.bulkInsert;
 import static org.mariotaku.twidere.util.Utils.makeCachedUserContentValues;
 import static org.mariotaku.twidere.util.Utils.makeStatusContentValues;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
+
+import com.twitter.Extractor;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.R;
@@ -36,11 +38,10 @@ import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
 import org.mariotaku.twidere.util.TwitterWrapper.TwitterListResponse;
 
 import twitter4j.User;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.Context;
 
-import com.twitter.Extractor;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class CacheUsersStatusesTask extends AsyncTask<Void, Void, Void> implements Constants {
 

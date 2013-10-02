@@ -20,9 +20,6 @@ import static twitter4j.internal.util.InternalParseUtil.getBoolean;
 import static twitter4j.internal.util.InternalParseUtil.getInt;
 import static twitter4j.internal.util.InternalParseUtil.getRawString;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +31,9 @@ import twitter4j.User;
 import twitter4j.UserList;
 import twitter4j.conf.Configuration;
 import twitter4j.http.HttpResponse;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * A data class representing Basic list information element

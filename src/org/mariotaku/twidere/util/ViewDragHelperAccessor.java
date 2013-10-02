@@ -1,8 +1,8 @@
 package org.mariotaku.twidere.util;
 
-import java.lang.reflect.Field;
-
 import android.support.v4.widget.ViewDragHelper;
+
+import java.lang.reflect.Field;
 
 public class ViewDragHelperAccessor {
 

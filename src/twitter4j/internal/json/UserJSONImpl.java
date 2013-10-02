@@ -22,10 +22,6 @@ import static twitter4j.internal.util.InternalParseUtil.getInt;
 import static twitter4j.internal.util.InternalParseUtil.getLong;
 import static twitter4j.internal.util.InternalParseUtil.getRawString;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Date;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +34,10 @@ import twitter4j.URLEntity;
 import twitter4j.User;
 import twitter4j.conf.Configuration;
 import twitter4j.http.HttpResponse;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Date;
 
 /**
  * A data class representing Basic user information element

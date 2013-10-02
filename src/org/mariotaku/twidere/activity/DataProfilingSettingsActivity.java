@@ -21,13 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static org.mariotaku.twidere.util.Utils.closeSilently;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,7 +29,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 import edu.ucdavis.earlybird.CSVFileFilter;
+
+import org.mariotaku.twidere.R;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class DataProfilingSettingsActivity extends BaseSupportActivity implements OnClickListener {
 

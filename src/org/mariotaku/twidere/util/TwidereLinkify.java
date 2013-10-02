@@ -26,11 +26,6 @@ import static org.mariotaku.twidere.util.Utils.matcherEnd;
 import static org.mariotaku.twidere.util.Utils.matcherGroup;
 import static org.mariotaku.twidere.util.Utils.matcherStart;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.mariotaku.twidere.model.PreviewImage;
-
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -44,19 +39,23 @@ import android.widget.TextView;
 import com.twitter.Extractor;
 import com.twitter.Regex;
 
+import org.mariotaku.twidere.model.PreviewImage;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Linkify take a piece of text and a regular expression and turns all of the
  * regex matches in the text into clickable links. This is particularly useful
  * for matching things like email addresses, web urls, etc. and making them
- * actionable.
- * 
- * Alone with the pattern that is to be matched, a url scheme prefix is also
- * required. Any pattern match that does not begin with the supplied scheme will
- * have the scheme prepended to the matched text when the clickable url is
- * created. For instance, if you are matching web urls you would supply the
- * scheme <code>http://</code>. If the pattern matches example.com, which does
- * not have a url scheme prefix, the supplied scheme will be prepended to create
- * <code>http://example.com</code> when the clickable url link is created.
+ * actionable. Alone with the pattern that is to be matched, a url scheme prefix
+ * is also required. Any pattern match that does not begin with the supplied
+ * scheme will have the scheme prepended to the matched text when the clickable
+ * url is created. For instance, if you are matching web urls you would supply
+ * the scheme <code>http://</code>. If the pattern matches example.com, which
+ * does not have a url scheme prefix, the supplied scheme will be prepended to
+ * create <code>http://example.com</code> when the clickable url link is
+ * created.
  */
 
 public class TwidereLinkify {

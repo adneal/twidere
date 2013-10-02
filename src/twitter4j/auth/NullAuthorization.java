@@ -16,9 +16,9 @@
 
 package twitter4j.auth;
 
-import java.io.ObjectStreamException;
-
 import twitter4j.http.HttpRequest;
+
+import java.io.ObjectStreamException;
 
 /**
  * An interface represents credentials.

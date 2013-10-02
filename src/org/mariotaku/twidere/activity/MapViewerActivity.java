@@ -19,14 +19,6 @@
 
 package org.mariotaku.twidere.activity;
 
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.fragment.NativeMapFragment;
-import org.mariotaku.twidere.fragment.WebMapFragment;
-import org.mariotaku.twidere.util.MapInterface;
-
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.net.Uri;
@@ -36,6 +28,14 @@ import android.view.MenuItem;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.fragment.NativeMapFragment;
+import org.mariotaku.twidere.fragment.WebMapFragment;
+import org.mariotaku.twidere.util.MapInterface;
 
 public class MapViewerActivity extends SwipeBackActivity implements Constants {
 

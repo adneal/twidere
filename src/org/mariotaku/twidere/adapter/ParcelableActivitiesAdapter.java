@@ -24,7 +24,12 @@ import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.formatSameDayTime;
 import static org.mariotaku.twidere.util.Utils.getNameDisplayOptionInt;
 
-import java.util.List;
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.TextUtils.TruncateAt;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
@@ -37,12 +42,7 @@ import org.mariotaku.twidere.util.ImageLoaderWrapper;
 import org.mariotaku.twidere.util.MultiSelectManager;
 import org.mariotaku.twidere.view.holder.ActivityViewHolder;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.TextUtils.TruncateAt;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import java.util.List;
 
 public class ParcelableActivitiesAdapter extends ArrayAdapter<ParcelableActivity> implements IBaseAdapter {
 
@@ -129,6 +129,12 @@ public class ParcelableActivitiesAdapter extends ArrayAdapter<ParcelableActivity
 		if (option_int == mNameDisplayOption) return;
 		mNameDisplayOption = option_int;
 		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		// TODO Auto-generated method stub
+
 	}
 
 	public void setShowAbsoluteTime(final boolean show) {

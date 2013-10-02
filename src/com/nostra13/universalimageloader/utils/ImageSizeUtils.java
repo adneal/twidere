@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.utils;
 
-import java.lang.reflect.Field;
+package com.nostra13.universalimageloader.utils;
 
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
@@ -24,6 +23,8 @@ import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.assist.ViewScaleType;
+
+import java.lang.reflect.Field;
 
 /**
  * Provides calculations with image sizes, scales

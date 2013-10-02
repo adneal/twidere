@@ -1,9 +1,5 @@
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -12,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ParseUtils;
 
 public class CreateUserListDialogFragment extends BaseSupportDialogFragment implements DialogInterface.OnClickListener {
 

@@ -22,13 +22,6 @@ package org.mariotaku.twidere.util;
 import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.getImageMimeType;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.fragment.ProgressDialogFragment;
-
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
@@ -38,8 +31,16 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.fragment.ProgressDialogFragment;
+
+import java.io.File;
+import java.io.IOException;
 
 public class SaveImageTask extends AsyncTask<Void, Void, File> implements Constants {
 

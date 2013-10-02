@@ -21,14 +21,6 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.openTweetSearch;
 
-import java.util.Collections;
-import java.util.Comparator;
-
-import org.mariotaku.twidere.loader.SavedSearchesLoader;
-import org.mariotaku.twidere.model.Panes;
-
-import twitter4j.ResponseList;
-import twitter4j.SavedSearch;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -41,6 +33,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.loader.SavedSearchesLoader;
+import org.mariotaku.twidere.model.Panes;
+
+import twitter4j.ResponseList;
+import twitter4j.SavedSearch;
+
+import java.util.Collections;
+import java.util.Comparator;
 
 public class SavedSearchesListFragment extends BasePullToRefreshListFragment implements
 		LoaderCallbacks<ResponseList<SavedSearch>>, OnItemClickListener, Panes.Left {

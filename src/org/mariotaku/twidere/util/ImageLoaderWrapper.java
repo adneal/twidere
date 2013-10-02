@@ -21,31 +21,17 @@ package org.mariotaku.twidere.util;
 
 import static org.mariotaku.twidere.util.Utils.getBestBannerType;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
-/**
- * Lazy image loader for {@link ListView} and {@link GridView} etc.</br> </br>
- * Inspired by <a href="https://github.com/thest1/LazyList">LazyList</a>, this
- * class has extra features like image loading/caching image to
- * /mnt/sdcard/Android/data/[package name]/cache features.</br> </br> Requires
- * Android 2.2, you can modify {@link Context#getExternalCacheDir()} to other to
- * support Android 2.1 and below.
- * 
- * @author mariotaku
- * 
- */
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+
 public class ImageLoaderWrapper implements Constants {
 
 	private final ImageLoader mImageLoader;

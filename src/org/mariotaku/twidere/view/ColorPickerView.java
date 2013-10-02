@@ -16,8 +16,6 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.graphic.AlphaPatternDrawable;
-
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Canvas;
@@ -36,6 +34,8 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import org.mariotaku.twidere.graphic.AlphaPatternDrawable;
 
 /**
  * Displays a color picker to the user and allow them to select a color. A

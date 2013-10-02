@@ -23,18 +23,18 @@ import static org.mariotaku.twidere.util.Utils.openStatus;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 import static org.mariotaku.twidere.util.Utils.openUsers;
 
-import java.util.Arrays;
-import java.util.List;
+import android.os.Bundle;
+import android.support.v4.content.Loader;
+import android.view.View;
+import android.widget.ListView;
 
 import org.mariotaku.twidere.loader.ActivitiesAboutMeLoader;
 import org.mariotaku.twidere.model.ParcelableActivity;
 import org.mariotaku.twidere.model.ParcelableStatus;
 import org.mariotaku.twidere.model.ParcelableUser;
 
-import android.os.Bundle;
-import android.support.v4.content.Loader;
-import android.view.View;
-import android.widget.ListView;
+import java.util.Arrays;
+import java.util.List;
 
 public class ActivitiesAboutMeFragment extends BaseActivitiesListFragment {
 

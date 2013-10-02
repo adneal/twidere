@@ -16,12 +16,12 @@
 
 package org.mariotaku.gallery3d.util;
 
+import android.util.Log;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import android.util.Log;
 
 public class ThreadPool {
 	@SuppressWarnings("unused")

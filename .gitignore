@@ -36,3 +36,6 @@ proguard-project.txt
 *.old
 *.*~
 *~
+
+# private files
+private/

@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.preference;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.provider.RecentSearchProvider;
-
 import android.content.Context;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.SearchRecentSuggestions;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.provider.RecentSearchProvider;
 
 public class ClearSearchHistoryPreference extends AsyncTaskPreference implements Constants, OnPreferenceClickListener {
 

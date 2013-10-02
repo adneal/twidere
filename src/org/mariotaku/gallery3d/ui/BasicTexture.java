@@ -16,11 +16,11 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import java.util.WeakHashMap;
+import android.util.Log;
 
 import org.mariotaku.gallery3d.util.GalleryUtils;
 
-import android.util.Log;
+import java.util.WeakHashMap;
 
 // BasicTexture is a Texture corresponds to a real GL texture.
 // The state of a BasicTexture indicates whether its data is loaded to GL memory.

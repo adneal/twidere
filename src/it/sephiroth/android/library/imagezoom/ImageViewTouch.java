@@ -1,10 +1,5 @@
 package it.sephiroth.android.library.imagezoom;
 
-import it.sephiroth.android.library.imagezoom.ScaleGestureDetector.OnScaleGestureListener;
-
-import org.mariotaku.twidere.BuildConfig;
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.Rect;
@@ -17,6 +12,11 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+
+import it.sephiroth.android.library.imagezoom.ScaleGestureDetector.OnScaleGestureListener;
+
+import org.mariotaku.twidere.BuildConfig;
+import org.mariotaku.twidere.Constants;
 
 public class ImageViewTouch extends ImageViewTouchBase implements Constants {
 
@@ -45,7 +45,6 @@ public class ImageViewTouch extends ImageViewTouchBase implements Constants {
 	 * 
 	 * @param direction - positive direction value means scroll from right to
 	 *            left, negative value means scroll from left to right
-	 * 
 	 * @return true if there is some more place to scroll, false - otherwise.
 	 */
 	public boolean canScroll(final int direction) {

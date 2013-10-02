@@ -16,9 +16,9 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import org.mariotaku.gallery3d.util.GalleryUtils;
-
 import android.graphics.Bitmap;
+
+import org.mariotaku.gallery3d.util.GalleryUtils;
 
 // BitmapTexture is a texture whose content is specified by a fixed Bitmap.
 //

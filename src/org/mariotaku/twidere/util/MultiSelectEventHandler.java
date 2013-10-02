@@ -23,18 +23,6 @@ import static org.mariotaku.twidere.util.ContentResolverUtils.bulkDelete;
 import static org.mariotaku.twidere.util.ContentResolverUtils.bulkInsert;
 import static org.mariotaku.twidere.util.Utils.getAccountScreenNames;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.BaseSupportActivity;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -50,6 +38,18 @@ import com.twitter.Extractor;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.BaseSupportActivity;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @SuppressLint("Registered")
 public class MultiSelectEventHandler implements Constants, ActionMode.Callback, MultiSelectManager.Callback {

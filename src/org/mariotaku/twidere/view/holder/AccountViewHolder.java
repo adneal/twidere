@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.view.holder;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
 
 public class AccountViewHolder {
 

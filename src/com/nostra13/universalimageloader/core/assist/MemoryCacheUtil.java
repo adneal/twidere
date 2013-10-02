@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.core.assist;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+package com.nostra13.universalimageloader.core.assist;
 
 import android.graphics.Bitmap;
 
 import com.nostra13.universalimageloader.cache.memory.MemoryCacheAware;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Utility for generating of keys for memory cache, key comparing and other work

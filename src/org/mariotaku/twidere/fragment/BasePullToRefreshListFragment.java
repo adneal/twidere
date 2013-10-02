@@ -23,12 +23,6 @@ import static android.support.v4.app.ListFragmentTrojan.INTERNAL_EMPTY_ID;
 import static android.support.v4.app.ListFragmentTrojan.INTERNAL_LIST_CONTAINER_ID;
 import static android.support.v4.app.ListFragmentTrojan.INTERNAL_PROGRESS_CONTAINER_ID;
 
-import org.mariotaku.twidere.util.ThemeUtils;
-
-import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher.HeaderTransformer;
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -45,6 +39,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.util.ThemeUtils;
+
+import uk.co.senab.actionbarpulltorefresh.library.DefaultHeaderTransformer;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher.HeaderTransformer;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 
 public abstract class BasePullToRefreshListFragment extends BaseSupportListFragment implements
 		PullToRefreshAttacher.OnRefreshListener, OnTouchListener, OnGestureListener {
@@ -89,7 +90,6 @@ public abstract class BasePullToRefreshListFragment extends BaseSupportListFragm
 	 * {@link android.R.id#list android.R.id.list} and can optionally have a
 	 * sibling view id {@link android.R.id#empty android.R.id.empty} that is to
 	 * be shown when the list is empty.
-	 * 
 	 * <p>
 	 * If you are overriding this method with your own custom content, consider
 	 * including the standard layout {@link android.R.layout#list_content} in

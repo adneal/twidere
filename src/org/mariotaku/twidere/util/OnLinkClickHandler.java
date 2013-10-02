@@ -25,14 +25,15 @@ import static org.mariotaku.twidere.util.Utils.openTweetSearch;
 import static org.mariotaku.twidere.util.Utils.openUserListDetails;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.util.TwidereLinkify.OnLinkClickListener;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
 import edu.ucdavis.earlybird.ProfilingUtil;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.util.TwidereLinkify.OnLinkClickListener;
 
 public class OnLinkClickHandler implements OnLinkClickListener, Constants {
 

@@ -2,19 +2,20 @@ package edu.ucdavis.earlybird;
 
 import static org.mariotaku.twidere.util.Utils.copyStream;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.provider.Settings.Secure;
 
 import twitter4j.TwitterException;
 import twitter4j.http.HttpClientWrapper;
 import twitter4j.http.HttpParameter;
 import twitter4j.http.HttpResponse;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.provider.Settings.Secure;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class UploadTask extends AsyncTask<Void, Void, Void> {
 

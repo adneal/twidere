@@ -21,12 +21,11 @@ package org.mariotaku.twidere.loader;
 
 import static org.mariotaku.twidere.util.Utils.getTwitterInstance;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.ConcurrentModificationException;
-import java.util.List;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
+import android.util.Log;
 
 import org.mariotaku.jsonserializer.JSONSerializer;
 import org.mariotaku.twidere.R;
@@ -39,11 +38,13 @@ import twitter4j.Paging;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Handler;
-import android.util.Log;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ConcurrentModificationException;
+import java.util.List;
 
 public abstract class Twitter4JStatusesLoader extends ParcelableStatusesLoader {
 

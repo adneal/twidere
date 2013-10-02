@@ -16,18 +16,18 @@
 
 package org.mariotaku.twidere.util.httpclient;
 
+import org.apache.http.Header;
+import org.apache.http.HeaderElement;
+import org.apache.http.HttpResponse;
+
+import twitter4j.http.HttpClientConfiguration;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
-import org.apache.http.HttpResponse;
-
-import twitter4j.http.HttpClientConfiguration;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

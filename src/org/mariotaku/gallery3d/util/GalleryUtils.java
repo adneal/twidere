@@ -16,13 +16,13 @@
 
 package org.mariotaku.gallery3d.util;
 
-import java.io.Closeable;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
+
+import java.io.Closeable;
 
 public class GalleryUtils {
 

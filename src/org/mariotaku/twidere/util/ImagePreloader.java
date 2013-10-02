@@ -19,18 +19,17 @@
 
 package org.mariotaku.twidere.util;
 
-import java.io.File;
-
-import org.mariotaku.twidere.Constants;
-
 import android.os.Handler;
 
 import com.nostra13.universalimageloader.cache.disc.DiscCacheAware;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import org.mariotaku.twidere.Constants;
+
+import java.io.File;
+
 /**
  * @author mariotaku
- * 
  */
 public class ImagePreloader implements Constants {
 

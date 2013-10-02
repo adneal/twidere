@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.view.iface.IExtendedViewGroup;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+
+import org.mariotaku.twidere.view.iface.IExtendedViewGroup;
 
 public class ExtendedFrameLayout extends FrameLayout implements IExtendedViewGroup {
 

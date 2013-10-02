@@ -16,10 +16,6 @@
 
 package uk.co.senab.actionbarpulltorefresh.library;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -35,6 +31,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.util.ViewAccessor;
 
 /**
  * Default Header Transformer.

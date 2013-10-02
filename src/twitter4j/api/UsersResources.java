@@ -16,9 +16,6 @@
 
 package twitter4j.api;
 
-import java.io.File;
-import java.io.InputStream;
-
 import twitter4j.AccountSettings;
 import twitter4j.Category;
 import twitter4j.CursorPaging;
@@ -27,6 +24,9 @@ import twitter4j.PagableResponseList;
 import twitter4j.ResponseList;
 import twitter4j.TwitterException;
 import twitter4j.User;
+
+import java.io.File;
+import java.io.InputStream;
 
 /**
  * @author Joern Huxhorn - jhuxhorn at googlemail.com
@@ -369,7 +369,6 @@ public interface UsersResources {
 	User updateProfileBackgroundImage(InputStream image, boolean tile) throws TwitterException;
 
 	/**
-	 * 
 	 * <table border="1" width="50%" align="center" cellpadding="1">
 	 * <thead>
 	 * <tr>
@@ -399,7 +398,6 @@ public interface UsersResources {
 	void updateProfileBannerImage(File banner) throws TwitterException;
 
 	/**
-	 * 
 	 * <table border="1" width="50%" align="center" cellpadding="1">
 	 * <thead>
 	 * <tr>
@@ -430,7 +428,6 @@ public interface UsersResources {
 			throws TwitterException;
 
 	/**
-	 * 
 	 * <table border="1" width="50%" align="center" cellpadding="1">
 	 * <thead>
 	 * <tr>
@@ -460,7 +457,6 @@ public interface UsersResources {
 	void updateProfileBannerImage(InputStream banner) throws TwitterException;
 
 	/**
-	 * 
 	 * <table border="1" width="50%" align="center" cellpadding="1">
 	 * <thead>
 	 * <tr>

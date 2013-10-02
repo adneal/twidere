@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.view.iface.IExtendedView;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import org.mariotaku.twidere.view.iface.IExtendedView;
 
 public class ExtendedImageView extends ImageView implements IExtendedView {
 

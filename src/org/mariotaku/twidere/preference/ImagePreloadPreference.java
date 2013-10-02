@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.preference;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
 
 public class ImagePreloadPreference extends MultiSelectListPreference implements Constants {
 

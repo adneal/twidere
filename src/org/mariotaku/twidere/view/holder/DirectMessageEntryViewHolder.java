@@ -19,16 +19,16 @@
 
 package org.mariotaku.twidere.view.holder;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.Utils;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-import org.mariotaku.twidere.view.ShortTimeView;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.Utils;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
+import org.mariotaku.twidere.view.ShortTimeView;
 
 public class DirectMessageEntryViewHolder {
 

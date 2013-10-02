@@ -16,7 +16,11 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.util.FloatMath;
+import android.util.Log;
 
 import org.mariotaku.gallery3d.ImageViewerGLActivity;
 import org.mariotaku.gallery3d.util.ApiHelper;
@@ -29,11 +33,7 @@ import org.mariotaku.gallery3d.util.ThreadPool;
 import org.mariotaku.gallery3d.util.ThreadPool.CancelListener;
 import org.mariotaku.gallery3d.util.ThreadPool.JobContext;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.util.FloatMath;
-import android.util.Log;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TileImageView extends GLView {
 	public static final int SIZE_UNKNOWN = -1;

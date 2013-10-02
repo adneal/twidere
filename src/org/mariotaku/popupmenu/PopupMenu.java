@@ -1,9 +1,5 @@
 package org.mariotaku.popupmenu;
 
-import org.mariotaku.internal.menu.MenuAdapter;
-import org.mariotaku.internal.menu.MenuImpl;
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +12,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListPopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
+
+import org.mariotaku.internal.menu.MenuAdapter;
+import org.mariotaku.internal.menu.MenuImpl;
+import org.mariotaku.twidere.R;
 
 public class PopupMenu implements OnDismissListener, OnItemClickListener, OnTouchListener {
 
@@ -154,7 +154,6 @@ public class PopupMenu implements OnDismissListener, OnItemClickListener, OnTouc
 
 	/**
 	 * Listener for window dismiss
-	 * 
 	 */
 	public static interface OnDismissListener {
 		public void onDismiss(PopupMenu PopupMenu);
@@ -162,7 +161,6 @@ public class PopupMenu implements OnDismissListener, OnItemClickListener, OnTouc
 
 	/**
 	 * Listener for item click
-	 * 
 	 */
 	public static interface OnMenuItemClickListener {
 		public boolean onMenuItemClick(MenuItem item);

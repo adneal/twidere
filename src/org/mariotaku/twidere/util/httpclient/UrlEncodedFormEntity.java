@@ -26,13 +26,13 @@
 
 package org.mariotaku.twidere.util.httpclient;
 
-import java.io.UnsupportedEncodingException;
-
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.protocol.HTTP;
 
 import twitter4j.http.HttpParameter;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * An entity composed of a list of url-encoded pairs. This is typically useful

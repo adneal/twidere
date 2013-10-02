@@ -17,6 +17,10 @@
 package twitter4j.http;
 
 import static twitter4j.http.RequestMethod.POST;
+import twitter4j.TwitterException;
+import twitter4j.conf.ConfigurationContext;
+import twitter4j.internal.logging.Logger;
+import twitter4j.internal.util.InternalStringUtil;
 
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
@@ -47,11 +51,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-
-import twitter4j.TwitterException;
-import twitter4j.conf.ConfigurationContext;
-import twitter4j.internal.logging.Logger;
-import twitter4j.internal.util.InternalStringUtil;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

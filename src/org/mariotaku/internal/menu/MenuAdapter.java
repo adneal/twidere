@@ -1,9 +1,5 @@
 package org.mariotaku.internal.menu;
 
-import java.util.List;
-
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+
+import org.mariotaku.twidere.R;
+
+import java.util.List;
 
 public final class MenuAdapter extends ArrayAdapter<MenuItem> {
 

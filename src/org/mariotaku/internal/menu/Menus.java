@@ -1,9 +1,9 @@
 package org.mariotaku.internal.menu;
 
+import android.view.MenuItem;
+
 import java.util.ArrayList;
 import java.util.Collection;
-
-import android.view.MenuItem;
 
 @SuppressWarnings("serial")
 final class Menus extends ArrayList<MenuItem> {

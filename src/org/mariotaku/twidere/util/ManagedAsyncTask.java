@@ -19,10 +19,10 @@
 
 package org.mariotaku.twidere.util;
 
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.content.Intent;
+
+import org.mariotaku.twidere.Constants;
 
 public abstract class ManagedAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> implements
 		Constants {

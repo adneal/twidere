@@ -19,18 +19,6 @@
 
 package org.mariotaku.twidere.activity;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.SourceAutoCompleteAdapter;
-import org.mariotaku.twidere.adapter.TabsAdapter;
-import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
-import org.mariotaku.twidere.fragment.BaseDialogFragment;
-import org.mariotaku.twidere.fragment.BaseFiltersFragment;
-import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredKeywordsFragment;
-import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredLinksFragment;
-import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredSourcesFragment;
-import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredUsersFragment;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.ActionBar.TabListener;
@@ -54,6 +42,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.SourceAutoCompleteAdapter;
+import org.mariotaku.twidere.adapter.TabsAdapter;
+import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
+import org.mariotaku.twidere.fragment.BaseDialogFragment;
+import org.mariotaku.twidere.fragment.BaseFiltersFragment;
+import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredKeywordsFragment;
+import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredLinksFragment;
+import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredSourcesFragment;
+import org.mariotaku.twidere.fragment.BaseFiltersFragment.FilteredUsersFragment;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
 
 public class FiltersActivity extends BaseActivity implements TabListener, OnPageChangeListener {
 

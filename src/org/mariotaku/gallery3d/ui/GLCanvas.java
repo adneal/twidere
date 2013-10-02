@@ -16,9 +16,9 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import javax.microedition.khronos.opengles.GL11;
-
 import android.graphics.RectF;
+
+import javax.microedition.khronos.opengles.GL11;
 
 //
 // GLCanvas gives a convenient interface to draw using OpenGL.

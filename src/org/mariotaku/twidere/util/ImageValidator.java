@@ -21,13 +21,13 @@ package org.mariotaku.twidere.util;
 
 import static org.mariotaku.twidere.util.Utils.closeSilently;
 
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Arrays;
-
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 
 public class ImageValidator {
 

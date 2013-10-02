@@ -52,37 +52,6 @@ import static org.mariotaku.twidere.util.Utils.openUserTimeline;
 import static org.mariotaku.twidere.util.Utils.setUserColor;
 import static org.mariotaku.twidere.util.Utils.showInfoMessage;
 
-import java.util.Locale;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.ColorSelectorActivity;
-import org.mariotaku.twidere.activity.EditUserProfileActivity;
-import org.mariotaku.twidere.activity.UserListSelectorActivity;
-import org.mariotaku.twidere.adapter.ListActionAdapter;
-import org.mariotaku.twidere.loader.ParcelableUserLoader;
-import org.mariotaku.twidere.model.ListAction;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.model.ParcelableUserList;
-import org.mariotaku.twidere.model.SingleResponse;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.util.TwidereLinkify;
-import org.mariotaku.twidere.util.TwidereLinkify.OnLinkClickListener;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-import org.mariotaku.twidere.view.ProfileImageBannerLayout;
-import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
-
-import twitter4j.Relationship;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -120,6 +89,38 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.ColorSelectorActivity;
+import org.mariotaku.twidere.activity.EditUserProfileActivity;
+import org.mariotaku.twidere.activity.UserListSelectorActivity;
+import org.mariotaku.twidere.adapter.ListActionAdapter;
+import org.mariotaku.twidere.loader.ParcelableUserLoader;
+import org.mariotaku.twidere.model.ListAction;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.model.ParcelableUserList;
+import org.mariotaku.twidere.model.SingleResponse;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.util.TwidereLinkify;
+import org.mariotaku.twidere.util.TwidereLinkify.OnLinkClickListener;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
+import org.mariotaku.twidere.view.ProfileImageBannerLayout;
+import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
+
+import twitter4j.Relationship;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
+import java.util.Locale;
 
 public class UserProfileFragment extends BaseSupportListFragment implements OnClickListener, OnItemClickListener,
 		OnItemLongClickListener, OnMenuItemClickListener, OnLinkClickListener, Panes.Right, OnSizeChangedListener,
@@ -766,12 +767,10 @@ public class UserProfileFragment extends BaseSupportListFragment implements OnCl
 				break;
 			}
 			case MENU_ADD_TO_LIST: {
-				final Bundle extras = new Bundle();
-				extras.putLong(INTENT_KEY_ACCOUNT_ID, mAccountId);
-				extras.putString(INTENT_KEY_SCREEN_NAME, getAccountScreenName(getActivity(), mAccountId));
 				final Intent intent = new Intent(INTENT_ACTION_SELECT_USER_LIST);
 				intent.setClass(getActivity(), UserListSelectorActivity.class);
-				intent.putExtras(extras);
+				intent.putExtra(INTENT_KEY_ACCOUNT_ID, mAccountId);
+				intent.putExtra(INTENT_KEY_SCREEN_NAME, getAccountScreenName(getActivity(), mAccountId));
 				startActivityForResult(intent, REQUEST_ADD_TO_LIST);
 				break;
 			}

@@ -1,15 +1,15 @@
 package org.mariotaku.twidere.util;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Iterator;
+import android.os.Bundle;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mariotaku.twidere.Constants;
 
-import android.os.Bundle;
-import android.util.Log;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Iterator;
 
 public final class ParseUtils implements Constants {
 

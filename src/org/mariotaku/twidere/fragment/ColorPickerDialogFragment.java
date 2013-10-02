@@ -19,11 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.view.ColorPickerView;
-import org.mariotaku.twidere.view.ColorPickerView.OnColorChangedListener;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -41,6 +36,11 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.view.ColorPickerView;
+import org.mariotaku.twidere.view.ColorPickerView.OnColorChangedListener;
 
 public class ColorPickerDialogFragment extends BaseDialogFragment {
 

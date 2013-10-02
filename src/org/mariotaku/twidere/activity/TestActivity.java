@@ -1,9 +1,9 @@
 package org.mariotaku.twidere.activity;
 
-import org.mariotaku.twidere.Constants;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.Constants;
 
 public class TestActivity extends Activity implements Constants {
 

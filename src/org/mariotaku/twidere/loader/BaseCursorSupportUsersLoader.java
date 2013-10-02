@@ -19,13 +19,14 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.List;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import org.mariotaku.twidere.model.ParcelableUser;
 
 import twitter4j.CursorSupport;
-import android.content.Context;
-import android.content.SharedPreferences;
+
+import java.util.List;
 
 public abstract class BaseCursorSupportUsersLoader extends Twitter4JUsersLoader {
 

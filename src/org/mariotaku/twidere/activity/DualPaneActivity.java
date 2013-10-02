@@ -19,10 +19,6 @@
 
 package org.mariotaku.twidere.activity;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.view.SlidingPaneView;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -41,6 +37,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.view.SlidingPaneView;
 
 @SuppressLint("Registered")
 public class DualPaneActivity extends BaseSupportActivity implements OnBackStackChangedListener {

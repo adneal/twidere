@@ -58,7 +58,7 @@
   <string name="view_user_profile">ข้อมูลส่วนตัว</string>
   <string name="browser">เบราเซอร์</string>
   <string name="pick_from_gallery">เลือกจากคลังภาพ</string>
-  <string name="tweets">ทวีต</string>
+  <string name="statuses">ทวีต</string>
   <string name="followers">ผู้ติดตาม</string>
   <string name="friends">เพื่อน</string>
   <string name="about">เกี่ยวกับ</string>
@@ -130,7 +130,7 @@
   <string name="blocked_users">ผู้ที่ถูกบล็อค</string>
   <string name="set_as_default">ตั้งเป็นปริยาย</string>
   <string name="search_users">ค้นหาผู้ใช้</string>
-  <string name="search_tweets">ค้นหาทวีต</string>
+  <string name="search_statuses">ค้นหาทวีต</string>
   <string name="created_at">สร้างเมื่อ</string>
   <string name="search_hint">ค้นหาทวีตหรือผู้ใช้</string>
   <string name="remember_position">จำตำแหน่ง</string>

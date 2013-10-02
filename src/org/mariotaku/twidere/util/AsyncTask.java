@@ -19,9 +19,9 @@
 
 package org.mariotaku.twidere.util;
 
-import java.util.concurrent.ExecutorService;
-
 import android.os.Handler;
+
+import java.util.concurrent.ExecutorService;
 
 public abstract class AsyncTask<Param, Progress, Result> {
 

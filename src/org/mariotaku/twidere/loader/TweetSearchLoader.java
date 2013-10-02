@@ -21,8 +21,8 @@ package org.mariotaku.twidere.loader;
 
 import static org.mariotaku.twidere.util.Utils.isFiltered;
 
-import java.util.Arrays;
-import java.util.List;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import org.mariotaku.twidere.model.ParcelableStatus;
 
@@ -31,8 +31,9 @@ import twitter4j.Query;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class TweetSearchLoader extends Twitter4JStatusesLoader {
 

@@ -24,7 +24,10 @@ import static org.mariotaku.twidere.util.Utils.formatExpandedUserDescription;
 import static org.mariotaku.twidere.util.Utils.formatUserDescription;
 import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 
-import java.util.Date;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.mariotaku.jsonserializer.JSONParcel;
 import org.mariotaku.jsonserializer.JSONParcelable;
@@ -33,10 +36,8 @@ import org.mariotaku.twidere.util.ParseUtils;
 
 import twitter4j.URLEntity;
 import twitter4j.User;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.os.Parcel;
-import android.os.Parcelable;
+
+import java.util.Date;
 
 public class ParcelableUser implements Parcelable, JSONParcelable, Comparable<ParcelableUser> {
 

@@ -22,7 +22,11 @@ package org.mariotaku.twidere.util;
 import static org.mariotaku.twidere.util.DatabaseUpgradeHelper.safeUpgrade;
 import static org.mariotaku.twidere.util.Utils.trim;
 
-import java.util.HashMap;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.provider.TweetStore.Accounts;
@@ -37,11 +41,7 @@ import org.mariotaku.twidere.provider.TweetStore.Mentions;
 import org.mariotaku.twidere.provider.TweetStore.Statuses;
 import org.mariotaku.twidere.provider.TweetStore.Tabs;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import java.util.HashMap;
 
 public final class DatabaseHelper extends SQLiteOpenHelper implements Constants {
 

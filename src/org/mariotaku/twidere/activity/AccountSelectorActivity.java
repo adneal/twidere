@@ -19,15 +19,6 @@
 
 package org.mariotaku.twidere.activity;
 
-import java.util.List;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.AccountsAdapter;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.NoDuplicatesArrayList;
-
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -45,6 +36,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.AccountsAdapter;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.NoDuplicatesArrayList;
+
+import java.util.List;
 
 public class AccountSelectorActivity extends BaseSupportDialogActivity implements LoaderCallbacks<Cursor>,
 		OnItemClickListener, OnClickListener {

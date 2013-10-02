@@ -1,7 +1,5 @@
 package org.mariotaku.twidere.preference;
 
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcel;
@@ -13,12 +11,13 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import org.mariotaku.twidere.R;
+
 /**
  * A {@link DialogPreference} that provides a user with the means to select an
  * integer from a {@link SeekBar}, and persist it.
  * 
  * @author lukehorvat
- * 
  */
 public class SeekBarDialogPreference extends DialogPreference {
 	private static final int DEFAULT_MIN_PROGRESS = 0;

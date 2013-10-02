@@ -16,10 +16,10 @@
 
 package org.mariotaku.gallery3d.ui;
 
+import android.graphics.Rect;
+
 import org.mariotaku.gallery3d.ui.PhotoView.Size;
 import org.mariotaku.gallery3d.util.GalleryUtils;
-
-import android.graphics.Rect;
 
 class PositionController {
 

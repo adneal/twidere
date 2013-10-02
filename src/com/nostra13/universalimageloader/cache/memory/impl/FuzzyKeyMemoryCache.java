@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.nostra13.universalimageloader.cache.memory.impl;
+
+import com.nostra13.universalimageloader.cache.memory.MemoryCacheAware;
 
 import java.util.Collection;
 import java.util.Comparator;
-
-import com.nostra13.universalimageloader.cache.memory.MemoryCacheAware;
 
 /**
  * Decorator for {@link MemoryCacheAware}. Provides special feature for cache:

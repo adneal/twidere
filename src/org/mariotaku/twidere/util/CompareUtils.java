@@ -19,9 +19,9 @@
 
 package org.mariotaku.twidere.util;
 
-import java.util.Iterator;
-
 import android.os.Bundle;
+
+import java.util.Iterator;
 
 public class CompareUtils {
 

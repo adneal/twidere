@@ -18,11 +18,6 @@ package org.mariotaku.twidere.preference;
 
 import static org.mariotaku.twidere.util.Utils.getColorPreviewBitmap;
 
-import org.mariotaku.twidere.graphic.AlphaPatternDrawable;
-import org.mariotaku.twidere.util.ViewAccessor;
-import org.mariotaku.twidere.view.ColorPickerView;
-import org.mariotaku.twidere.view.ColorPickerView.OnColorChangedListener;
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -37,6 +32,11 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import org.mariotaku.twidere.graphic.AlphaPatternDrawable;
+import org.mariotaku.twidere.util.ViewAccessor;
+import org.mariotaku.twidere.view.ColorPickerView;
+import org.mariotaku.twidere.view.ColorPickerView.OnColorChangedListener;
 
 public class ColorPickerPreference extends DialogPreference implements DialogInterface.OnClickListener,
 		OnColorChangedListener {

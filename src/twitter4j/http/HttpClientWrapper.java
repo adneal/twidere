@@ -21,14 +21,13 @@ import static twitter4j.http.RequestMethod.GET;
 import static twitter4j.http.RequestMethod.HEAD;
 import static twitter4j.http.RequestMethod.POST;
 import static twitter4j.http.RequestMethod.PUT;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import twitter4j.TwitterException;
 import twitter4j.auth.Authorization;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationContext;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * HTTP Client wrapper with handy request methods, ResponseListener mechanism

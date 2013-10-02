@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+
+import org.mariotaku.twidere.R;
 
 public class SupportProgressDialogFragment extends BaseSupportDialogFragment {
 

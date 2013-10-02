@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.view.holder;
 
-import org.mariotaku.twidere.R;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
 
 public class UserListViewHolder {
 

@@ -23,22 +23,6 @@ import static org.mariotaku.twidere.util.Utils.getBestCacheDir;
 import static org.mariotaku.twidere.util.Utils.getImageLoaderHttpClient;
 import static org.mariotaku.twidere.util.Utils.getRedirectedHttpResponse;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import org.mariotaku.gallery3d.util.BitmapUtils;
-import org.mariotaku.gallery3d.util.GalleryUtils;
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.util.Exif;
-import org.mariotaku.twidere.util.ImageValidator;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.URLFileNameGenerator;
-
-import twitter4j.http.HttpClientWrapper;
-import twitter4j.http.HttpResponse;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
@@ -52,6 +36,23 @@ import android.support.v4.content.AsyncTaskLoader;
 import android.util.DisplayMetrics;
 
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
+
+import org.mariotaku.gallery3d.util.BitmapUtils;
+import org.mariotaku.gallery3d.util.GalleryUtils;
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.util.Exif;
+import org.mariotaku.twidere.util.ImageValidator;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.URLFileNameGenerator;
+
+import twitter4j.http.HttpClientWrapper;
+import twitter4j.http.HttpResponse;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class GLImageLoader extends AsyncTaskLoader<GLImageLoader.Result> implements Constants {
 

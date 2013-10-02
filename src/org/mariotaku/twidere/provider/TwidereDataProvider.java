@@ -34,38 +34,6 @@ import static org.mariotaku.twidere.util.Utils.isNotificationsSilent;
 import static org.mariotaku.twidere.util.Utils.isOnWifi;
 import static org.mariotaku.twidere.util.Utils.notifyForUpdatedUri;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.HomeActivity;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.model.ParcelableDirectMessage;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.model.PreviewImage;
-import org.mariotaku.twidere.preference.NotificationContentPreference;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Conversation;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages.ConversationsEntry;
-import org.mariotaku.twidere.provider.TweetStore.Mentions;
-import org.mariotaku.twidere.provider.TweetStore.Preferences;
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.ImagePreloader;
-import org.mariotaku.twidere.util.NoDuplicatesArrayList;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.PermissionsManager;
-import org.mariotaku.twidere.util.Utils;
-
-import twitter4j.http.HostAddressResolver;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -90,6 +58,39 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.support.v4.app.NotificationCompat;
 import android.text.Html;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.HomeActivity;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.model.ParcelableDirectMessage;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.model.PreviewImage;
+import org.mariotaku.twidere.preference.NotificationContentPreference;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Conversation;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages.ConversationsEntry;
+import org.mariotaku.twidere.provider.TweetStore.Mentions;
+import org.mariotaku.twidere.provider.TweetStore.Preferences;
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.ImagePreloader;
+import org.mariotaku.twidere.util.NoDuplicatesArrayList;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.PermissionsManager;
+import org.mariotaku.twidere.util.Utils;
+
+import twitter4j.http.HostAddressResolver;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public final class TwidereDataProvider extends ContentProvider implements Constants {
 
@@ -577,7 +578,9 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		content_intent.setAction(Intent.ACTION_MAIN);
 		content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		final Bundle content_extras = new Bundle();
-		content_extras.putInt(INTENT_KEY_INITIAL_TAB, HomeActivity.TAB_POSITION_MENTIONS);
+		// TODO
+		// content_extras.putInt(INTENT_KEY_INITIAL_TAB,
+		// HomeActivity.TAB_POSITION_MENTIONS);
 		if (mNewMentions.size() == 1) {
 			final Uri.Builder uri_builder = new Uri.Builder();
 			uri_builder.scheme(SCHEME_TWIDERE);
@@ -667,7 +670,9 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		content_intent.setAction(Intent.ACTION_MAIN);
 		content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		final Bundle content_extras = new Bundle();
-		content_extras.putInt(INTENT_KEY_INITIAL_TAB, HomeActivity.TAB_POSITION_MESSAGES);
+		// TODO
+		// content_extras.putInt(INTENT_KEY_INITIAL_TAB,
+		// HomeActivity.TAB_POSITION_MESSAGES);
 		if (messages_size == 1) {
 			final Uri.Builder uri_builder = new Uri.Builder();
 			final long account_id = message.account_id;
@@ -842,7 +847,9 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 				content_intent.setAction(Intent.ACTION_MAIN);
 				content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 				final Bundle content_extras = new Bundle();
-				content_extras.putInt(INTENT_KEY_INITIAL_TAB, HomeActivity.TAB_POSITION_HOME);
+				// TODO
+				// content_extras.putInt(INTENT_KEY_INITIAL_TAB,
+				// HomeActivity.TAB_POSITION_HOME);
 				content_intent.putExtras(content_extras);
 				builder.setOnlyAlertOnce(true);
 				buildNotification(builder, mResources.getString(R.string.new_notifications), message, message,

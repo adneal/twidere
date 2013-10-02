@@ -19,9 +19,9 @@
 
 package org.mariotaku.twidere.model;
 
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-
 import android.database.Cursor;
+
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
 
 public class StatusCursorIndices {
 

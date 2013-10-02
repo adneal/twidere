@@ -21,16 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.model.DraftItem;
-import org.mariotaku.twidere.provider.TweetStore.Drafts;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.ImageLoadingHandler;
-
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -55,6 +45,16 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.model.DraftItem;
+import org.mariotaku.twidere.provider.TweetStore.Drafts;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.ImageLoadingHandler;
 
 public class DraftsActivity extends TwidereSwipeBackActivity implements LoaderCallbacks<Cursor>, OnItemClickListener,
 		OnItemLongClickListener, OnMenuItemClickListener {

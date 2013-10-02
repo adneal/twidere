@@ -40,6 +40,11 @@ import android.widget.TextView;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.ArrayAdapter;
+
+import java.util.List;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ArrayAdapter;
 import org.mariotaku.twidere.preference.RingtonePreference;
 
 import java.util.List;

@@ -31,7 +31,14 @@ import static org.mariotaku.twidere.util.Utils.isFiltered;
 import static org.mariotaku.twidere.util.Utils.openImage;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.Html;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
@@ -45,14 +52,7 @@ import org.mariotaku.twidere.util.OnLinkClickHandler;
 import org.mariotaku.twidere.util.TwidereLinkify;
 import org.mariotaku.twidere.view.holder.StatusViewHolder;
 
-import android.app.Activity;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.Html;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
+import java.util.List;
 
 public class ParcelableStatusesAdapter extends ArrayAdapter<ParcelableStatus> implements
 		IStatusesAdapter<List<ParcelableStatus>>, OnClickListener {
@@ -70,7 +70,8 @@ public class ParcelableStatusesAdapter extends ArrayAdapter<ParcelableStatus> im
 			mIsLastItemFiltered, mFiltersEnabled;
 	private float mTextSize;
 	private int mNameDisplayOption, mLinkHighlightStyle;
-	private boolean mFilterIgnoreSource, mFilterIgnoreScreenName, mFilterIgnoreTextHtml, mFilterIgnoreTextPlain;
+	private boolean mFilterIgnoreSource, mFilterIgnoreScreenName, mFilterIgnoreTextHtml, mFilterIgnoreTextPlain,
+			mNicknameOnly;
 	private int mMaxAnimationPosition;
 
 	public ParcelableStatusesAdapter(final Context context) {
@@ -182,7 +183,7 @@ public class ParcelableStatusesAdapter extends ArrayAdapter<ParcelableStatus> im
 			holder.setUserType(status.user_is_verified, status.user_is_protected);
 			holder.setNameDisplayOption(mNameDisplayOption);
 			final String nick = getUserNickname(mContext, status.user_id);
-			holder.name.setText(TextUtils.isEmpty(nick) ? status.user_name : mContext.getString(
+			holder.name.setText(TextUtils.isEmpty(nick) ? status.user_name : mNicknameOnly ? nick : mContext.getString(
 					R.string.name_with_nickname, status.user_name, nick));
 			holder.screen_name.setText("@" + status.user_screen_name);
 			if (mLinkHighlightingEnabled) {
@@ -376,6 +377,13 @@ public class ParcelableStatusesAdapter extends ArrayAdapter<ParcelableStatus> im
 		final int option_int = getNameDisplayOptionInt(option);
 		if (option_int == mNameDisplayOption) return;
 		mNameDisplayOption = option_int;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		if (mNicknameOnly == nickname_only) return;
+		mNicknameOnly = nickname_only;
 		notifyDataSetChanged();
 	}
 

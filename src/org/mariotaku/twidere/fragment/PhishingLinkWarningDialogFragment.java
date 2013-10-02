@@ -19,8 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -29,6 +27,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+
+import org.mariotaku.twidere.R;
 
 public class PhishingLinkWarningDialogFragment extends BaseDialogFragment implements OnClickListener {
 

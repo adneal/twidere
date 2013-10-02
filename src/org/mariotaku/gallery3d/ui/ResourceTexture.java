@@ -16,11 +16,11 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import org.mariotaku.gallery3d.util.GalleryUtils;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import org.mariotaku.gallery3d.util.GalleryUtils;
 
 // ResourceTexture is a texture whose Bitmap is decoded from a resource.
 // By default ResourceTexture is not opaque.

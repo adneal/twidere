@@ -19,8 +19,8 @@
 
 package org.mariotaku.twidere.activity;
 
-import java.util.HashSet;
-import java.util.Set;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.app.TwidereApplication;
@@ -31,8 +31,9 @@ import org.mariotaku.twidere.util.MessagesManager;
 import org.mariotaku.twidere.util.ThemeUtils;
 
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
-import android.annotation.SuppressLint;
-import android.os.Bundle;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @SuppressLint("Registered")
 public class BaseActivity extends BaseThemedActivity implements Constants, PullToRefreshAttacherActivity {

@@ -18,7 +18,6 @@ package org.mariotaku.twidere.preference;
 
 import static org.mariotaku.twidere.Constants.PREFERENCE_KEY_NOTIFICATION_RINGTONE;
 import static org.mariotaku.twidere.Constants.SHARED_PREFERENCES_NAME;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +29,11 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.util.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A custom {@link Preference} that invokes a

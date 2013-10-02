@@ -13,15 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package twitter4j;
+
+import twitter4j.http.HttpParameter;
+import twitter4j.internal.util.InternalStringUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import twitter4j.http.HttpParameter;
-import twitter4j.internal.util.InternalStringUtil;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

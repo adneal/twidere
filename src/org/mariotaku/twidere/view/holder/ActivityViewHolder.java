@@ -19,14 +19,14 @@
 
 package org.mariotaku.twidere.view.holder;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
 
 public class ActivityViewHolder {
 

@@ -1,10 +1,10 @@
 package org.mariotaku.twidere.util;
 
-import java.lang.reflect.Field;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentManager.BackStackEntry;
+
+import java.lang.reflect.Field;
 
 public class BackStackEntryAccessor {
 

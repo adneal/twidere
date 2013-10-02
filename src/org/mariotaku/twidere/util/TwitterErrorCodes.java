@@ -19,10 +19,10 @@
 
 package org.mariotaku.twidere.util;
 
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.util.SparseIntArray;
+
+import org.mariotaku.twidere.R;
 
 public class TwitterErrorCodes {
 

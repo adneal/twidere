@@ -16,13 +16,6 @@
 
 package org.mariotaku.gallery3d;
 
-import org.mariotaku.gallery3d.ui.BitmapScreenNail;
-import org.mariotaku.gallery3d.ui.PhotoView;
-import org.mariotaku.gallery3d.ui.ScreenNail;
-import org.mariotaku.gallery3d.util.ApiHelper;
-import org.mariotaku.gallery3d.util.BitmapPool;
-import org.mariotaku.gallery3d.util.GalleryUtils;
-
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
@@ -30,6 +23,13 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.Log;
+
+import org.mariotaku.gallery3d.ui.BitmapScreenNail;
+import org.mariotaku.gallery3d.ui.PhotoView;
+import org.mariotaku.gallery3d.ui.ScreenNail;
+import org.mariotaku.gallery3d.util.ApiHelper;
+import org.mariotaku.gallery3d.util.BitmapPool;
+import org.mariotaku.gallery3d.util.GalleryUtils;
 
 public class PhotoViewAdapter implements PhotoView.ITileImageAdapter {
 

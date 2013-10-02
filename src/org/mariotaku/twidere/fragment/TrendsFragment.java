@@ -23,11 +23,6 @@ import static org.mariotaku.twidere.util.Utils.getDefaultAccountId;
 import static org.mariotaku.twidere.util.Utils.getTableNameByUri;
 import static org.mariotaku.twidere.util.Utils.openTweetSearch;
 
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.provider.TweetStore.CachedTrends;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.MultiSelectManager;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +37,11 @@ import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
 import android.widget.ListView;
+
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.provider.TweetStore.CachedTrends;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.MultiSelectManager;
 
 public class TrendsFragment extends BasePullToRefreshListFragment implements LoaderCallbacks<Cursor>, Panes.Left {
 

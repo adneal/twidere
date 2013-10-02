@@ -1,9 +1,5 @@
 package org.mariotaku.menubar;
 
-import org.mariotaku.internal.menu.MenuImpl;
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -17,6 +13,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import org.mariotaku.internal.menu.MenuImpl;
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.twidere.util.ViewAccessor;
 
 public class MenuBar extends LinearLayout implements PopupMenu.OnMenuItemClickListener {
 
@@ -162,7 +162,6 @@ public class MenuBar extends LinearLayout implements PopupMenu.OnMenuItemClickLi
 
 	/**
 	 * Listener for item click
-	 * 
 	 */
 	public interface OnMenuItemClickListener {
 		public boolean onMenuItemClick(MenuItem item);

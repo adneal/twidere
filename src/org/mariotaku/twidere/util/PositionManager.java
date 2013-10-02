@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.util;
 
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import org.mariotaku.twidere.Constants;
 
 public class PositionManager implements Constants {
 

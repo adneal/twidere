@@ -26,26 +26,21 @@ import static android.graphics.Color.colorToHSV;
 import static android.graphics.Color.green;
 import static android.graphics.Color.red;
 
-import java.util.Collections;
-import java.util.HashMap;
-
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import java.util.Collections;
+import java.util.HashMap;
+
 /**
- * 
- * @author mariotaku
- * 
- *         Get the main color from a {@link Bitmap}<br>
+ * @author mariotaku Get the main color from a {@link Bitmap}<br>
  * <br>
- * 
  *         <b>Important</b>: I recommand using this method in different thread.
  *         Or it may makes your application laggy.
  */
 public final class ColorAnalyser {
 
 	/**
-	 * 
 	 * Get the main color from a {@link Bitmap}.<br>
 	 * 
 	 * @param bitmap The {@link Bitmap} to analyse
@@ -57,7 +52,6 @@ public final class ColorAnalyser {
 	}
 
 	/**
-	 * 
 	 * Get the main color from a {@link Bitmap}.<br>
 	 * 
 	 * @param bitmap The {@link Bitmap} to analyse
@@ -70,7 +64,6 @@ public final class ColorAnalyser {
 	}
 
 	/**
-	 * 
 	 * Get the main color from a {@link Bitmap}.<br>
 	 * 
 	 * @param bitmap The {@link Bitmap} to analyse

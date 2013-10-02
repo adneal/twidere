@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.cache.disc.impl;
 
-import java.io.File;
+package com.nostra13.universalimageloader.cache.disc.impl;
 
 import com.nostra13.universalimageloader.cache.disc.LimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DefaultConfigurationFactory;
+
+import java.io.File;
 
 /**
  * Disc cache limited by file count. If file count in cache directory exceeds

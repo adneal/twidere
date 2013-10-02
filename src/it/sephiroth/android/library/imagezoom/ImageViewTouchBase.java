@@ -1,9 +1,5 @@
 package it.sephiroth.android.library.imagezoom;
 
-import it.sephiroth.android.library.imagezoom.easing.Cubic;
-import it.sephiroth.android.library.imagezoom.easing.Easing;
-import it.sephiroth.android.library.imagezoom.graphics.FastBitmapDrawable;
-import it.sephiroth.android.library.imagezoom.utils.IDisposable;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -14,11 +10,15 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ImageView;
 
+import it.sephiroth.android.library.imagezoom.easing.Cubic;
+import it.sephiroth.android.library.imagezoom.easing.Easing;
+import it.sephiroth.android.library.imagezoom.graphics.FastBitmapDrawable;
+import it.sephiroth.android.library.imagezoom.utils.IDisposable;
+
 /**
  * Base View to manage image zoom/scrool/pinch operations
  * 
  * @author alessandro
- * 
  */
 public class ImageViewTouchBase extends ImageView implements IDisposable {
 
@@ -128,7 +128,6 @@ public class ImageViewTouchBase extends ImageView implements IDisposable {
 	 * @param bitmap - the {@link Bitmap} to display
 	 * @param reset
 	 * @param matrix - the {@link Matrix} to be used to display the new bitmap
-	 * 
 	 * @see #setImageBitmap(Bitmap, boolean)
 	 * @see #setImageBitmap(Bitmap)
 	 * @see #getImageViewMatrix()
@@ -139,12 +138,10 @@ public class ImageViewTouchBase extends ImageView implements IDisposable {
 	}
 
 	/**
-	 * 
 	 * @param bitmap
 	 * @param reset
 	 * @param matrix
 	 * @param maxZoom - maximum zoom allowd during zoom gestures
-	 * 
 	 * @see #setImageBitmap(Bitmap, boolean, Matrix)
 	 */
 	public void setImageBitmap(final Bitmap bitmap, final boolean reset, final Matrix matrix, final float maxZoom) {

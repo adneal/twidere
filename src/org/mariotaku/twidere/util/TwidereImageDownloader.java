@@ -27,6 +27,18 @@ import static org.mariotaku.twidere.util.Utils.getProxy;
 import static org.mariotaku.twidere.util.Utils.getRedirectedHttpResponse;
 import static org.mariotaku.twidere.util.Utils.replaceLast;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.net.Uri;
+
+import com.nostra13.universalimageloader.core.download.ImageDownloader;
+
+import org.mariotaku.twidere.Constants;
+
+import twitter4j.TwitterException;
+import twitter4j.http.HttpClientWrapper;
+import twitter4j.http.HttpResponse;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -44,17 +56,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-
-import org.mariotaku.twidere.Constants;
-
-import twitter4j.TwitterException;
-import twitter4j.http.HttpClientWrapper;
-import twitter4j.http.HttpResponse;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.net.Uri;
-
-import com.nostra13.universalimageloader.core.download.ImageDownloader;
 
 public class TwidereImageDownloader implements ImageDownloader, Constants {
 

@@ -21,9 +21,6 @@ package org.mariotaku.twidere.view;
 
 import static org.mariotaku.twidere.util.Utils.isRTL;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.view.iface.IColorLabelView;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -33,6 +30,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.view.iface.IColorLabelView;
 
 public class ColorLabelLinearLayout extends LinearLayout implements IColorLabelView {
 

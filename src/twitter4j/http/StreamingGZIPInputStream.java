@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package twitter4j.http;
 
 import java.io.IOException;
@@ -39,7 +40,6 @@ public final class StreamingGZIPInputStream extends GZIPInputStream {
 	 * 
 	 * @return - whatever the wrapped InputStream returns
 	 * @exception IOException if an I/O error occurs.
-	 * 
 	 */
 	@Override
 	public int available() throws IOException {

@@ -19,12 +19,6 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.content.AsyncTaskLoader;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -38,6 +32,12 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.util.ParseUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExtensionsListLoader extends AsyncTaskLoader<List<ExtensionsListLoader.ExtensionInfo>> implements
 		Constants {

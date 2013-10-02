@@ -24,11 +24,11 @@ import static org.mariotaku.twidere.util.HtmlEscapeHelper.escape;
 import static org.mariotaku.twidere.util.HtmlEscapeHelper.toHtml;
 import static org.mariotaku.twidere.util.HtmlEscapeHelper.unescape;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
-import android.util.Log;
 
 public class HtmlBuilder {
 

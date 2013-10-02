@@ -21,15 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static org.mariotaku.twidere.util.Utils.getColorPreviewBitmap;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ArrayAdapter;
-import org.mariotaku.twidere.fragment.ColorPickerDialogFragment;
-import org.mariotaku.twidere.fragment.ColorPickerDialogFragment.OnColorSelectedListener;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +33,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ArrayAdapter;
+import org.mariotaku.twidere.fragment.ColorPickerDialogFragment;
+import org.mariotaku.twidere.fragment.ColorPickerDialogFragment.OnColorSelectedListener;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ColorSelectorActivity extends BaseSupportDialogActivity implements OnItemClickListener,
 		OnColorSelectedListener {

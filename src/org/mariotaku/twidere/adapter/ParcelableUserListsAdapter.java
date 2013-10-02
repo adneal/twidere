@@ -22,10 +22,15 @@ package org.mariotaku.twidere.adapter;
 import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.getLocalizedNumber;
 import static org.mariotaku.twidere.util.Utils.getNameDisplayOptionInt;
+import static org.mariotaku.twidere.util.Utils.getUserNickname;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
-import java.util.List;
-import java.util.Locale;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
@@ -35,12 +40,8 @@ import org.mariotaku.twidere.util.ImageLoaderWrapper;
 import org.mariotaku.twidere.util.MultiSelectManager;
 import org.mariotaku.twidere.view.holder.UserListViewHolder;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
+import java.util.List;
+import java.util.Locale;
 
 public class ParcelableUserListsAdapter extends ArrayAdapter<ParcelableUserList> implements IBaseAdapter,
 		OnClickListener {
@@ -50,7 +51,7 @@ public class ParcelableUserListsAdapter extends ArrayAdapter<ParcelableUserList>
 	private final MultiSelectManager mMultiSelectManager;
 	private final Locale mLocale;
 
-	private boolean mDisplayProfileImage;
+	private boolean mDisplayProfileImage, mNicknameOnly;
 	private float mTextSize;
 	private boolean mDisplayName;
 
@@ -89,7 +90,14 @@ public class ParcelableUserListsAdapter extends ArrayAdapter<ParcelableUserList>
 			view.setTag(holder);
 		}
 		final ParcelableUserList user_list = getItem(position);
-		final String created_by = mDisplayName ? user_list.user_name : "@" + user_list.user_screen_name;
+		final String created_by;
+		if (mDisplayName) {
+			created_by = "@" + user_list.user_screen_name;
+		} else {
+			final String nick = getUserNickname(mContext, user_list.user_id);
+			created_by = TextUtils.isEmpty(nick) ? user_list.user_name : mNicknameOnly ? nick : mContext.getString(
+					R.string.name_with_nickname, user_list.user_name, nick);
+		}
 		holder.setTextSize(mTextSize);
 		holder.name.setText(user_list.name);
 		holder.created_by.setText(mContext.getString(R.string.created_by, created_by));
@@ -159,6 +167,13 @@ public class ParcelableUserListsAdapter extends ArrayAdapter<ParcelableUserList>
 		final boolean display_name = NAME_DISPLAY_OPTION_CODE_SCREEN_NAME != option_int;
 		if (display_name == mDisplayName) return;
 		mDisplayName = display_name;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		if (mNicknameOnly == nickname_only) return;
+		mNicknameOnly = nickname_only;
 		notifyDataSetChanged();
 	}
 

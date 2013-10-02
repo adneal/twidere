@@ -21,17 +21,17 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.isSameAccount;
 
-import java.util.List;
-
-import org.mariotaku.twidere.loader.UserFavoritesLoader;
-import org.mariotaku.twidere.model.ParcelableStatus;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
+
+import org.mariotaku.twidere.loader.UserFavoritesLoader;
+import org.mariotaku.twidere.model.ParcelableStatus;
+
+import java.util.List;
 
 public class UserFavoritesFragment extends ParcelableStatusesListFragment {
 

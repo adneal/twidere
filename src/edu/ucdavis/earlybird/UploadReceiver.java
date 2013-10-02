@@ -1,11 +1,11 @@
 package edu.ucdavis.earlybird;
 
-import org.mariotaku.twidere.util.Utils;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
+
+import org.mariotaku.twidere.util.Utils;
 
 public class UploadReceiver extends BroadcastReceiver {
 

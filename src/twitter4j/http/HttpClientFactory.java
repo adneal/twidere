@@ -16,9 +16,9 @@
 
 package twitter4j.http;
 
-import java.lang.reflect.Constructor;
-
 import twitter4j.conf.Configuration;
+
+import java.lang.reflect.Constructor;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

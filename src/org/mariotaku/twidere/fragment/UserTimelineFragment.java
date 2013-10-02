@@ -21,15 +21,15 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.getAccountId;
 
-import java.util.List;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.content.Loader;
 
 import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
 import org.mariotaku.twidere.loader.UserTimelineLoader;
 import org.mariotaku.twidere.model.ParcelableStatus;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.content.Loader;
+import java.util.List;
 
 public class UserTimelineFragment extends ParcelableStatusesListFragment {
 

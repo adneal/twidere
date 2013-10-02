@@ -1,12 +1,12 @@
 package org.mariotaku.twidere.view.holder;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-import org.mariotaku.twidere.view.ProfileImageBannerLayout;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
+import org.mariotaku.twidere.view.ProfileImageBannerLayout;
 
 public class AccountDrawerGroupViewHolder {
 

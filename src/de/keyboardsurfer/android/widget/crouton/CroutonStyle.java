@@ -261,7 +261,6 @@ public class CroutonStyle {
 		 * 
 		 * @param backgroundColorResourceId The backgroundColorResourceId's
 		 *            resource id.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setBackgroundColor(final int backgroundColorResourceId) {
@@ -275,7 +274,6 @@ public class CroutonStyle {
 		 * 
 		 * @param backgroundColorValue The backgroundColorResourceValue's e.g.
 		 *            0xffff4444;
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setBackgroundColorValue(final int backgroundColorValue) {
@@ -288,7 +286,6 @@ public class CroutonStyle {
 		 * 
 		 * @param backgroundDrawableResourceId Resource ID of a
 		 *            backgroundDrawableResourceId image drawable.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setBackgroundDrawable(final int backgroundDrawableResourceId) {
@@ -301,7 +298,6 @@ public class CroutonStyle {
 		 * Set the {@link CroutonConfiguration} option of the {@link Crouton}.
 		 * 
 		 * @param configuration The {@link CroutonConfiguration}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setConfiguration(final CroutonConfiguration configuration) {
@@ -313,7 +309,6 @@ public class CroutonStyle {
 		 * Set the gravity option for the {@link Crouton}.
 		 * 
 		 * @param gravity The text's gravity as provided by {@link Gravity}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setGravity(final int gravity) {
@@ -328,7 +323,6 @@ public class CroutonStyle {
 		 * @param height The height of the {@link Crouton} in pixel. Can also be
 		 *            {@link LayoutParams#MATCH_PARENT} or
 		 *            {@link LayoutParams#WRAP_CONTENT}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setHeight(final int height) {
@@ -342,7 +336,6 @@ public class CroutonStyle {
 		 * 
 		 * @param heightDimensionResId Resource ID of a dimension for the height
 		 *            of the {@link Crouton}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setHeightDimensionResId(final int heightDimensionResId) {
@@ -356,7 +349,6 @@ public class CroutonStyle {
 		 * 
 		 * @param imageDrawable An additional image to display in the
 		 *            {@link Crouton}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setImageDrawable(final Drawable imageDrawable) {
@@ -370,7 +362,6 @@ public class CroutonStyle {
 		 * 
 		 * @param imageResId An additional image to display in the
 		 *            {@link Crouton}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setImageResource(final int imageResId) {
@@ -407,7 +398,6 @@ public class CroutonStyle {
 		 * Set the textColorResourceId option for the {@link Crouton}.
 		 * 
 		 * @param textColor The resource id of the text colorResourceId.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setTextColor(final int textColor) {
@@ -451,7 +441,6 @@ public class CroutonStyle {
 		 * 
 		 * @param isTileEnabled <code>true</code> if you want the
 		 *            backgroundResourceId to be tiled, else <code>false</code>.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setTileEnabled(final boolean isTileEnabled) {
@@ -466,7 +455,6 @@ public class CroutonStyle {
 		 * @param width The width of the {@link Crouton} in pixel. Can also be
 		 *            {@link LayoutParams#MATCH_PARENT} or
 		 *            {@link LayoutParams#WRAP_CONTENT}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setWidth(final int width) {
@@ -480,7 +468,6 @@ public class CroutonStyle {
 		 * 
 		 * @param widthDimensionResId Resource ID of a dimension for the width
 		 *            of the {@link Crouton}.
-		 * 
 		 * @return the {@link Builder}.
 		 */
 		public Builder setWidthDimensionResId(final int widthDimensionResId) {

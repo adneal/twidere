@@ -19,17 +19,17 @@
 
 package org.mariotaku.twidere.adapter;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
-import org.mariotaku.twidere.util.HtmlEscapeHelper;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
+import org.mariotaku.twidere.util.HtmlEscapeHelper;
 
 public class SourceAutoCompleteAdapter extends SimpleCursorAdapter implements Constants {
 

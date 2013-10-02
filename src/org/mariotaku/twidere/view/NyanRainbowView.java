@@ -1,11 +1,11 @@
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.R;
-
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+
+import org.mariotaku.twidere.R;
 
 public class NyanRainbowView extends ImageView {
 

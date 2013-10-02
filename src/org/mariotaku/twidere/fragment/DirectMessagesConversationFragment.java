@@ -21,30 +21,10 @@ package org.mariotaku.twidere.fragment;
 
 import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.buildDirectMessageConversationUri;
-import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 import static org.mariotaku.twidere.util.Utils.getLocalizedNumber;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 import static org.mariotaku.twidere.util.Utils.showOkMessage;
-
-import java.util.Locale;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ArrayAdapter;
-import org.mariotaku.twidere.adapter.DirectMessagesConversationAdapter;
-import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.model.Account;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableDirectMessage;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ClipboardUtils;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.view.holder.DirectMessageConversationViewHolder;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -76,13 +56,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.twitter.Validator;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.AccountsSpinnerAdapter;
+import org.mariotaku.twidere.adapter.DirectMessagesConversationAdapter;
+import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
+import org.mariotaku.twidere.model.Account;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableDirectMessage;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ClipboardUtils;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.view.holder.DirectMessageConversationViewHolder;
+
+import java.util.Locale;
 
 public class DirectMessagesConversationFragment extends BaseSupportListFragment implements LoaderCallbacks<Cursor>,
 		OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener, TextWatcher, OnClickListener,
@@ -110,7 +106,7 @@ public class DirectMessagesConversationFragment extends BaseSupportListFragment 
 
 	private DirectMessagesConversationAdapter mAdapter;
 	private UserHashtagAutoCompleteAdapter mUserAutoCompleteAdapter;
-	private AccountsAdapter mAccountsAdapter;
+	private AccountsSpinnerAdapter mAccountsAdapter;
 
 	private final BroadcastReceiver mStatusReceiver = new BroadcastReceiver() {
 
@@ -191,7 +187,8 @@ public class DirectMessagesConversationFragment extends BaseSupportListFragment 
 			mEditText.setText(text);
 		}
 
-		mAccountsAdapter = new AccountsAdapter(getActivity());
+		mAccountsAdapter = new AccountsSpinnerAdapter(getActivity());
+		mAccountsAdapter.addAll(Account.getAccounts(getActivity(), false));
 		mAccountSelector.setAdapter(mAccountsAdapter);
 		mAccountSelector.setOnItemSelectedListener(this);
 
@@ -443,54 +440,6 @@ public class DirectMessagesConversationFragment extends BaseSupportListFragment 
 		final float[] hsv = new float[] { hue, 1.0f, 1.0f };
 		mTextCountView.setTextColor(count >= max - 10 ? Color.HSVToColor(0x80, hsv) : 0x80808080);
 		mTextCountView.setText(getLocalizedNumber(mLocale, max - count));
-	}
-
-	private static class AccountsAdapter extends ArrayAdapter<Account> {
-
-		private final ImageLoaderWrapper mImageLoader;
-		private final boolean mDisplayProfileImage;
-		private final boolean mDisplayHiResProfileImage;
-
-		public AccountsAdapter(final Context context) {
-			super(context, R.layout.user_autocomplete_list_item, Account.getAccounts(context, false));
-			setDropDownViewResource(R.layout.user_autocomplete_list_item);
-			mImageLoader = TwidereApplication.getInstance(context).getImageLoaderWrapper();
-			mDisplayProfileImage = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
-					.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true);
-			mDisplayHiResProfileImage = context.getResources().getBoolean(R.bool.hires_profile_image);
-		}
-
-		@Override
-		public View getDropDownView(final int position, final View convertView, final ViewGroup parent) {
-			final View view = super.getDropDownView(position, convertView, parent);
-			bindView(view, getItem(position));
-			return view;
-		}
-
-		@Override
-		public View getView(final int position, final View convertView, final ViewGroup parent) {
-			final View view = super.getView(position, convertView, parent);
-			bindView(view, getItem(position));
-			return view;
-		}
-
-		private void bindView(final View view, final Account item) {
-			final TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-			final TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-			final ImageView icon = (ImageView) view.findViewById(android.R.id.icon);
-			text1.setText(item.name);
-			text2.setText("@" + item.screen_name);
-			if (mDisplayProfileImage) {
-				if (mDisplayHiResProfileImage) {
-					mImageLoader.displayProfileImage(icon, getBiggerTwitterProfileImage(item.profile_image_url));
-				} else {
-					mImageLoader.displayProfileImage(icon, item.profile_image_url);
-				}
-			} else {
-				icon.setImageResource(R.drawable.ic_profile_image_default);
-			}
-		}
-
 	}
 
 }

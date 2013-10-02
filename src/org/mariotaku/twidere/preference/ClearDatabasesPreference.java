@@ -23,14 +23,14 @@ import static org.mariotaku.twidere.provider.TweetStore.CACHE_URIS;
 import static org.mariotaku.twidere.provider.TweetStore.DIRECT_MESSAGES_URIS;
 import static org.mariotaku.twidere.provider.TweetStore.STATUSES_URIS;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
 
 public class ClearDatabasesPreference extends AsyncTaskPreference implements Constants, OnPreferenceClickListener {
 

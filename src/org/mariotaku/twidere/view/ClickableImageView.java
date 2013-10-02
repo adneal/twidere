@@ -19,9 +19,6 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ThemeUtils;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -31,6 +28,9 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ThemeUtils;
 
 public class ClickableImageView extends ImageView {
 

@@ -21,9 +21,9 @@ package org.mariotaku.twidere.util;
 
 import static android.text.TextUtils.isEmpty;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.util.LinkedHashMap;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 
 import org.mariotaku.twidere.Constants;
 import org.xbill.DNS.AAAARecord;
@@ -39,9 +39,10 @@ import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
 import twitter4j.http.HostAddressResolver;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.util.LinkedHashMap;
 
 public class TwidereHostAddressResolver implements Constants, HostAddressResolver {
 

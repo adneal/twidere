@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.nostra13.universalimageloader.utils;
 
 import static android.os.Environment.MEDIA_MOUNTED;
 
-import java.io.File;
-import java.io.IOException;
-
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Environment;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Provides application storage paths

@@ -31,7 +31,16 @@ import static org.mariotaku.twidere.util.Utils.isFiltered;
 import static org.mariotaku.twidere.util.Utils.openImage;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
-import java.util.Locale;
+import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.text.Html;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
@@ -46,16 +55,7 @@ import org.mariotaku.twidere.util.OnLinkClickHandler;
 import org.mariotaku.twidere.util.TwidereLinkify;
 import org.mariotaku.twidere.view.holder.StatusViewHolder;
 
-import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.text.Html;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
+import java.util.Locale;
 
 public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatusesAdapter<Cursor>, OnClickListener {
 
@@ -73,7 +73,8 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 			mIsLastItemFiltered, mFiltersEnabled = true;
 	private float mTextSize;
 	private int mNameDisplayOption, mLinkHighlightStyle;
-	private boolean mFilterIgnoreSource, mFilterIgnoreScreenName, mFilterIgnoreTextHtml, mFilterIgnoreTextPlain;
+	private boolean mFilterIgnoreSource, mFilterIgnoreScreenName, mFilterIgnoreTextHtml, mFilterIgnoreTextPlain,
+			mNicknameOnly;
 
 	private int mMaxAnimationPosition;
 
@@ -165,8 +166,8 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 			holder.setUserType(is_verified, is_protected);
 			holder.setNameDisplayOption(mNameDisplayOption);
 			final String nick = getUserNickname(context, user_id);
-			holder.name.setText(TextUtils.isEmpty(nick) ? name : context.getString(R.string.name_with_nickname, name,
-					nick));
+			holder.name.setText(TextUtils.isEmpty(nick) ? name : mNicknameOnly ? nick : context.getString(
+					R.string.name_with_nickname, name, nick));
 			holder.screen_name.setText("@" + screen_name);
 			if (mLinkHighlightingEnabled) {
 				mLinkify.applyUserProfileLink(holder.name, account_id, user_id, screen_name);
@@ -420,6 +421,13 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 		final int option_int = getNameDisplayOptionInt(option);
 		if (option_int == mNameDisplayOption) return;
 		mNameDisplayOption = option_int;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+		if (mNicknameOnly == nickname_only) return;
+		mNicknameOnly = nickname_only;
 		notifyDataSetChanged();
 	}
 

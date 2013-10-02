@@ -21,13 +21,13 @@ package org.mariotaku.twidere.activity;
 
 import static org.mariotaku.twidere.util.Utils.restartActivity;
 
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.activity.iface.IThemedActivity;
 import org.mariotaku.twidere.app.TwidereApplication;
 import org.mariotaku.twidere.util.ThemeUtils;
-
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
 
 class BasePreferenceActivity extends PreferenceActivity implements Constants, IThemedActivity {
 

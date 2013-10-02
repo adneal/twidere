@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.nostra13.universalimageloader.core.download;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.content.Context;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,7 +24,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.BufferedHttpEntity;
 
-import android.content.Context;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Implementation of ImageDownloader which uses {@link HttpClient} for image

@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.nostra13.universalimageloader.cache.memory;
+
+import com.nostra13.universalimageloader.utils.L;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.nostra13.universalimageloader.utils.L;
 
 /**
  * Limited cache. Provides object storing. Size of all stored bitmaps will not

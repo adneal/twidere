@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.commons.lang3.text.translate;
 
 import java.io.IOException;
@@ -58,12 +59,10 @@ public class AggregateTranslator extends CharSequenceTranslator {
 	 * Shallow clones an array returning a typecast result and handling
 	 * {@code null}.
 	 * </p>
-	 * 
 	 * <p>
 	 * The objects in the array are not cloned, thus there is no special
 	 * handling for multi-dimensional arrays.
 	 * </p>
-	 * 
 	 * <p>
 	 * This method returns {@code null} for a {@code null} input array.
 	 * </p>

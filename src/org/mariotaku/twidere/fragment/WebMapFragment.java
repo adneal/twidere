@@ -19,8 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.util.MapInterface;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +27,8 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import org.mariotaku.twidere.util.MapInterface;
 
 public class WebMapFragment extends BaseWebViewFragment implements MapInterface {
 

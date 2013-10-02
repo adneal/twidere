@@ -16,8 +16,6 @@
 
 package org.mariotaku.twidere.util;
 
-import java.io.File;
-
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -25,6 +23,8 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Debug;
 import android.os.StatFs;
+
+import java.io.File;
 
 /**
  * Class containing some static utility methods.

@@ -18,11 +18,6 @@ package twitter4j.internal.json;
 
 import static twitter4j.internal.util.InternalParseUtil.getDate;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +30,11 @@ import twitter4j.TwitterException;
 import twitter4j.conf.Configuration;
 import twitter4j.http.HttpResponse;
 import twitter4j.internal.util.InternalParseUtil;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * A data class representing Trends.

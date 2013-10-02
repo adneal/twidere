@@ -19,7 +19,7 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.List;
+import android.content.Context;
 
 import org.mariotaku.twidere.model.ParcelableUser;
 
@@ -28,7 +28,8 @@ import twitter4j.PagableResponseList;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
-import android.content.Context;
+
+import java.util.List;
 
 public class UserFriendsLoader extends CursorSupportUsersLoader {
 

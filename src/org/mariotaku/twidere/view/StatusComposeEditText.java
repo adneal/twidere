@@ -19,8 +19,6 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
-
 import android.content.Context;
 import android.text.InputType;
 import android.text.SpannableString;
@@ -29,6 +27,8 @@ import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.util.AttributeSet;
 import android.widget.MultiAutoCompleteTextView;
+
+import org.mariotaku.twidere.adapter.UserHashtagAutoCompleteAdapter;
 
 public class StatusComposeEditText extends MultiAutoCompleteTextView implements InputType {
 

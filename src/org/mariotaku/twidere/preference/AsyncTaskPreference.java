@@ -19,9 +19,6 @@
 
 package org.mariotaku.twidere.preference;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -29,6 +26,9 @@ import android.os.AsyncTask.Status;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
 
 public abstract class AsyncTaskPreference extends Preference implements Constants, OnPreferenceClickListener {
 

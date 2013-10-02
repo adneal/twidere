@@ -19,9 +19,9 @@
 
 package org.mariotaku.twidere.model;
 
-import java.util.List;
-
 import android.os.Bundle;
+
+import java.util.List;
 
 public class ListResponse<Data> extends SingleResponse<List<Data>> {
 

@@ -19,14 +19,6 @@
 
 package org.mariotaku.twidere.adapter;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.provider.TweetStore.CachedHashtags;
-import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
-import org.mariotaku.twidere.provider.TweetStore.CachedValues;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -38,6 +30,14 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.provider.TweetStore.CachedHashtags;
+import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
+import org.mariotaku.twidere.provider.TweetStore.CachedValues;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
 
 public class UserHashtagAutoCompleteAdapter extends SimpleCursorAdapter implements Constants {
 

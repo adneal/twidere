@@ -14,9 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package twitter4j.internal.json;
 
-import java.util.Map;
+package twitter4j.internal.json;
 
 import org.json.JSONObject;
 
@@ -46,6 +45,8 @@ import twitter4j.User;
 import twitter4j.UserList;
 import twitter4j.api.HelpResources;
 import twitter4j.http.HttpResponse;
+
+import java.util.Map;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com

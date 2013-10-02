@@ -19,12 +19,6 @@ package twitter4j;
 
 import static twitter4j.http.HttpParameter.getParameterArray;
 
-import java.io.File;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.json.JSONException;
 
 import twitter4j.auth.Authorization;
@@ -32,6 +26,12 @@ import twitter4j.conf.Configuration;
 import twitter4j.http.HttpParameter;
 import twitter4j.http.HttpResponse;
 import twitter4j.internal.util.InternalStringUtil;
+
+import java.io.File;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A java representation of the <a

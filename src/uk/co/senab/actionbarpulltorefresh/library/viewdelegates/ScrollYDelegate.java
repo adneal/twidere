@@ -16,8 +16,9 @@
 
 package uk.co.senab.actionbarpulltorefresh.library.viewdelegates;
 
-import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 import android.view.View;
+
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 /**
  * FIXME

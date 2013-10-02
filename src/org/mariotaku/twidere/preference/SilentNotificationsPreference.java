@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.preference;
 
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
 
 public final class SilentNotificationsPreference extends MultiSelectListPreference implements Constants {
 

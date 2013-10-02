@@ -19,19 +19,11 @@
 
 package org.mariotaku.twidere.fragment;
 
+import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.getActivatedAccountIds;
-import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 import static org.mariotaku.twidere.util.Utils.getNewestMessageIdsFromDatabase;
 import static org.mariotaku.twidere.util.Utils.getOldestMessageIdsFromDatabase;
 import static org.mariotaku.twidere.util.Utils.openDirectMessagesConversation;
-
-import org.mariotaku.twidere.activity.HomeActivity;
-import org.mariotaku.twidere.adapter.DirectMessagesEntryAdapter;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.AsyncTask;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.MultiSelectManager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -51,6 +43,14 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import org.mariotaku.twidere.activity.HomeActivity;
+import org.mariotaku.twidere.adapter.DirectMessagesEntryAdapter;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.AsyncTask;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.MultiSelectManager;
+
 public class DirectMessagesFragment extends BasePullToRefreshListFragment implements LoaderCallbacks<Cursor> {
 
 	private MultiSelectManager mMultiSelectManager;
@@ -59,7 +59,6 @@ public class DirectMessagesFragment extends BasePullToRefreshListFragment implem
 	private ListView mListView;
 
 	private boolean mLoadMoreAutomatically;
-
 	private DirectMessagesEntryAdapter mAdapter;
 	private final BroadcastReceiver mStatusReceiver = new BroadcastReceiver() {
 
@@ -180,13 +179,7 @@ public class DirectMessagesFragment extends BasePullToRefreshListFragment implem
 	public void onResume() {
 		super.onResume();
 		mListView.setFastScrollEnabled(mPreferences.getBoolean(PREFERENCE_KEY_FAST_SCROLL_THUMB, false));
-		final float text_size = mPreferences.getInt(PREFERENCE_KEY_TEXT_SIZE, getDefaultTextSize(getActivity()));
-		final boolean display_profile_image = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true);
-		final String name_display_option = mPreferences.getString(PREFERENCE_KEY_NAME_DISPLAY_OPTION,
-				NAME_DISPLAY_OPTION_BOTH);
-		mAdapter.setDisplayProfileImage(display_profile_image);
-		mAdapter.setTextSize(text_size);
-		mAdapter.setNameDisplayOption(name_display_option);
+		configBaseAdapter(getActivity(), mAdapter);
 		mLoadMoreAutomatically = mPreferences.getBoolean(PREFERENCE_KEY_LOAD_MORE_AUTOMATICALLY, false);
 	}
 

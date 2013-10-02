@@ -22,17 +22,6 @@ package org.mariotaku.twidere.activity;
 import static android.text.TextUtils.isEmpty;
 import static org.mariotaku.twidere.util.Utils.setUserAgent;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.httpclient.HttpClientImpl;
-
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.auth.RequestToken;
-import twitter4j.conf.ConfigurationBuilder;
 import android.annotation.SuppressLint;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -52,6 +41,18 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.httpclient.HttpClientImpl;
+
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.RequestToken;
+import twitter4j.conf.ConfigurationBuilder;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class AuthorizeActivity extends BaseActivity implements LoaderCallbacks<RequestToken> {

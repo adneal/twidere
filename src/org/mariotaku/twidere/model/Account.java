@@ -19,15 +19,15 @@
 
 package org.mariotaku.twidere.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
+
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Account {
 

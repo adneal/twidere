@@ -19,10 +19,6 @@ package de.keyboardsurfer.android.widget.crouton;
 
 import static org.mariotaku.twidere.util.Utils.announceForAccessibilityCompat;
 
-import java.util.Iterator;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
@@ -34,6 +30,10 @@ import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.FrameLayout;
+
+import java.util.Iterator;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /** Manages the lifecycle of {@link Crouton}s. */
 final class CroutonManager extends Handler {

@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
+
 package com.nostra13.universalimageloader.cache.disc.naming;
+
+import com.nostra13.universalimageloader.utils.L;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import com.nostra13.universalimageloader.utils.L;
 
 /**
  * Names image file as MD5 hash of image URI

@@ -20,21 +20,8 @@
 package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.addIntentToMenu;
-import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
+import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.openUserListDetails;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ParcelableUserListsAdapter;
-import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
-import org.mariotaku.twidere.loader.BaseUserListsLoader;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableUserList;
-import org.mariotaku.twidere.util.MultiSelectManager;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -49,6 +36,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.adapter.ParcelableUserListsAdapter;
+import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
+import org.mariotaku.twidere.loader.BaseUserListsLoader;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableUserList;
+import org.mariotaku.twidere.util.MultiSelectManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class BaseUserListsListFragment extends BasePullToRefreshListFragment implements
 		LoaderCallbacks<List<ParcelableUserList>>, Panes.Left, OnMenuItemClickListener, MenuButtonClickListener {
@@ -211,10 +210,7 @@ abstract class BaseUserListsListFragment extends BasePullToRefreshListFragment i
 	public void onResume() {
 		super.onResume();
 		mLoadMoreAutomatically = mPreferences.getBoolean(PREFERENCE_KEY_LOAD_MORE_AUTOMATICALLY, false);
-		final float text_size = mPreferences.getInt(PREFERENCE_KEY_TEXT_SIZE, getDefaultTextSize(getActivity()));
-		final boolean display_profile_image = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true);
-		mAdapter.setDisplayProfileImage(display_profile_image);
-		mAdapter.setTextSize(text_size);
+		configBaseAdapter(getActivity(), mAdapter);
 	}
 
 	@Override
@@ -248,7 +244,6 @@ abstract class BaseUserListsListFragment extends BasePullToRefreshListFragment i
 			mPopupMenu.dismiss();
 		}
 		mPopupMenu = PopupMenu.getInstance(getActivity(), view);
-		mPopupMenu.inflate(R.menu.action_user_list);
 		final Menu menu = mPopupMenu.getMenu();
 		final Intent extensions_intent = new Intent(INTENT_ACTION_EXTENSION_OPEN_USER_LIST);
 		final Bundle extensions_extras = new Bundle();

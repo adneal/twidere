@@ -27,15 +27,6 @@ import static org.mariotaku.twidere.util.Utils.getNewestStatusIdsFromDatabase;
 import static org.mariotaku.twidere.util.Utils.hasActiveConnection;
 import static org.mariotaku.twidere.util.Utils.isBatteryOkay;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.preference.AutoRefreshContentPreference;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.provider.TweetStore.Mentions;
-import org.mariotaku.twidere.provider.TweetStore.Notifications;
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -48,6 +39,15 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.preference.AutoRefreshContentPreference;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.provider.TweetStore.Mentions;
+import org.mariotaku.twidere.provider.TweetStore.Notifications;
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
 
 public class RefreshService extends Service implements Constants {
 

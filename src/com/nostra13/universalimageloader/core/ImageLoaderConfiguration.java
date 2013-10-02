@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.core;
 
-import java.util.concurrent.Executor;
+package com.nostra13.universalimageloader.core;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -34,6 +33,8 @@ import com.nostra13.universalimageloader.core.download.NetworkDeniedImageDownloa
 import com.nostra13.universalimageloader.core.download.SlowNetworkImageDownloader;
 import com.nostra13.universalimageloader.core.process.BitmapProcessor;
 import com.nostra13.universalimageloader.utils.L;
+
+import java.util.concurrent.Executor;
 
 /**
  * Presents configuration for {@link ImageLoader}
@@ -134,7 +135,7 @@ public final class ImageLoaderConfiguration {
 	 * <li>tasksProcessingOrder = {@link QueueProcessingType#FIFO}</li>
 	 * <li>detailed logging disabled</li>
 	 * </ul>
-	 * */
+	 */
 	public static ImageLoaderConfiguration createDefault(final Context context) {
 		return new Builder(context).build();
 	}
@@ -227,7 +228,7 @@ public final class ImageLoaderConfiguration {
 		 * method: so when some image will be cached in memory then previous
 		 * cached size of this image (if it exists) will be removed from memory
 		 * cache before.
-		 * */
+		 */
 		public Builder denyCacheImageMultipleSizesInMemory() {
 			denyCacheImageMultipleSizesInMemory = true;
 			return this;
@@ -354,7 +355,7 @@ public final class ImageLoaderConfiguration {
 		 * Default value -
 		 * {@link com.nostra13.universalimageloader.core.DefaultConfigurationFactory#createImageDecoder(boolean)
 		 * DefaultConfigurationFactory.createImageDecoder()}
-		 * */
+		 */
 		public Builder imageDecoder(final ImageDecoder imageDecoder) {
 			decoder = imageDecoder;
 			return this;
@@ -365,7 +366,7 @@ public final class ImageLoaderConfiguration {
 		 * Default value -
 		 * {@link com.nostra13.universalimageloader.core.DefaultConfigurationFactory#createImageDownloader(Context)
 		 * DefaultConfigurationFactory.createImageDownloader()}
-		 * */
+		 */
 		public Builder imageDownloader(final ImageDownloader imageDownloader) {
 			downloader = imageDownloader;
 			return this;
@@ -528,7 +529,7 @@ public final class ImageLoaderConfiguration {
 		/**
 		 * Sets thread pool size for image display tasks.<br />
 		 * Default value - {@link #DEFAULT_THREAD_POOL_SIZE this}
-		 * */
+		 */
 		public Builder threadPoolSize(final int threadPoolSize) {
 			if (taskExecutor != null || taskExecutorForCachedImages != null) {
 				L.w(WARNING_OVERLAP_EXECUTOR);
@@ -543,7 +544,7 @@ public final class ImageLoaderConfiguration {
 		 * greater than {@link Thread#MAX_PRIORITY} or less than
 		 * {@link Thread#MIN_PRIORITY}<br />
 		 * Default value - {@link #DEFAULT_THREAD_PRIORITY this}
-		 * */
+		 */
 		public Builder threadPriority(int threadPriority) {
 			if (taskExecutor != null || taskExecutorForCachedImages != null) {
 				L.w(WARNING_OVERLAP_EXECUTOR);

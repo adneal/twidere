@@ -1,15 +1,15 @@
 package me.imid.swipebacklayout.lib.app;
 
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
-
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+
+import org.mariotaku.twidere.util.ViewAccessor;
 
 @SuppressLint("Registered")
 public class SwipeBackActivity extends Activity {

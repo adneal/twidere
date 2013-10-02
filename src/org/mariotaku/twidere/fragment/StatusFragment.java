@@ -29,6 +29,7 @@ import static org.mariotaku.twidere.util.Utils.getAccountColor;
 import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 import static org.mariotaku.twidere.util.Utils.getImagesInStatus;
+import static org.mariotaku.twidere.util.Utils.getMapStaticImageUri;
 import static org.mariotaku.twidere.util.Utils.getTwitterInstance;
 import static org.mariotaku.twidere.util.Utils.getUserColor;
 import static org.mariotaku.twidere.util.Utils.getUserNickname;
@@ -38,46 +39,12 @@ import static org.mariotaku.twidere.util.Utils.isSameAccount;
 import static org.mariotaku.twidere.util.Utils.openImage;
 import static org.mariotaku.twidere.util.Utils.openStatusRetweeters;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
+import static org.mariotaku.twidere.util.Utils.scrollListToPosition;
 import static org.mariotaku.twidere.util.Utils.setMenuForStatus;
 import static org.mariotaku.twidere.util.Utils.setUserColor;
 import static org.mariotaku.twidere.util.Utils.showErrorMessage;
 import static org.mariotaku.twidere.util.Utils.showOkMessage;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.mariotaku.menubar.MenuBar;
-import org.mariotaku.menubar.MenuBar.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.ColorSelectorActivity;
-import org.mariotaku.twidere.adapter.ImagePreviewAdapter;
-import org.mariotaku.twidere.adapter.ParcelableStatusesAdapter;
-import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.loader.DummyParcelableStatusesLoader;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableLocation;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.model.PreviewImage;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-import org.mariotaku.twidere.util.AsyncTask;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ClipboardUtils;
-import org.mariotaku.twidere.util.HtmlEscapeHelper;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.OnLinkClickHandler;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.TwidereLinkify;
-import org.mariotaku.twidere.util.Utils;
-import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
-import org.mariotaku.twidere.view.ExtendedFrameLayout;
-
-import twitter4j.Relationship;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -119,9 +86,45 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
 import edu.ucdavis.earlybird.ProfilingUtil;
+
+import org.mariotaku.menubar.MenuBar;
+import org.mariotaku.menubar.MenuBar.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.ColorSelectorActivity;
+import org.mariotaku.twidere.adapter.ImagePreviewAdapter;
+import org.mariotaku.twidere.adapter.ParcelableStatusesAdapter;
+import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.loader.DummyParcelableStatusesLoader;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableLocation;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.model.PreviewImage;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
+import org.mariotaku.twidere.util.AsyncTask;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ClipboardUtils;
+import org.mariotaku.twidere.util.HtmlEscapeHelper;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.OnLinkClickHandler;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.TwidereLinkify;
+import org.mariotaku.twidere.view.ColorLabelRelativeLayout;
+import org.mariotaku.twidere.view.ExtendedFrameLayout;
+
+import twitter4j.Relationship;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class StatusFragment extends ParcelableStatusesListFragment implements OnClickListener, Panes.Right,
 		OnItemClickListener, OnItemSelectedListener, OnSharedPreferenceChangeListener {
@@ -141,13 +144,14 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 
 	private SharedPreferences mPreferences;
 	private AsyncTwitterWrapper mTwitterWrapper;
-	private ImageLoaderWrapper mProfileImageLoader;
+	private ImageLoaderWrapper mImageLoader;
+	private Handler mHandler;
 
 	private TextView mNameView, mScreenNameView, mTextView, mTimeAndSourceView, mInReplyToView, mLocationView,
 			mRetweetedStatusView;
-	private ImageView mProfileImageView;
+	private ImageView mProfileImageView, mMapView;
 	private Button mFollowButton;
-	private View mMainContent, mFollowIndicator, mImagePreviewContainer, mGalleryContainer;
+	private View mMainContent, mFollowIndicator, mImagePreviewContainer, mGalleryContainer, mLocationContainer;
 	private ColorLabelRelativeLayout mProfileView;
 	private MenuBar mMenuBar;
 	private ProgressBar mStatusLoadProgress, mFollowInfoProgress;
@@ -381,17 +385,6 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 		}
 	};
 
-	private final ExtendedFrameLayout.OnSizeChangedListener mOnSizeChangedListener = new ExtendedFrameLayout.OnSizeChangedListener() {
-
-		@Override
-		public void onSizeChanged(final View view, final int w, final int h, final int oldw, final int oldh) {
-			if (getActivity() == null) return;
-			// final float density = getResources().getDisplayMetrics().density;
-			// mStatusView.setMinimumHeight(h - (int) (density * 2));
-		}
-
-	};
-
 	public void displayStatus(final ParcelableStatus status) {
 		final boolean status_unchanged = mStatus != null && status != null && status.equals(mStatus);
 		if (!status_unchanged) {
@@ -430,10 +423,10 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 
 		updateUserColor();
 		mProfileView.drawEnd(getAccountColor(getActivity(), status.account_id));
-
+		final boolean nickname_only = mPreferences.getBoolean(PREFERENCE_KEY_NICKNAME_ONLY, false);
 		final String nick = getUserNickname(getActivity(), status.user_id, true);
-		mNameView.setText(TextUtils.isEmpty(nick) ? status.user_name : getString(R.string.name_with_nickname,
-				status.user_name, nick));
+		mNameView.setText(TextUtils.isEmpty(nick) ? status.user_name : nickname_only ? nick : getString(
+				R.string.name_with_nickname, status.user_name, nick));
 		mNameView.setCompoundDrawablesWithIntrinsicBounds(0, 0,
 				getUserTypeIconRes(status.user_is_verified, status.user_is_protected), 0);
 		mScreenNameView.setText("@" + status.user_screen_name);
@@ -456,7 +449,7 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 
 		if (mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true)) {
 			final boolean hires_profile_image = getResources().getBoolean(R.bool.hires_profile_image);
-			mProfileImageLoader.displayProfileImage(mProfileImageView,
+			mImageLoader.displayProfileImage(mProfileImageView,
 					hires_profile_image ? getBiggerTwitterProfileImage(status.user_profile_image_url)
 							: status.user_profile_image_url);
 		} else {
@@ -464,7 +457,8 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 		}
 		final List<PreviewImage> images = getImagesInStatus(status.text_html);
 		mImagePreviewContainer.setVisibility(images.isEmpty() ? View.GONE : View.VISIBLE);
-		if (mLoadMoreAutomatically) {
+		final boolean display_image_preview = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_IMAGE_PREVIEW, false);
+		if (display_image_preview) {
 			loadPreviewImages();
 		}
 		mRetweetedStatusView.setVisibility(!status.user_is_protected ? View.VISIBLE : View.GONE);
@@ -483,7 +477,24 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 				mRetweetedStatusView.setText(R.string.users_retweeted_this);
 			}
 		}
-		mLocationView.setVisibility(ParcelableLocation.isValidLocation(status.location) ? View.VISIBLE : View.GONE);
+		final ParcelableLocation location = status.location;
+		final boolean is_valid_location = ParcelableLocation.isValidLocation(location);
+		mLocationContainer.setVisibility(is_valid_location ? View.VISIBLE : View.GONE);
+		mMapView.setVisibility(View.VISIBLE);
+		mLocationView.setVisibility(View.VISIBLE);
+		if (display_image_preview) {
+			mMapView.setVisibility(is_valid_location ? View.VISIBLE : View.GONE);
+			mLocationView.setVisibility(View.VISIBLE);
+			if (is_valid_location) {
+				mHandler.post(new DisplayMapRunnable(location, mImageLoader, mMapView));
+			} else {
+				mMapView.setImageDrawable(null);
+			}
+		} else {
+			mMapView.setVisibility(View.GONE);
+			mMapView.setImageDrawable(null);
+			mLocationView.setVisibility(View.VISIBLE);
+		}
 		if (mLoadMoreAutomatically) {
 			showFollowInfo(true);
 			showLocationInfo(true);
@@ -509,8 +520,8 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 	public void onActivityCreated(final Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		setListShownNoAnimation(true);
+		mHandler = new Handler();
 		mListView = getListView();
-		// mListView.setStackFromBottom(true);
 		getListAdapter().setGapDisallowed(true);
 		final TwidereApplication application = getApplication();
 		mPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
@@ -518,7 +529,7 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 				.registerOnSharedPreferenceChangeListener(this);
 		getSharedPreferences(USER_NICKNAME_PREFERENCES_NAME, Context.MODE_PRIVATE)
 				.registerOnSharedPreferenceChangeListener(this);
-		mProfileImageLoader = application.getImageLoaderWrapper();
+		mImageLoader = application.getImageLoaderWrapper();
 		mTwitterWrapper = getTwitterWrapper();
 		mLoadMoreAutomatically = mPreferences.getBoolean(PREFERENCE_KEY_LOAD_MORE_AUTOMATICALLY, false);
 		mImagePreviewAdapter = new ImagePreviewAdapter(getActivity());
@@ -533,7 +544,7 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 		mInReplyToView.setOnClickListener(this);
 		mFollowButton.setOnClickListener(this);
 		mProfileView.setOnClickListener(this);
-		mLocationView.setOnClickListener(this);
+		mLocationContainer.setOnClickListener(this);
 		mRetweetedStatusView.setOnClickListener(this);
 		mMenuBar.setOnMenuItemClickListener(mMenuItemClickListener);
 		getStatus(false);
@@ -575,10 +586,9 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 				showConversation();
 				break;
 			}
-			case R.id.location_view: {
-				if (mStatus.location == null) return;
+			case R.id.location_container: {
 				final ParcelableLocation location = mStatus.location;
-				if (location == null || !location.isValid()) return;
+				if (!ParcelableLocation.isValidLocation(location)) return;
 				final Uri.Builder builder = new Uri.Builder();
 				builder.scheme(SCHEME_TWIDERE);
 				builder.authority(AUTHORITY_MAP);
@@ -622,10 +632,11 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 		mMenuBar = (MenuBar) view.findViewById(R.id.menu_bar);
 		mStatusContainer = (ExtendedFrameLayout) view.findViewById(R.id.status_container);
 		mStatusContainer.addView(super.onCreateView(inflater, container, savedInstanceState));
-		mStatusContainer.setOnSizeChangedListener(mOnSizeChangedListener);
 		mStatusView = inflater.inflate(R.layout.status_content, null, false);
 		mImagePreviewContainer = mStatusView.findViewById(R.id.image_preview);
+		mLocationContainer = mStatusView.findViewById(R.id.location_container);
 		mLocationView = (TextView) mStatusView.findViewById(R.id.location_view);
+		mMapView = (ImageView) mStatusView.findViewById(R.id.map_view);
 		mRetweetedStatusView = (TextView) mStatusView.findViewById(R.id.retweet_view);
 		mNameView = (TextView) mStatusView.findViewById(R.id.name);
 		mScreenNameView = (TextView) mStatusView.findViewById(R.id.screen_name);
@@ -747,8 +758,13 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 	public boolean scrollToStart() {
 		if (mListView == null) return false;
 		final IStatusesAdapter<List<ParcelableStatus>> adapter = getListAdapter();
-		Utils.scrollListToPosition(mListView, adapter.getCount() + mListView.getFooterViewsCount() - 1, 0);
+		scrollListToPosition(mListView, adapter.getCount() + mListView.getFooterViewsCount() - 1, 0);
 		return true;
+	}
+
+	@Override
+	protected String[] getSavedStatusesFileArgs() {
+		return null;
 	}
 
 	// @Override
@@ -769,11 +785,6 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 	// }
 	// super.setItemSelected(status, position, selected);
 	// }
-
-	@Override
-	protected String[] getSavedStatusesFileArgs() {
-		return null;
-	}
 
 	@Override
 	protected void onReachedBottom() {
@@ -1042,6 +1053,24 @@ public class StatusFragment extends ParcelableStatusesListFragment implements On
 			forceLoad();
 		}
 
+	}
+
+	private static class DisplayMapRunnable implements Runnable {
+		private final ParcelableLocation mLocation;
+		private final ImageLoaderWrapper mLoader;
+		private final ImageView mView;
+
+		DisplayMapRunnable(final ParcelableLocation location, final ImageLoaderWrapper loader, final ImageView view) {
+			mLocation = location;
+			mLoader = loader;
+			mView = view;
+		}
+
+		@Override
+		public void run() {
+			final String uri = getMapStaticImageUri(mLocation.latitude, mLocation.longitude, mView);
+			mLoader.displayPreviewImage(mView, uri);
+		}
 	}
 
 	static class FollowInfoLoader extends AsyncTaskLoader<Response<Boolean>> {

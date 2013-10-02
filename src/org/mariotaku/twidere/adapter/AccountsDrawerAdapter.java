@@ -1,14 +1,5 @@
 package org.mariotaku.twidere.adapter;
 
-import java.util.Arrays;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.model.Account;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.view.holder.AccountDrawerGroupViewHolder;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
@@ -18,35 +9,48 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.model.Account;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.view.holder.AccountDrawerGroupViewHolder;
+
+import java.util.Arrays;
+
 public class AccountsDrawerAdapter extends BaseExpandableListAdapter implements Constants {
 
 	private static final float ITEM_ACTIVATED_ALPHA = 1f;
 	private static final float ITEM_INACTIVATED_ALPHA = 0.5f;
 	private static final int GROUP_LAYOUT = R.layout.accounts_drawer_item_group;
 	private static final int CHILD_LAYOUT = R.layout.accounts_drawer_item_child;
-	private static final AccountAction[] DEFAULT_ACCOUNT_ACTIONS = new AccountAction[7];
-	private static final AccountAction[] ACCOUNT_ACTIONS = new AccountAction[8];
+	private static final AccountAction[] DEFAULT_ACCOUNT_ACTIONS = new AccountAction[8];
+	private static final AccountAction[] ACCOUNT_ACTIONS = new AccountAction[9];
 
 	static {
 		DEFAULT_ACCOUNT_ACTIONS[0] = new AccountAction(R.string.view_user_profile, R.drawable.ic_menu_profile,
 				MENU_VIEW_PROFILE);
-		DEFAULT_ACCOUNT_ACTIONS[1] = new AccountAction(R.string.tweets, R.drawable.ic_menu_quote, MENU_STATUSES);
+		DEFAULT_ACCOUNT_ACTIONS[1] = new AccountAction(R.string.statuses, R.drawable.ic_menu_quote, MENU_STATUSES);
 		DEFAULT_ACCOUNT_ACTIONS[2] = new AccountAction(R.string.favorites, R.drawable.ic_menu_star, MENU_FAVORITES);
 		DEFAULT_ACCOUNT_ACTIONS[3] = new AccountAction(R.string.user_list, R.drawable.ic_menu_list, MENU_LISTS);
-		DEFAULT_ACCOUNT_ACTIONS[4] = new AccountAction(R.string.edit_profile, android.R.drawable.ic_menu_edit,
+		DEFAULT_ACCOUNT_ACTIONS[4] = new AccountAction(R.string.lists_following_user, R.drawable.ic_menu_list,
+				MENU_LIST_MEMBERSHIPS);
+		DEFAULT_ACCOUNT_ACTIONS[5] = new AccountAction(R.string.edit_profile, android.R.drawable.ic_menu_edit,
 				MENU_EDIT);
-		DEFAULT_ACCOUNT_ACTIONS[5] = new AccountAction(R.string.set_color, R.drawable.ic_menu_color_palette,
+		DEFAULT_ACCOUNT_ACTIONS[6] = new AccountAction(R.string.set_color, R.drawable.ic_menu_color_palette,
 				MENU_SET_COLOR);
-		DEFAULT_ACCOUNT_ACTIONS[6] = new AccountAction(R.string.delete, android.R.drawable.ic_menu_delete, MENU_DELETE);
+		DEFAULT_ACCOUNT_ACTIONS[7] = new AccountAction(R.string.delete, android.R.drawable.ic_menu_delete, MENU_DELETE);
 		ACCOUNT_ACTIONS[0] = new AccountAction(R.string.view_user_profile, R.drawable.ic_menu_profile,
 				MENU_VIEW_PROFILE);
-		ACCOUNT_ACTIONS[1] = new AccountAction(R.string.tweets, R.drawable.ic_menu_quote, MENU_STATUSES);
+		ACCOUNT_ACTIONS[1] = new AccountAction(R.string.statuses, R.drawable.ic_menu_quote, MENU_STATUSES);
 		ACCOUNT_ACTIONS[2] = new AccountAction(R.string.favorites, R.drawable.ic_menu_star, MENU_FAVORITES);
 		ACCOUNT_ACTIONS[3] = new AccountAction(R.string.user_list, R.drawable.ic_menu_list, MENU_LISTS);
-		ACCOUNT_ACTIONS[4] = new AccountAction(R.string.edit_profile, android.R.drawable.ic_menu_edit, MENU_EDIT);
-		ACCOUNT_ACTIONS[5] = new AccountAction(R.string.set_color, R.drawable.ic_menu_color_palette, MENU_SET_COLOR);
-		ACCOUNT_ACTIONS[6] = new AccountAction(R.string.set_as_default, R.drawable.ic_menu_mark, MENU_SET_AS_DEFAULT);
-		ACCOUNT_ACTIONS[7] = new AccountAction(R.string.delete, android.R.drawable.ic_menu_delete, MENU_DELETE);
+		DEFAULT_ACCOUNT_ACTIONS[4] = new AccountAction(R.string.lists_following_user, R.drawable.ic_menu_list,
+				MENU_LIST_MEMBERSHIPS);
+		ACCOUNT_ACTIONS[5] = new AccountAction(R.string.edit_profile, android.R.drawable.ic_menu_edit, MENU_EDIT);
+		ACCOUNT_ACTIONS[6] = new AccountAction(R.string.set_color, R.drawable.ic_menu_color_palette, MENU_SET_COLOR);
+		ACCOUNT_ACTIONS[7] = new AccountAction(R.string.set_as_default, R.drawable.ic_menu_mark, MENU_SET_AS_DEFAULT);
+		ACCOUNT_ACTIONS[8] = new AccountAction(R.string.delete, android.R.drawable.ic_menu_delete, MENU_DELETE);
 	}
 
 	private final ImageLoaderWrapper mImageLoader;

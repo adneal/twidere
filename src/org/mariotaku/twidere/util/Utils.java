@@ -28,119 +28,6 @@ import static org.mariotaku.twidere.util.HtmlEscapeHelper.toPlainText;
 import static org.mariotaku.twidere.util.TwidereLinkify.PATTERN_TWITTER_PROFILE_IMAGES;
 import static org.mariotaku.twidere.util.TwidereLinkify.TWITTER_PROFILE_IMAGES_AVAILABLE_SIZES;
 
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.SocketAddress;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.net.ssl.SSLException;
-
-import org.apache.http.NameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mariotaku.gallery3d.ImageViewerGLActivity;
-import org.mariotaku.querybuilder.AllColumns;
-import org.mariotaku.querybuilder.Columns;
-import org.mariotaku.querybuilder.Columns.Column;
-import org.mariotaku.querybuilder.OrderBy;
-import org.mariotaku.querybuilder.SQLQueryBuilder;
-import org.mariotaku.querybuilder.Selectable;
-import org.mariotaku.querybuilder.Tables;
-import org.mariotaku.querybuilder.Where;
-import org.mariotaku.twidere.BuildConfig;
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.CameraCropActivity;
-import org.mariotaku.twidere.activity.DualPaneActivity;
-import org.mariotaku.twidere.activity.HomeActivity;
-import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.fragment.ActivitiesAboutMeFragment;
-import org.mariotaku.twidere.fragment.ActivitiesByFriendsFragment;
-import org.mariotaku.twidere.fragment.DirectMessagesConversationFragment;
-import org.mariotaku.twidere.fragment.IncomingFriendshipsFragment;
-import org.mariotaku.twidere.fragment.SavedSearchesListFragment;
-import org.mariotaku.twidere.fragment.SearchFragment;
-import org.mariotaku.twidere.fragment.SearchTweetsFragment;
-import org.mariotaku.twidere.fragment.SearchUsersFragment;
-import org.mariotaku.twidere.fragment.SensitiveContentWarningDialogFragment;
-import org.mariotaku.twidere.fragment.StatusFragment;
-import org.mariotaku.twidere.fragment.StatusRetweetersListFragment;
-import org.mariotaku.twidere.fragment.StatusesListFragment;
-import org.mariotaku.twidere.fragment.UserBlocksListFragment;
-import org.mariotaku.twidere.fragment.UserFavoritesFragment;
-import org.mariotaku.twidere.fragment.UserFollowersFragment;
-import org.mariotaku.twidere.fragment.UserFriendsFragment;
-import org.mariotaku.twidere.fragment.UserListDetailsFragment;
-import org.mariotaku.twidere.fragment.UserListMembersFragment;
-import org.mariotaku.twidere.fragment.UserListMembershipsListFragment;
-import org.mariotaku.twidere.fragment.UserListSubscribersFragment;
-import org.mariotaku.twidere.fragment.UserListTimelineFragment;
-import org.mariotaku.twidere.fragment.UserListsListFragment;
-import org.mariotaku.twidere.fragment.UserMentionsFragment;
-import org.mariotaku.twidere.fragment.UserProfileFragment;
-import org.mariotaku.twidere.fragment.UserTimelineFragment;
-import org.mariotaku.twidere.fragment.UsersListFragment;
-import org.mariotaku.twidere.model.DirectMessageCursorIndices;
-import org.mariotaku.twidere.model.ParcelableDirectMessage;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.model.ParcelableUserList;
-import org.mariotaku.twidere.model.PreviewImage;
-import org.mariotaku.twidere.model.StatusCursorIndices;
-import org.mariotaku.twidere.model.SupportTabSpec;
-import org.mariotaku.twidere.provider.TweetStore;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
-import org.mariotaku.twidere.provider.TweetStore.CachedTrends;
-import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.provider.TweetStore.Filters;
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-import org.mariotaku.twidere.provider.TweetStore.Tabs;
-import org.mariotaku.twidere.util.HtmlLinkExtractor.HtmlLink;
-import org.mariotaku.twidere.util.httpclient.HttpClientImpl;
-
-import twitter4j.DirectMessage;
-import twitter4j.EntitySupport;
-import twitter4j.GeoLocation;
-import twitter4j.MediaEntity;
-import twitter4j.RateLimitStatus;
-import twitter4j.Status;
-import twitter4j.Trend;
-import twitter4j.Trends;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.URLEntity;
-import twitter4j.User;
-import twitter4j.auth.AccessToken;
-import twitter4j.auth.BasicAuthorization;
-import twitter4j.auth.TwipOModeAuthorization;
-import twitter4j.conf.Configuration;
-import twitter4j.conf.ConfigurationBuilder;
-import twitter4j.http.HostAddressResolver;
-import twitter4j.http.HttpClientWrapper;
-import twitter4j.http.HttpResponse;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -193,15 +80,127 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.MeasureSpec;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonConfiguration;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mariotaku.gallery3d.ImageViewerGLActivity;
+import org.mariotaku.querybuilder.AllColumns;
+import org.mariotaku.querybuilder.Columns;
+import org.mariotaku.querybuilder.Columns.Column;
+import org.mariotaku.querybuilder.OrderBy;
+import org.mariotaku.querybuilder.SQLQueryBuilder;
+import org.mariotaku.querybuilder.Selectable;
+import org.mariotaku.querybuilder.Tables;
+import org.mariotaku.querybuilder.Where;
+import org.mariotaku.twidere.BuildConfig;
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.CameraCropActivity;
+import org.mariotaku.twidere.activity.DualPaneActivity;
+import org.mariotaku.twidere.adapter.iface.IBaseAdapter;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.fragment.DirectMessagesConversationFragment;
+import org.mariotaku.twidere.fragment.IncomingFriendshipsFragment;
+import org.mariotaku.twidere.fragment.SavedSearchesListFragment;
+import org.mariotaku.twidere.fragment.SearchFragment;
+import org.mariotaku.twidere.fragment.SearchStatusesFragment;
+import org.mariotaku.twidere.fragment.SensitiveContentWarningDialogFragment;
+import org.mariotaku.twidere.fragment.StatusFragment;
+import org.mariotaku.twidere.fragment.StatusRetweetersListFragment;
+import org.mariotaku.twidere.fragment.StatusesListFragment;
+import org.mariotaku.twidere.fragment.UserBlocksListFragment;
+import org.mariotaku.twidere.fragment.UserFavoritesFragment;
+import org.mariotaku.twidere.fragment.UserFollowersFragment;
+import org.mariotaku.twidere.fragment.UserFriendsFragment;
+import org.mariotaku.twidere.fragment.UserListDetailsFragment;
+import org.mariotaku.twidere.fragment.UserListMembersFragment;
+import org.mariotaku.twidere.fragment.UserListMembershipsListFragment;
+import org.mariotaku.twidere.fragment.UserListSubscribersFragment;
+import org.mariotaku.twidere.fragment.UserListTimelineFragment;
+import org.mariotaku.twidere.fragment.UserListsListFragment;
+import org.mariotaku.twidere.fragment.UserMentionsFragment;
+import org.mariotaku.twidere.fragment.UserProfileFragment;
+import org.mariotaku.twidere.fragment.UserTimelineFragment;
+import org.mariotaku.twidere.fragment.UsersListFragment;
+import org.mariotaku.twidere.model.CustomTabConfiguration;
+import org.mariotaku.twidere.model.DirectMessageCursorIndices;
+import org.mariotaku.twidere.model.ParcelableDirectMessage;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.model.ParcelableUserList;
+import org.mariotaku.twidere.model.PreviewImage;
+import org.mariotaku.twidere.model.StatusCursorIndices;
+import org.mariotaku.twidere.model.SupportTabSpec;
+import org.mariotaku.twidere.provider.TweetStore;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.provider.TweetStore.CachedStatuses;
+import org.mariotaku.twidere.provider.TweetStore.CachedTrends;
+import org.mariotaku.twidere.provider.TweetStore.CachedUsers;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.provider.TweetStore.Filters;
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
+import org.mariotaku.twidere.provider.TweetStore.Tabs;
+import org.mariotaku.twidere.util.HtmlLinkExtractor.HtmlLink;
+import org.mariotaku.twidere.util.httpclient.HttpClientImpl;
+
+import twitter4j.DirectMessage;
+import twitter4j.EntitySupport;
+import twitter4j.GeoLocation;
+import twitter4j.MediaEntity;
+import twitter4j.RateLimitStatus;
+import twitter4j.Status;
+import twitter4j.Trend;
+import twitter4j.Trends;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.URLEntity;
+import twitter4j.User;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.BasicAuthorization;
+import twitter4j.auth.TwipOModeAuthorization;
+import twitter4j.conf.Configuration;
+import twitter4j.conf.ConfigurationBuilder;
+import twitter4j.http.HostAddressResolver;
+import twitter4j.http.HttpClientWrapper;
+import twitter4j.http.HttpResponse;
+
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.SocketAddress;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.net.ssl.SSLException;
 
 public final class Utils implements Constants {
 
@@ -212,10 +211,6 @@ public final class Utils implements Constants {
 
 	private static final UriMatcher CONTENT_PROVIDER_URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 	private static final UriMatcher LINK_HANDLER_URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-
-	public static final HashMap<String, Class<? extends Fragment>> CUSTOM_TABS_FRAGMENT_MAP = new HashMap<String, Class<? extends Fragment>>();
-	public static final HashMap<String, Integer> CUSTOM_TABS_TYPE_NAME_MAP = new HashMap<String, Integer>();
-	public static final HashMap<String, Integer> CUSTOM_TABS_ICON_NAME_MAP = new HashMap<String, Integer>();
 	static {
 		CONTENT_PROVIDER_URI_MATCHER.addURI(TweetStore.AUTHORITY, TABLE_STATUSES, TABLE_ID_STATUSES);
 		CONTENT_PROVIDER_URI_MATCHER.addURI(TweetStore.AUTHORITY, TABLE_ACCOUNTS, TABLE_ID_ACCOUNTS);
@@ -275,53 +270,6 @@ public final class Utils implements Constants {
 		LINK_HANDLER_URI_MATCHER.addURI(AUTHORITY_STATUS_RETWEETERS, null, LINK_ID_STATUS_RETWEETERS);
 		LINK_HANDLER_URI_MATCHER.addURI(AUTHORITY_SEARCH, null, LINK_ID_SEARCH);
 
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_LISTS, UserListsListFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_LIST_MEMBERS, UserListMembersFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_LISTS, UserListSubscribersFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_LIST_TIMELINE, UserListTimelineFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_SAVED_SEARCHES, SavedSearchesListFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_SEARCH_TWEETS, SearchTweetsFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_SEARCH_USERS, SearchUsersFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_USER_FAVORITES, UserFavoritesFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_USER_FOLLOWERS, UserFollowersFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_USER_FRIENDS, UserFriendsFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_USER_MENTIONS, UserMentionsFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_USER_TIMELINE, UserTimelineFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_ACTIVITIES_ABOUT_ME, ActivitiesAboutMeFragment.class);
-		CUSTOM_TABS_FRAGMENT_MAP.put(AUTHORITY_ACTIVITIES_BY_FRIENDS, ActivitiesByFriendsFragment.class);
-
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_LIST_MEMBERS, R.string.list_members);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_LISTS, R.string.user_list);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_LIST_TIMELINE, R.string.list_timeline);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_SAVED_SEARCHES, R.string.saved_searches);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_SEARCH_TWEETS, R.string.search_tweets);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_SEARCH_USERS, R.string.search_users);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_USER_FAVORITES, R.string.favorites);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_USER_FOLLOWERS, R.string.followers);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_USER_FRIENDS, R.string.following);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_USER_MENTIONS, R.string.user_mentions);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_USER_TIMELINE, R.string.user_timeline);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_ACTIVITIES_ABOUT_ME, R.string.activities_about_me);
-		CUSTOM_TABS_TYPE_NAME_MAP.put(AUTHORITY_ACTIVITIES_BY_FRIENDS, R.string.activities_by_friends);
-
-		CUSTOM_TABS_ICON_NAME_MAP.put("accounts", R.drawable.ic_tab_accounts);
-		CUSTOM_TABS_ICON_NAME_MAP.put("fire", R.drawable.ic_tab_fire);
-		CUSTOM_TABS_ICON_NAME_MAP.put("hamster", R.drawable.ic_tab_hamster);
-		CUSTOM_TABS_ICON_NAME_MAP.put("heart", R.drawable.ic_tab_heart);
-		CUSTOM_TABS_ICON_NAME_MAP.put("home", R.drawable.ic_tab_home);
-		CUSTOM_TABS_ICON_NAME_MAP.put("list", R.drawable.ic_tab_list);
-		CUSTOM_TABS_ICON_NAME_MAP.put("mention", R.drawable.ic_tab_mention);
-		CUSTOM_TABS_ICON_NAME_MAP.put("message", R.drawable.ic_tab_message);
-		CUSTOM_TABS_ICON_NAME_MAP.put("neko", R.drawable.ic_tab_neko);
-		CUSTOM_TABS_ICON_NAME_MAP.put("person", R.drawable.ic_tab_person);
-		CUSTOM_TABS_ICON_NAME_MAP.put("pin", R.drawable.ic_tab_pin);
-		CUSTOM_TABS_ICON_NAME_MAP.put("ribbon", R.drawable.ic_tab_ribbon);
-		CUSTOM_TABS_ICON_NAME_MAP.put("search", R.drawable.ic_tab_search);
-		CUSTOM_TABS_ICON_NAME_MAP.put("star", R.drawable.ic_tab_star);
-		CUSTOM_TABS_ICON_NAME_MAP.put("trends", R.drawable.ic_tab_trends);
-		CUSTOM_TABS_ICON_NAME_MAP.put("twitter", R.drawable.ic_tab_twitter);
-		CUSTOM_TABS_ICON_NAME_MAP.put(ICON_SPECIAL_TYPE_CUSTOMIZE, -1);
-
 	}
 	private static Map<Long, Integer> sAccountColors = new LinkedHashMap<Long, Integer>();
 
@@ -332,6 +280,8 @@ public final class Utils implements Constants {
 	private static Map<Long, String> sAccountScreenNames = new LinkedHashMap<Long, String>();
 
 	private static Map<Long, String> sAccountNames = new LinkedHashMap<Long, String>();
+
+	static final String MAPS_STATIC_IMAGE_URI_TEMPLATE = "https://maps.googleapis.com/maps/api/staticmap?zoom=%d&size=%dx%d&sensor=false&language=%s&center=%f,%f&markers=%f,%f";
 
 	private Utils() {
 		throw new AssertionError("You are trying to create an instance for this utility class!");
@@ -614,6 +564,7 @@ public final class Utils implements Constants {
 		final SharedPreferences pref = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
 		adapter.setDisplayProfileImage(pref.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true));
 		adapter.setNameDisplayOption(pref.getString(PREFERENCE_KEY_NAME_DISPLAY_OPTION, NAME_DISPLAY_OPTION_BOTH));
+		adapter.setNicknameOnly(pref.getBoolean(PREFERENCE_KEY_NICKNAME_ONLY, false));
 		adapter.setTextSize(pref.getInt(PREFERENCE_KEY_TEXT_SIZE, getDefaultTextSize(context)));
 	}
 
@@ -1522,15 +1473,16 @@ public final class Utils implements Constants {
 					.getColumnIndex(Tabs.TYPE), idx_arguments = cur.getColumnIndex(Tabs.ARGUMENTS), idx_position = cur
 					.getColumnIndex(Tabs.POSITION);
 			while (!cur.isAfterLast()) {
-				final int position = cur.getInt(idx_position) + HomeActivity.TAB_POSITION_TRENDS + 1;
+				final int position = cur.getInt(idx_position);
 				final String icon_type = cur.getString(idx_icon);
 				final String type = cur.getString(idx_type);
 				final String name = cur.getString(idx_name);
 				final Bundle args = ParseUtils.parseArguments(cur.getString(idx_arguments));
 				args.putInt(INTENT_KEY_TAB_POSITION, position);
-				final Class<? extends Fragment> fragment = CUSTOM_TABS_FRAGMENT_MAP.get(type);
+				final Class<? extends Fragment> fragment = CustomTabConfiguration.get(type).getFragmentClass();
 				if (name != null && fragment != null) {
-					tabs.add(new SupportTabSpec(name, getTabIconObject(icon_type), fragment, args, position));
+					tabs.add(new SupportTabSpec(name, CustomTabConfiguration.getTabIconObject(icon_type), fragment,
+							args, position));
 				}
 				cur.moveToNext();
 			}
@@ -1644,6 +1596,20 @@ public final class Utils implements Constants {
 	public static String getLocalizedNumber(final Locale locale, final Number number) {
 		final NumberFormat nf = NumberFormat.getInstance(locale);
 		return nf.format(number);
+	}
+
+	public static String getMapStaticImageUri(final double lat, final double lng, final int zoom, final int w,
+			final int h, final Locale locale) {
+		return String.format(MAPS_STATIC_IMAGE_URI_TEMPLATE, zoom, w, h, locale.toString(), lat, lng, lat, lng);
+	}
+
+	public static String getMapStaticImageUri(final double lat, final double lng, final View v) {
+		if (v == null) return null;
+		final int wSpec = MeasureSpec.makeMeasureSpec(v.getWidth(), MeasureSpec.UNSPECIFIED);
+		final int hSpec = MeasureSpec.makeMeasureSpec(v.getHeight(), MeasureSpec.UNSPECIFIED);
+		v.measure(wSpec, hSpec);
+		return getMapStaticImageUri(lat, lng, 12, v.getMeasuredWidth(), v.getMeasuredHeight(), v.getResources()
+				.getConfiguration().locale);
 	}
 
 	public static String getNameDisplayOption(final Context context) {
@@ -1929,22 +1895,6 @@ public final class Utils implements Constants {
 		return res.getDrawable(R.drawable.ic_tab_list);
 	}
 
-	public static Object getTabIconObject(final String type) {
-		if (type == null) return R.drawable.ic_tab_list;
-		final Integer value = CUSTOM_TABS_ICON_NAME_MAP.get(type);
-		if (value != null)
-			return value;
-		else if (type.contains("/")) {
-			try {
-				final File file = new File(type);
-				if (file.exists()) return file;
-			} catch (final Exception e) {
-				return R.drawable.ic_tab_list;
-			}
-		}
-		return R.drawable.ic_tab_list;
-	}
-
 	public static int getTableId(final Uri uri) {
 		if (uri == null) return -1;
 		return CONTENT_PROVIDER_URI_MATCHER.match(uri);
@@ -1994,7 +1944,7 @@ public final class Utils implements Constants {
 
 	public static String getTabTypeName(final Context context, final String type) {
 		if (context == null) return null;
-		final Integer res_id = CUSTOM_TABS_TYPE_NAME_MAP.get(type);
+		final Integer res_id = CustomTabConfiguration.get(type).getDefaultTitle();
 		return res_id != null ? context.getString(res_id) : null;
 	}
 
@@ -2860,7 +2810,7 @@ public final class Utils implements Constants {
 		if (activity == null) return;
 		if (activity instanceof DualPaneActivity && ((DualPaneActivity) activity).isDualPaneMode()) {
 			final DualPaneActivity dual_pane_activity = (DualPaneActivity) activity;
-			final Fragment fragment = new SearchTweetsFragment();
+			final Fragment fragment = new SearchStatusesFragment();
 			final Bundle args = new Bundle();
 			args.putLong(INTENT_KEY_ACCOUNT_ID, account_id);
 			if (query != null) {

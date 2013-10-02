@@ -19,10 +19,10 @@
 
 package org.mariotaku.twidere.util;
 
+import android.os.Handler;
+
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-
-import android.os.Handler;
 
 public class AsyncTaskManager {
 

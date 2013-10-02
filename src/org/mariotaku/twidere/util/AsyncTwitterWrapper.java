@@ -38,11 +38,25 @@ import static org.mariotaku.twidere.util.Utils.makeDirectMessageContentValues;
 import static org.mariotaku.twidere.util.Utils.makeStatusContentValues;
 import static org.mariotaku.twidere.util.Utils.makeTrendsContentValues;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+
+import com.twitter.Extractor;
+import com.twitter.Validator;
+
+import edu.ucdavis.earlybird.ProfilingUtil;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.app.TwidereApplication;
@@ -75,25 +89,12 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.User;
 import twitter4j.UserList;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
-import com.twitter.Extractor;
-import com.twitter.Validator;
-
-import edu.ucdavis.earlybird.ProfilingUtil;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class AsyncTwitterWrapper extends TwitterWrapper {
 
@@ -1530,9 +1531,9 @@ public class AsyncTwitterWrapper extends TwitterWrapper {
 						}
 						if (isSinceIdsValid() && since_ids[idx] > 0) {
 							since_id = since_ids[idx];
-							paging.setSinceId(since_id);
+							// paging.setSinceId(since_id);
 						}
-						final ResponseList<twitter4j.Status> statuses = getStatuses(twitter, paging);
+						final List<twitter4j.Status> statuses = truncateStatuses(getStatuses(twitter, paging), since_id);
 						if (statuses != null) {
 							result.add(new StatusListResponse(account_id, max_id, since_id, load_item_limit, statuses,
 									null));
@@ -1542,6 +1543,18 @@ public class AsyncTwitterWrapper extends TwitterWrapper {
 					}
 				}
 				idx++;
+			}
+			return result;
+		}
+
+		private List<twitter4j.Status> truncateStatuses(final List<twitter4j.Status> statuses, final long since_id) {
+			final List<twitter4j.Status> result = new ArrayList<twitter4j.Status>();
+			for (final twitter4j.Status status : statuses) {
+				if (since_id > 0 && status.getId() <= since_id) {
+					continue;
+				}
+				result.add(status);
+
 			}
 			return result;
 		}

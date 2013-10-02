@@ -27,11 +27,6 @@ import static org.mariotaku.twidere.util.Utils.getOldestStatusIdsFromDatabase;
 import static org.mariotaku.twidere.util.Utils.getTableNameByUri;
 import static org.mariotaku.twidere.util.Utils.shouldEnableFiltersForRTs;
 
-import org.mariotaku.twidere.activity.HomeActivity;
-import org.mariotaku.twidere.adapter.CursorStatusesAdapter;
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-import org.mariotaku.twidere.util.AsyncTask;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -43,6 +38,11 @@ import android.os.Bundle;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.widget.AbsListView;
+
+import org.mariotaku.twidere.activity.HomeActivity;
+import org.mariotaku.twidere.adapter.CursorStatusesAdapter;
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
+import org.mariotaku.twidere.util.AsyncTask;
 
 public abstract class CursorStatusesListFragment extends BaseStatusesListFragment<Cursor> {
 

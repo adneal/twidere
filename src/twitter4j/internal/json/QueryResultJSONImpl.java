@@ -23,8 +23,6 @@ import static twitter4j.internal.util.InternalParseUtil.getLong;
 import static twitter4j.internal.util.InternalParseUtil.getRawString;
 import static twitter4j.internal.util.InternalParseUtil.getURLDecodedString;
 
-import java.util.Arrays;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +32,8 @@ import twitter4j.QueryResult;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.http.HttpResponse;
+
+import java.util.Arrays;
 
 /**
  * A data class representing search API response

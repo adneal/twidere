@@ -1,6 +1,10 @@
 package org.mariotaku.twidere.adapter;
 
-import java.util.Collection;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.R;
@@ -9,11 +13,7 @@ import org.mariotaku.twidere.model.PreviewImage;
 import org.mariotaku.twidere.util.ImageLoaderWrapper;
 import org.mariotaku.twidere.util.ImageLoadingHandler;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import java.util.Collection;
 
 public class ImagePreviewAdapter extends ArrayAdapter<PreviewImage> implements Constants {
 
@@ -44,7 +44,7 @@ public class ImagePreviewAdapter extends ArrayAdapter<PreviewImage> implements C
 		if (mIsPossiblySensitive && !mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_SENSITIVE_CONTENTS, false)) {
 			view.findViewById(R.id.image_preview_progress).setVisibility(View.GONE);
 			image_view.setBackgroundResource(R.drawable.image_preview_nsfw);
-		} else if (!spec.image_preview_url.equals(mImageLoadingHandler.getLoadingUri(image_view))){
+		} else if (!spec.image_preview_url.equals(mImageLoadingHandler.getLoadingUri(image_view))) {
 			image_view.setBackgroundResource(0);
 			mImageLoader.displayPreviewImage(image_view, spec.image_preview_url, mImageLoadingHandler);
 		}

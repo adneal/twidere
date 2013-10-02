@@ -21,9 +21,6 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.openImageDirectly;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -31,6 +28,9 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.net.Uri;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ParseUtils;
 
 public class SensitiveContentWarningDialogFragment extends BaseSupportDialogFragment implements OnClickListener {
 

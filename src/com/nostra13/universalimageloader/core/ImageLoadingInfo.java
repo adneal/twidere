@@ -13,17 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.core;
 
-import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.locks.ReentrantLock;
+package com.nostra13.universalimageloader.core;
 
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.nostra13.universalimageloader.core.assist.MemoryCacheUtil;
+
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Information for load'n'display image task

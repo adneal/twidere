@@ -21,16 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static android.text.TextUtils.isEmpty;
 
-import java.util.Map;
-
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ArrayAdapter;
-import org.mariotaku.twidere.fragment.BaseDialogFragment;
-import org.mariotaku.twidere.fragment.ProgressDialogFragment;
-import org.mariotaku.twidere.util.AsyncTask;
-import org.mariotaku.twidere.util.HostsFileParser;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -54,6 +44,16 @@ import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ArrayAdapter;
+import org.mariotaku.twidere.fragment.BaseDialogFragment;
+import org.mariotaku.twidere.fragment.ProgressDialogFragment;
+import org.mariotaku.twidere.util.AsyncTask;
+import org.mariotaku.twidere.util.HostsFileParser;
+import org.mariotaku.twidere.util.ParseUtils;
+
+import java.util.Map;
 
 public class HostMappingActivity extends BaseSupportActivity implements MultiChoiceModeListener {
 

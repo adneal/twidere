@@ -15,10 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ThemeUtils;
+package org.mariotaku.twidere.view;
 
 import android.content.Context;
 import android.graphics.PorterDuff.Mode;
@@ -36,6 +34,9 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ThemeUtils;
 
 /**
  * This widget implements the dynamic action bar tab behavior that can change

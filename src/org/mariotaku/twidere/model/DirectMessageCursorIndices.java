@@ -19,9 +19,9 @@
 
 package org.mariotaku.twidere.model;
 
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-
 import android.database.Cursor;
+
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
 
 public class DirectMessageCursorIndices {
 

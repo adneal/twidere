@@ -16,21 +16,6 @@
 
 package org.mariotaku.gallery3d;
 
-import java.io.File;
-
-import org.mariotaku.gallery3d.ui.GLRoot;
-import org.mariotaku.gallery3d.ui.GLRootView;
-import org.mariotaku.gallery3d.ui.GLView;
-import org.mariotaku.gallery3d.ui.PhotoView;
-import org.mariotaku.gallery3d.ui.SynchronizedHandler;
-import org.mariotaku.gallery3d.util.GalleryUtils;
-import org.mariotaku.gallery3d.util.ThreadPool;
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.TwidereSwipeBackActivity;
-import org.mariotaku.twidere.util.SaveImageTask;
-import org.mariotaku.twidere.util.Utils;
-
 import android.app.ActionBar;
 import android.app.ActionBar.OnMenuVisibilityListener;
 import android.content.ActivityNotFoundException;
@@ -48,6 +33,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ShareActionProvider;
+
+import org.mariotaku.gallery3d.ui.GLRoot;
+import org.mariotaku.gallery3d.ui.GLRootView;
+import org.mariotaku.gallery3d.ui.GLView;
+import org.mariotaku.gallery3d.ui.PhotoView;
+import org.mariotaku.gallery3d.ui.SynchronizedHandler;
+import org.mariotaku.gallery3d.util.GalleryUtils;
+import org.mariotaku.gallery3d.util.ThreadPool;
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.TwidereSwipeBackActivity;
+import org.mariotaku.twidere.util.SaveImageTask;
+import org.mariotaku.twidere.util.Utils;
+
+import java.io.File;
 
 public final class ImageViewerGLActivity extends TwidereSwipeBackActivity implements Constants, PhotoView.Listener,
 		GLImageLoader.DownloadListener, LoaderManager.LoaderCallbacks<GLImageLoader.Result>, OnMenuVisibilityListener {

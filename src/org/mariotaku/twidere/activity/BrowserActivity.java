@@ -19,17 +19,18 @@
 
 package org.mariotaku.twidere.activity;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.fragment.BaseWebViewFragment;
-
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.fragment.BaseWebViewFragment;
 
 public class BrowserActivity extends BaseSupportActivity {
 

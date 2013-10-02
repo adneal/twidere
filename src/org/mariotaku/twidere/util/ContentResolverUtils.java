@@ -21,11 +21,11 @@ package org.mariotaku.twidere.util;
 
 import static android.text.TextUtils.isEmpty;
 
-import java.util.Collection;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.net.Uri;
+
+import java.util.Collection;
 
 public class ContentResolverUtils {
 

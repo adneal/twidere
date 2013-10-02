@@ -1,6 +1,7 @@
 package org.mariotaku.twidere.activity;
 
 import static org.mariotaku.twidere.util.Utils.restartActivity;
+
 import android.app.Activity;
 import android.os.Bundle;
 

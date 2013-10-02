@@ -19,17 +19,17 @@
 
 package org.mariotaku.twidere.fragment;
 
-import java.util.List;
-
-import org.mariotaku.twidere.loader.UserSearchLoader;
-import org.mariotaku.twidere.model.ParcelableUser;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.Loader;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+
+import org.mariotaku.twidere.loader.UserSearchLoader;
+import org.mariotaku.twidere.model.ParcelableUser;
+
+import java.util.List;
 
 public class SearchUsersFragment extends BaseUsersListFragment {
 

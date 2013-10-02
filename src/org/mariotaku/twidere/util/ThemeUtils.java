@@ -1,10 +1,5 @@
 package org.mariotaku.twidere.util;
 
-import java.util.HashMap;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,6 +10,11 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.view.View;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+
+import java.util.HashMap;
 
 public class ThemeUtils implements Constants {
 

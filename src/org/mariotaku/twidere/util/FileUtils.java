@@ -56,7 +56,6 @@ public final class FileUtils {
 	 * 
 	 * @param srcFile an existing file to copy, must not be {@code null}
 	 * @param destFile the new file, must not be {@code null}
-	 * 
 	 * @throws NullPointerException if source or destination is {@code null}
 	 * @throws IOException if source or destination is invalid
 	 * @throws IOException if an IO error occurs during copying
@@ -96,7 +95,6 @@ public final class FileUtils {
 	 * @param srcFile an existing file to copy, must not be {@code null}
 	 * @param destDir the directory to place the copy in, must not be
 	 *            {@code null}
-	 * 
 	 * @throws NullPointerException if source or destination is null
 	 * @throws IOException if source or destination is invalid
 	 * @throws IOException if an IO error occurs during copying

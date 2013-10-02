@@ -19,12 +19,6 @@
 
 package org.mariotaku.twidere.fragment;
 
-import java.util.List;
-
-import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
-import org.mariotaku.twidere.loader.TweetSearchLoader;
-import org.mariotaku.twidere.model.ParcelableStatus;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,7 +26,13 @@ import android.support.v4.content.Loader;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 
-public class SearchTweetsFragment extends ParcelableStatusesListFragment {
+import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
+import org.mariotaku.twidere.loader.TweetSearchLoader;
+import org.mariotaku.twidere.model.ParcelableStatus;
+
+import java.util.List;
+
+public class SearchStatusesFragment extends ParcelableStatusesListFragment {
 
 	@Override
 	public Loader<List<ParcelableStatus>> newLoaderInstance(final Context context, final Bundle args) {

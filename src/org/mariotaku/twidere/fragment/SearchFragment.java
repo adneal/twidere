@@ -1,14 +1,5 @@
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.SupportTabsAdapter;
-import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
-import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.view.ExtendedViewPager;
-import org.mariotaku.twidere.view.SquareImageView;
-
 import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,6 +13,15 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.SupportTabsAdapter;
+import org.mariotaku.twidere.fragment.iface.RefreshScrollTopInterface;
+import org.mariotaku.twidere.fragment.iface.SupportFragmentCallback;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.view.ExtendedViewPager;
+import org.mariotaku.twidere.view.SquareImageView;
 
 public class SearchFragment extends BaseSupportFragment implements Panes.Left, OnPageChangeListener,
 		RefreshScrollTopInterface, SupportFragmentCallback {
@@ -51,7 +51,7 @@ public class SearchFragment extends BaseSupportFragment implements Panes.Left, O
 		final Bundle args = getArguments();
 		mThemeColor = ThemeUtils.getThemeColor(getActivity());
 		mAdapter = new SupportTabsAdapter(getActivity(), getChildFragmentManager(), null);
-		mAdapter.addTab(SearchTweetsFragment.class, args, getString(R.string.tweets), R.drawable.ic_tab_twitter, 0);
+		mAdapter.addTab(SearchStatusesFragment.class, args, getString(R.string.statuses), R.drawable.ic_tab_twitter, 0);
 		mAdapter.addTab(SearchUsersFragment.class, args, getString(R.string.users), R.drawable.ic_tab_person, 1);
 		mViewPager.setAdapter(mAdapter);
 		mViewPager.setOnPageChangeListener(this);

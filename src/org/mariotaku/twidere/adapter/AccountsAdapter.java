@@ -21,13 +21,6 @@ package org.mariotaku.twidere.adapter;
 
 import static org.mariotaku.twidere.util.Utils.getBiggerTwitterProfileImage;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.view.holder.AccountViewHolder;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -35,6 +28,13 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.view.holder.AccountViewHolder;
 
 public class AccountsAdapter extends SimpleCursorAdapter implements Constants {
 
@@ -72,8 +72,7 @@ public class AccountsAdapter extends SimpleCursorAdapter implements Constants {
 		if (mDisplayProfileImage) {
 			final String profile_image_url = cursor.getString(mProfileImageIdx);
 			if (mDisplayHiResProfileImage) {
-				mImageLoader.displayProfileImage(holder.profile_image,
-						getBiggerTwitterProfileImage(profile_image_url));
+				mImageLoader.displayProfileImage(holder.profile_image, getBiggerTwitterProfileImage(profile_image_url));
 			} else {
 				mImageLoader.displayProfileImage(holder.profile_image, profile_image_url);
 			}

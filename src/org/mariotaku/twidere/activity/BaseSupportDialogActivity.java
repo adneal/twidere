@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.activity;
 
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.activity.iface.IThemedActivity;
 import org.mariotaku.twidere.app.TwidereApplication;
 import org.mariotaku.twidere.util.ThemeUtils;
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
 
 @SuppressLint("Registered")
 public class BaseSupportDialogActivity extends BaseSupportThemedActivity implements Constants, IThemedActivity {

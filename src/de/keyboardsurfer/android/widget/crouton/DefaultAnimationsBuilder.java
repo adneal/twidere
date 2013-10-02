@@ -53,7 +53,6 @@ final class DefaultAnimationsBuilder {
 
 	/**
 	 * @param croutonView The croutonView which gets animated.
-	 * 
 	 * @return The default Animation for a showing {@link Crouton}.
 	 */
 	static Animation buildDefaultSlideInDownAnimation(final View croutonView) {
@@ -69,7 +68,6 @@ final class DefaultAnimationsBuilder {
 
 	/**
 	 * @param croutonView The croutonView which gets animated.
-	 * 
 	 * @return The default Animation for a hiding {@link Crouton}.
 	 */
 	static Animation buildDefaultSlideOutUpAnimation(final View croutonView) {

@@ -25,27 +25,6 @@ import static org.mariotaku.twidere.util.Utils.createTakePhotoIntent;
 import static org.mariotaku.twidere.util.Utils.isMyAccount;
 import static org.mariotaku.twidere.util.Utils.showErrorMessage;
 
-import java.io.File;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.loader.ParcelableUserLoader;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.model.SingleResponse;
-import org.mariotaku.twidere.util.AsyncTask;
-import org.mariotaku.twidere.util.AsyncTask.Status;
-import org.mariotaku.twidere.util.AsyncTaskManager;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileBannerImageTask;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileImageTask;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileTask;
-import org.mariotaku.twidere.util.ImageLoaderWrapper;
-import org.mariotaku.twidere.util.ParseUtils;
-import org.mariotaku.twidere.util.TwitterWrapper;
-import org.mariotaku.twidere.view.ProfileImageBannerLayout;
-import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -66,9 +45,31 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonLifecycleCallback;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.loader.ParcelableUserLoader;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.model.SingleResponse;
+import org.mariotaku.twidere.util.AsyncTask;
+import org.mariotaku.twidere.util.AsyncTask.Status;
+import org.mariotaku.twidere.util.AsyncTaskManager;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileBannerImageTask;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileImageTask;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper.UpdateProfileTask;
+import org.mariotaku.twidere.util.ImageLoaderWrapper;
+import org.mariotaku.twidere.util.ParseUtils;
+import org.mariotaku.twidere.util.TwitterWrapper;
+import org.mariotaku.twidere.view.ProfileImageBannerLayout;
+import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
+
+import java.io.File;
 
 public class EditUserProfileActivity extends TwidereSwipeBackActivity implements OnSizeChangedListener, TextWatcher,
 		OnClickListener, CroutonLifecycleCallback, LoaderCallbacks<SingleResponse<ParcelableUser>> {

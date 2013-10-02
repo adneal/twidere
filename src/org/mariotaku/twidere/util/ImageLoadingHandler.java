@@ -1,10 +1,5 @@
 package org.mariotaku.twidere.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.mariotaku.twidere.R;
-
 import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +7,11 @@ import android.widget.ProgressBar;
 
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+
+import org.mariotaku.twidere.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ImageLoadingHandler implements ImageLoadingListener {
 

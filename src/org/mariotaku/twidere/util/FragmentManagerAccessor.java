@@ -1,8 +1,8 @@
 package org.mariotaku.twidere.util;
 
-import java.lang.reflect.Field;
-
 import android.app.FragmentManager;
+
+import java.lang.reflect.Field;
 
 public class FragmentManagerAccessor {
 

@@ -19,12 +19,6 @@
 
 package org.mariotaku.twidere.preference;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,6 +29,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageUploaderPreference extends DialogPreference implements Constants, OnClickListener {
 

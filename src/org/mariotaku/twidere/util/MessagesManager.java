@@ -19,17 +19,17 @@
 
 package org.mariotaku.twidere.util;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.activity.BaseSupportActivity;
 import org.mariotaku.twidere.activity.HomeActivity;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class MessagesManager implements Constants {
 

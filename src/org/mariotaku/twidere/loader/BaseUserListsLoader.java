@@ -21,8 +21,8 @@ package org.mariotaku.twidere.loader;
 
 import static org.mariotaku.twidere.util.Utils.getTwitterInstance;
 
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.support.v4.content.AsyncTaskLoader;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.model.ParcelableUserList;
@@ -33,8 +33,9 @@ import twitter4j.PagableResponseList;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.UserList;
-import android.content.Context;
-import android.support.v4.content.AsyncTaskLoader;
+
+import java.util.Collections;
+import java.util.List;
 
 public abstract class BaseUserListsLoader extends AsyncTaskLoader<List<ParcelableUserList>> {
 

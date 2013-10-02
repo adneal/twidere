@@ -1,8 +1,5 @@
 package org.mariotaku.internal.menu;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +7,9 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MenuImpl implements Menu {
 

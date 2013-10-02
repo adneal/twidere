@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.os.Bundle;
 
 import org.mariotaku.twidere.model.ParcelableStatus;
 
-import android.content.Context;
-import android.os.Bundle;
+import java.util.Collections;
+import java.util.List;
 
 public class IntentExtrasStatusesLoader extends ParcelableStatusesLoader {
 

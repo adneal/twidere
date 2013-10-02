@@ -19,15 +19,15 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.app.TwidereApplication;
-
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.app.TwidereApplication;
 
 public class BaseDialogFragment extends DialogFragment implements Constants {
 

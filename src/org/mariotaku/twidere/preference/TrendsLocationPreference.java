@@ -21,17 +21,6 @@ package org.mariotaku.twidere.preference;
 
 import static org.mariotaku.twidere.util.Utils.getDefaultTwitterInstance;
 
-import java.text.Collator;
-import java.util.Comparator;
-import java.util.List;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
-import twitter4j.Location;
-import twitter4j.ResponseList;
-import twitter4j.Twitter;
-import twitter4j.TwitterException;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -47,6 +36,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
+
+import twitter4j.Location;
+import twitter4j.ResponseList;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.List;
 
 public class TrendsLocationPreference extends Preference implements Constants, OnPreferenceClickListener,
 		OnClickListener {
@@ -142,6 +143,22 @@ public class TrendsLocationPreference extends Preference implements Constants, O
 
 	}
 
+	private static class LocationComparator implements Comparator<Location> {
+		private final Collator mCollator;
+
+		LocationComparator(final Context context) {
+			mCollator = Collator.getInstance(context.getResources().getConfiguration().locale);
+		}
+
+		@Override
+		public int compare(final Location object1, final Location object2) {
+			if (object1.getWoeid() == 1) return Integer.MIN_VALUE;
+			if (object2.getWoeid() == 1) return Integer.MAX_VALUE;
+			return mCollator.compare(object1.getName(), object2.getName());
+		}
+
+	}
+
 	class GetAvailableTrendsTask extends AsyncTask<Void, Void, ResponseList<Location>> implements OnCancelListener {
 
 		private final ProgressDialog mProgress;
@@ -190,22 +207,6 @@ public class TrendsLocationPreference extends Preference implements Constants, O
 			mProgress.setMessage(getContext().getString(R.string.please_wait));
 			mProgress.setOnCancelListener(this);
 			mProgress.show();
-		}
-
-	}
-
-	private static class LocationComparator implements Comparator<Location> {
-		private final Collator mCollator;
-
-		LocationComparator(final Context context) {
-			mCollator = Collator.getInstance(context.getResources().getConfiguration().locale);
-		}
-
-		@Override
-		public int compare(final Location object1, final Location object2) {
-			if (object1.getWoeid() == 1) return Integer.MIN_VALUE;
-			if (object2.getWoeid() == 1) return Integer.MAX_VALUE;
-			return mCollator.compare(object1.getName(), object2.getName());
 		}
 
 	}

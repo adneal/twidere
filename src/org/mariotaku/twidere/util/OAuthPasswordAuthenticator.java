@@ -21,10 +21,6 @@ package org.mariotaku.twidere.util;
 
 import static android.text.TextUtils.isEmpty;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-
 import org.ccil.cowan.tagsoup.HTMLSchema;
 import org.ccil.cowan.tagsoup.Parser;
 import org.mariotaku.twidere.Constants;
@@ -44,6 +40,10 @@ import twitter4j.http.HttpClientFactory;
 import twitter4j.http.HttpParameter;
 import twitter4j.http.HttpRequest;
 import twitter4j.http.RequestMethod;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
 
 public class OAuthPasswordAuthenticator implements Constants {
 

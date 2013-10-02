@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.core.decode;
 
-import java.io.IOException;
-import java.io.InputStream;
+package com.nostra13.universalimageloader.core.decode;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
@@ -32,6 +30,9 @@ import com.nostra13.universalimageloader.core.download.ImageDownloader.Scheme;
 import com.nostra13.universalimageloader.utils.ImageSizeUtils;
 import com.nostra13.universalimageloader.utils.IoUtils;
 import com.nostra13.universalimageloader.utils.L;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Decodes images to {@link Bitmap}, scales them to needed size

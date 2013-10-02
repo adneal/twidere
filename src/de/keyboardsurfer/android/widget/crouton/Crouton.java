@@ -17,8 +17,6 @@
 
 package de.keyboardsurfer.android.widget.crouton;
 
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -37,6 +35,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.util.ViewAccessor;
 
 /*
  * Based on an article by Cyril Mottier (http://android.cyrilmottier.com/?p=773) <br>
@@ -200,7 +200,6 @@ public final class Crouton {
 	 * 
 	 * @param configuration a {@link CroutonConfiguration} built using the
 	 *            {@link CroutonConfiguration.Builder}.
-	 * 
 	 * @return this {@link Crouton}.
 	 */
 	public Crouton setConfiguration(final CroutonConfiguration configuration) {
@@ -221,7 +220,6 @@ public final class Crouton {
 	 * {@link Crouton} without having to use a custom view.
 	 * 
 	 * @param onClickListener The {@link OnClickListener} to set.
-	 * 
 	 * @return this {@link Crouton}.
 	 */
 	public Crouton setOnClickListener(final OnClickListener onClickListener) {
@@ -549,7 +547,6 @@ public final class Crouton {
 	 * @param activity The {@link Activity} that the {@link Crouton} should be
 	 *            attached to.
 	 * @param customView The custom {@link View} to display
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton make(final Activity activity, final View customView) {
@@ -565,7 +562,6 @@ public final class Crouton {
 	 * @param customView The custom {@link View} to display
 	 * @param viewGroupResId The resource id of the {@link ViewGroup} that this
 	 *            {@link Crouton} should be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton make(final Activity activity, final View customView, final int viewGroupResId) {
@@ -582,7 +578,6 @@ public final class Crouton {
 	 * @param viewGroupResId The resource id of the {@link ViewGroup} that this
 	 *            {@link Crouton} should be added to.
 	 * @param configuration The configuration for this crouton.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton make(final Activity activity, final View customView, final int viewGroupResId,
@@ -599,7 +594,6 @@ public final class Crouton {
 	 * @param customView The custom {@link View} to display
 	 * @param viewGroup The {@link ViewGroup} that this {@link Crouton} should
 	 *            be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton make(final Activity activity, final View customView, final ViewGroup viewGroup) {
@@ -614,7 +608,6 @@ public final class Crouton {
 	 *            attached to.
 	 * @param text The text you want to display.
 	 * @param style The style that this {@link Crouton} should be created with.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final CharSequence text, final CroutonStyle style) {
@@ -631,7 +624,6 @@ public final class Crouton {
 	 * @param style The style that this {@link Crouton} should be created with.
 	 * @param viewGroupResId The resource id of the {@link ViewGroup} that this
 	 *            {@link Crouton} should be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final CharSequence text, final CroutonStyle style,
@@ -649,7 +641,6 @@ public final class Crouton {
 	 * @param style The style that this {@link Crouton} should be created with.
 	 * @param viewGroup The {@link ViewGroup} that this {@link Crouton} should
 	 *            be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final CharSequence text, final CroutonStyle style,
@@ -665,7 +656,6 @@ public final class Crouton {
 	 *            attached to.
 	 * @param textResourceId The resource id of the text you want to display.
 	 * @param style The style that this {@link Crouton} should be created with.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final int textResourceId, final CroutonStyle style) {
@@ -682,7 +672,6 @@ public final class Crouton {
 	 * @param style The style that this {@link Crouton} should be created with.
 	 * @param viewGroupResId The resource id of the {@link ViewGroup} that this
 	 *            {@link Crouton} should be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final int textResourceId, final CroutonStyle style,
@@ -701,7 +690,6 @@ public final class Crouton {
 	 * @param style The style that this {@link Crouton} should be created with.
 	 * @param viewGroup The {@link ViewGroup} that this {@link Crouton} should
 	 *            be added to.
-	 * 
 	 * @return The created {@link Crouton}.
 	 */
 	public static Crouton makeText(final Activity activity, final int textResourceId, final CroutonStyle style,

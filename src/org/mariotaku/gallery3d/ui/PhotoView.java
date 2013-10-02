@@ -16,9 +16,6 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import org.mariotaku.gallery3d.ImageViewerGLActivity;
-import org.mariotaku.gallery3d.util.BitmapPool;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapRegionDecoder;
@@ -27,6 +24,9 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Message;
 import android.view.MotionEvent;
+
+import org.mariotaku.gallery3d.ImageViewerGLActivity;
+import org.mariotaku.gallery3d.util.BitmapPool;
 
 public class PhotoView extends GLView {
 

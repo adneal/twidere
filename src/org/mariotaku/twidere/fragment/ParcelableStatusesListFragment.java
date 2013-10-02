@@ -21,11 +21,13 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.encodeQueryParams;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.List;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v4.content.Loader;
 
 import org.mariotaku.jsonserializer.JSONSerializer;
 import org.mariotaku.twidere.adapter.ParcelableStatusesAdapter;
@@ -34,13 +36,11 @@ import org.mariotaku.twidere.loader.DummyParcelableStatusesLoader;
 import org.mariotaku.twidere.model.ParcelableStatus;
 import org.mariotaku.twidere.util.ArrayUtils;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.support.v4.content.Loader;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.List;
 
 public abstract class ParcelableStatusesListFragment extends BaseStatusesListFragment<List<ParcelableStatus>> {
 

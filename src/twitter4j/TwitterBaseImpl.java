@@ -18,16 +18,6 @@ package twitter4j;
 
 import static twitter4j.http.HttpResponseCode.ENHANCE_YOUR_CLAIM;
 import static twitter4j.http.HttpResponseCode.SERVICE_UNAVAILABLE;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.Authorization;
 import twitter4j.auth.AuthorizationFactory;
@@ -45,6 +35,15 @@ import twitter4j.http.HttpResponseEvent;
 import twitter4j.http.HttpResponseListener;
 import twitter4j.internal.json.InternalJSONFactory;
 import twitter4j.internal.json.InternalJSONFactoryImpl;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Base class of Twitter / AsyncTwitter / TwitterStream supports OAuth.

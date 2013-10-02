@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.loader;
 
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
 
 import org.mariotaku.twidere.model.ParcelableUser;
 
-import android.content.Context;
+import java.util.Collections;
+import java.util.List;
 
 public final class DummyParcelableUsersLoader extends ParcelableUsersLoader {
 

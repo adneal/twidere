@@ -1,5 +1,14 @@
 package org.mariotaku.jsonserializer;
 
+import android.content.Context;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mariotaku.twidere.BuildConfig;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.Utils;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,15 +18,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.mariotaku.twidere.BuildConfig;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.Utils;
-
-import android.content.Context;
 
 public class JSONSerializer {
 

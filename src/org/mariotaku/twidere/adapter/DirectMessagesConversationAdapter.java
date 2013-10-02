@@ -24,6 +24,15 @@ import static org.mariotaku.twidere.util.Utils.findDirectMessageInDatabases;
 import static org.mariotaku.twidere.util.Utils.formatToLongTimeString;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
+import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.text.Html;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.adapter.iface.IDirectMessagesAdapter;
 import org.mariotaku.twidere.app.TwidereApplication;
@@ -35,15 +44,6 @@ import org.mariotaku.twidere.util.OnDirectMessageLinkClickHandler;
 import org.mariotaku.twidere.util.TwidereLinkify;
 import org.mariotaku.twidere.view.holder.DirectMessageConversationViewHolder;
 
-import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.text.Html;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-
 public class DirectMessagesConversationAdapter extends SimpleCursorAdapter implements IDirectMessagesAdapter,
 		OnClickListener {
 
@@ -53,7 +53,6 @@ public class DirectMessagesConversationAdapter extends SimpleCursorAdapter imple
 	private final MultiSelectManager mMultiSelectManager;
 
 	private DirectMessageCursorIndices mIndices;
-	private int mNameDisplayOption;
 	private boolean mDisplayProfileImage;
 	private float mTextSize;
 
@@ -175,13 +174,11 @@ public class DirectMessagesConversationAdapter extends SimpleCursorAdapter imple
 
 	@Override
 	public void setNameDisplayOption(final String option) {
-		if (NAME_DISPLAY_OPTION_NAME.equals(option)) {
-			mNameDisplayOption = NAME_DISPLAY_OPTION_CODE_NAME;
-		} else if (NAME_DISPLAY_OPTION_SCREEN_NAME.equals(option)) {
-			mNameDisplayOption = NAME_DISPLAY_OPTION_CODE_SCREEN_NAME;
-		} else {
-			mNameDisplayOption = 0;
-		}
+	}
+
+	@Override
+	public void setNicknameOnly(final boolean nickname_only) {
+
 	}
 
 	@Override

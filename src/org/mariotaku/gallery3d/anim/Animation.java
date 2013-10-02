@@ -16,9 +16,9 @@
 
 package org.mariotaku.gallery3d.anim;
 
-import org.mariotaku.gallery3d.util.GalleryUtils;
-
 import android.view.animation.Interpolator;
+
+import org.mariotaku.gallery3d.util.GalleryUtils;
 
 // Animation calculates a value according to the current input time.
 //

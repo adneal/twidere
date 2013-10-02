@@ -19,7 +19,6 @@ import java.util.Stack;
  * pronounced "deck". Most <tt>Deque</tt> implementations place no fixed limits
  * on the number of elements they may contain, but this interface supports
  * capacity-restricted deques as well as those with no fixed size limit.
- * 
  * <p>
  * This interface defines methods to access the elements at both ends of the
  * deque. Methods are provided to insert, remove, and examine the element. Each
@@ -29,10 +28,8 @@ import java.util.Stack;
  * operation is designed specifically for use with capacity-restricted
  * <tt>Deque</tt> implementations; in most implementations, insert operations
  * cannot fail.
- * 
  * <p>
  * The twelve methods described above are summarized in the following table:
- * 
  * <p>
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
  * <tr>
@@ -69,14 +66,12 @@ import java.util.Stack;
  * <td>{@link #peekLast peekLast()}</td>
  * </tr>
  * </table>
- * 
  * <p>
  * This interface extends the {@link Queue} interface. When a deque is used as a
  * queue, FIFO (First-In-First-Out) behavior results. Elements are added at the
  * end of the deque and removed from the beginning. The methods inherited from
  * the <tt>Queue</tt> interface are precisely equivalent to <tt>Deque</tt>
  * methods as indicated in the following table:
- * 
  * <p>
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
  * <tr>
@@ -108,14 +103,12 @@ import java.util.Stack;
  * <td>{@link #peek peekFirst()}</td>
  * </tr>
  * </table>
- * 
  * <p>
  * Deques can also be used as LIFO (Last-In-First-Out) stacks. This interface
  * should be used in preference to the legacy {@link Stack} class. When a deque
  * is used as a stack, elements are pushed and popped from the beginning of the
  * deque. Stack methods are precisely equivalent to <tt>Deque</tt> methods as
  * indicated in the table below:
- * 
  * <p>
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
  * <tr>
@@ -135,21 +128,17 @@ import java.util.Stack;
  * <td>{@link #peekFirst peekFirst()}</td>
  * </tr>
  * </table>
- * 
  * <p>
  * Note that the {@link #peek peek} method works equally well when a deque is
  * used as a queue or a stack; in either case, elements are drawn from the
  * beginning of the deque.
- * 
  * <p>
  * This interface provides two methods to remove interior elements,
  * {@link #removeFirstOccurrence removeFirstOccurrence} and
  * {@link #removeLastOccurrence removeLastOccurrence}.
- * 
  * <p>
  * Unlike the {@link List} interface, this interface does not provide support
  * for indexed access to elements.
- * 
  * <p>
  * While <tt>Deque</tt> implementations are not strictly required to prohibit
  * the insertion of null elements, they are strongly encouraged to do so. Users
@@ -157,7 +146,6 @@ import java.util.Stack;
  * strongly encouraged <i>not</i> to take advantage of the ability to insert
  * nulls. This is so because <tt>null</tt> is used as a special return value by
  * various methods to indicated that the deque is empty.
- * 
  * <p>
  * <tt>Deque</tt> implementations generally do not define element-based versions
  * of the <tt>equals</tt> and <tt>hashCode</tt> methods, but instead inherit the
@@ -185,7 +173,6 @@ public interface Deque<E> extends Queue<E> {
 	 * <tt>true</tt> upon success and throwing an <tt>IllegalStateException</tt>
 	 * if no space is currently available. When using a capacity-restricted
 	 * deque, it is generally preferable to use {@link #offer offer}.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #addLast}.
 	 * 
@@ -226,7 +213,6 @@ public interface Deque<E> extends Queue<E> {
 	 * to do so immediately without violating capacity restrictions. When using
 	 * a capacity-restricted deque, it is generally preferable to use method
 	 * {@link #offerLast}.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #add}.
 	 * 
@@ -272,7 +258,6 @@ public interface Deque<E> extends Queue<E> {
 	 * deque (in other words, the first element of this deque). This method
 	 * differs from {@link #peek peek} only in that it throws an exception if
 	 * this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #getFirst()}.
 	 * 
@@ -283,10 +268,9 @@ public interface Deque<E> extends Queue<E> {
 	E element();
 
 	/**
-	 * Retrieves, but does not remove, the first element of this deque.
-	 * 
-	 * This method differs from {@link #peekFirst peekFirst} only in that it
-	 * throws an exception if this deque is empty.
+	 * Retrieves, but does not remove, the first element of this deque. This
+	 * method differs from {@link #peekFirst peekFirst} only in that it throws
+	 * an exception if this deque is empty.
 	 * 
 	 * @return the head of this deque
 	 * @throws NoSuchElementException if this deque is empty
@@ -320,7 +304,6 @@ public interface Deque<E> extends Queue<E> {
 	 * available. When using a capacity-restricted deque, this method is
 	 * generally preferable to the {@link #add} method, which can fail to insert
 	 * an element only by throwing an exception.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #offerLast}.
 	 * 
@@ -377,7 +360,6 @@ public interface Deque<E> extends Queue<E> {
 	 * Retrieves, but does not remove, the head of the queue represented by this
 	 * deque (in other words, the first element of this deque), or returns
 	 * <tt>null</tt> if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #peekFirst()}.
 	 * 
@@ -409,7 +391,6 @@ public interface Deque<E> extends Queue<E> {
 	 * Retrieves and removes the head of the queue represented by this deque (in
 	 * other words, the first element of this deque), or returns <tt>null</tt>
 	 * if this deque is empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #pollFirst()}.
 	 * 
@@ -438,7 +419,6 @@ public interface Deque<E> extends Queue<E> {
 	/**
 	 * Pops an element from the stack represented by this deque. In other words,
 	 * removes and returns the first element of this deque.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirst()}.
 	 * 
@@ -456,7 +436,6 @@ public interface Deque<E> extends Queue<E> {
 	 * without violating capacity restrictions, returning <tt>true</tt> upon
 	 * success and throwing an <tt>IllegalStateException</tt> if no space is
 	 * currently available.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #addFirst}.
 	 * 
@@ -477,7 +456,6 @@ public interface Deque<E> extends Queue<E> {
 	 * other words, the first element of this deque). This method differs from
 	 * {@link #poll poll} only in that it throws an exception if this deque is
 	 * empty.
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirst()}.
 	 * 
@@ -497,7 +475,6 @@ public interface Deque<E> extends Queue<E> {
 	 * an element exists). Returns <tt>true</tt> if this deque contained the
 	 * specified element (or equivalently, if this deque changed as a result of
 	 * the call).
-	 * 
 	 * <p>
 	 * This method is equivalent to {@link #removeFirstOccurrence}.
 	 * 

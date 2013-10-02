@@ -19,10 +19,6 @@
 
 package org.mariotaku.twidere.view;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.DualPaneActivity;
-import org.mariotaku.twidere.view.iface.IExtendedViewGroup.TouchInterceptor;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -38,6 +34,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.DualPaneActivity;
+import org.mariotaku.twidere.view.iface.IExtendedViewGroup.TouchInterceptor;
 
 public class SlidingPaneView extends ViewGroup {
 
@@ -239,7 +239,6 @@ public class SlidingPaneView extends ViewGroup {
 	public boolean isRightPaneOpened() {
 		return mController.isContentShown();
 	}
-
 
 	public boolean isShadowSlidable() {
 		return mShadowSlidable;
@@ -568,7 +567,6 @@ public class SlidingPaneView extends ViewGroup {
 	 * actions one.
 	 * 
 	 * @author steven
-	 * 
 	 */
 	private class ContentScrollController implements Runnable {
 

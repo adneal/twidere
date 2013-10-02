@@ -21,18 +21,6 @@ package org.mariotaku.twidere.activity;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Pattern;
-
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ArrayAdapter;
-import org.mariotaku.twidere.util.ArrayUtils;
-
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
@@ -49,6 +37,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ArrayAdapter;
+import org.mariotaku.twidere.util.ArrayUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class FileSelectorActivity extends BaseSupportActivity implements OnItemClickListener,
 		LoaderCallbacks<List<File>> {

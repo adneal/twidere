@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.model;
 
-import org.mariotaku.twidere.provider.TweetStore.Drafts;
-import org.mariotaku.twidere.util.ArrayUtils;
-
 import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import org.mariotaku.twidere.provider.TweetStore.Drafts;
+import org.mariotaku.twidere.util.ArrayUtils;
 
 public class DraftItem implements Parcelable {
 

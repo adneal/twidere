@@ -19,14 +19,14 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.R;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.R;
 
 public class APIUpgradeConfirmDialog extends BaseSupportDialogFragment implements DialogInterface.OnClickListener {
 

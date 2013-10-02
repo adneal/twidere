@@ -21,11 +21,11 @@ package org.mariotaku.twidere.model;
 
 import static android.text.TextUtils.isEmpty;
 
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ArrayUtils;
-
 import android.content.Context;
 import android.content.res.Resources;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ArrayUtils;
 
 public class ConsumerKeySecret {
 

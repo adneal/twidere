@@ -19,16 +19,16 @@
 
 package org.mariotaku.twidere.activity;
 
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
-
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.util.ViewAccessor;
 
 @SuppressLint("Registered")
 public class BaseThemedSupportSwipeBackActivity extends BaseSupportActivity {

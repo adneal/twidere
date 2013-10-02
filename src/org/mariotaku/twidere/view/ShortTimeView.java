@@ -3,8 +3,6 @@ package org.mariotaku.twidere.view;
 import static android.text.format.DateUtils.getRelativeTimeSpanString;
 import static org.mariotaku.twidere.util.Utils.formatSameDayTime;
 
-import org.mariotaku.twidere.Constants;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -12,6 +10,8 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import org.mariotaku.twidere.Constants;
 
 public class ShortTimeView extends TextView implements Constants, OnSharedPreferenceChangeListener {
 

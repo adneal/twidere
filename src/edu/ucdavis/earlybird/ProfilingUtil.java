@@ -1,18 +1,18 @@
 package edu.ucdavis.earlybird;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.util.Utils;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.BatteryManager;
 import android.util.Log;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.util.Utils;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 public class ProfilingUtil {
 

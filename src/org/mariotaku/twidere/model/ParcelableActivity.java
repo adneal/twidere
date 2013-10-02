@@ -19,12 +19,12 @@
 
 package org.mariotaku.twidere.model;
 
-import java.util.Date;
-
 import org.mariotaku.jsonserializer.JSONParcel;
 import org.mariotaku.jsonserializer.JSONParcelable;
 
 import twitter4j.Activity;
+
+import java.util.Date;
 
 public class ParcelableActivity implements Comparable<ParcelableActivity>, JSONParcelable {
 

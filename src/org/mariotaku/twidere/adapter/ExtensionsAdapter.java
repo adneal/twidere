@@ -19,7 +19,10 @@
 
 package org.mariotaku.twidere.adapter;
 
-import java.util.List;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 
 import org.mariotaku.twidere.Constants;
 import org.mariotaku.twidere.R;
@@ -27,10 +30,7 @@ import org.mariotaku.twidere.loader.ExtensionsListLoader.ExtensionInfo;
 import org.mariotaku.twidere.util.PermissionsManager;
 import org.mariotaku.twidere.view.holder.TwoLineWithIconViewHolder;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.List;
 
 public class ExtensionsAdapter extends ArrayAdapter<ExtensionInfo> implements Constants {
 

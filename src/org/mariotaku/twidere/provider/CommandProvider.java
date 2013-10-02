@@ -19,12 +19,6 @@
 
 package org.mariotaku.twidere.provider;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.provider.TwidereCommands.Refresh;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.PermissionsManager;
-
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -32,6 +26,12 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.provider.TwidereCommands.Refresh;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.PermissionsManager;
 
 public class CommandProvider extends ContentProvider implements Constants {
 

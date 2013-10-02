@@ -123,8 +123,13 @@ public final class HTMLEntity {
 																		 * spacing
 																		 * cedilla
 																		 */, "\u00B8" },
-				{ "&sup1;", "&#185;"/* superscript one = superscript digit one */, "\u00B9" },
-				{ "&ordm;", "&#186;"/* masculine ordinal indicator */, "\u00BA" },
+				{ "&sup1;", "&#185;"/*
+									 * superscript one = superscript digit one
+									 */, "\u00B9" }, { "&ordm;", "&#186;"/*
+																		 * masculine
+																		 * ordinal
+																		 * indicator
+																		 */, "\u00BA" },
 				{ "&raquo;", "&#187;"/*
 									 * right-pointing double angle quotation
 									 * mark = right pointing guillemet
@@ -169,31 +174,68 @@ public final class HTMLEntity {
 																			 * grave
 																			 */, "\u00C0" },
 				{ "&Aacute;", "&#193;"/* latin capital letter A with acute */, "\u00C1" },
-				{ "&Acirc;", "&#194;"/* latin capital letter A with circumflex */, "\u00C2" },
-				{ "&Atilde;", "&#195;"/* latin capital letter A with tilde */, "\u00C3" },
-				{ "&Auml;", "&#196;"/* latin capital letter A with diaeresis */, "\u00C4" },
-				{ "&Aring;", "&#197;"/*
-									 * latin capital letter A with ring above =
-									 * latin capital letter A ring
-									 */, "\u00C5" }, { "&AElig;", "&#198;"/*
+				{ "&Acirc;", "&#194;"/*
+									 * latin capital letter A with circumflex
+									 */, "\u00C2" }, { "&Atilde;", "&#195;"/*
+																			 * latin
+																			 * capital
+																			 * letter
+																			 * A
+																			 * with
+																			 * tilde
+																			 */, "\u00C3" },
+				{ "&Auml;", "&#196;"/*
+									 * latin capital letter A with diaeresis
+									 */, "\u00C4" }, { "&Aring;", "&#197;"/*
 																		 * latin
 																		 * capital
 																		 * letter
-																		 * AE =
+																		 * A
+																		 * with
+																		 * ring
+																		 * above
+																		 * =
 																		 * latin
 																		 * capital
-																		 * ligature
-																		 * AE
-																		 */, "\u00C6" },
-				{ "&Ccedil;", "&#199;"/* latin capital letter C with cedilla */, "\u00C7" },
+																		 * letter
+																		 * A
+																		 * ring
+																		 */, "\u00C5" },
+				{ "&AElig;", "&#198;"/*
+									 * latin capital letter AE = latin capital
+									 * ligature AE
+									 */, "\u00C6" }, { "&Ccedil;", "&#199;"/*
+																			 * latin
+																			 * capital
+																			 * letter
+																			 * C
+																			 * with
+																			 * cedilla
+																			 */, "\u00C7" },
 				{ "&Egrave;", "&#200;"/* latin capital letter E with grave */, "\u00C8" },
 				{ "&Eacute;", "&#201;"/* latin capital letter E with acute */, "\u00C9" },
-				{ "&Ecirc;", "&#202;"/* latin capital letter E with circumflex */, "\u00CA" },
-				{ "&Euml;", "&#203;"/* latin capital letter E with diaeresis */, "\u00CB" },
+				{ "&Ecirc;", "&#202;"/*
+									 * latin capital letter E with circumflex
+									 */, "\u00CA" }, { "&Euml;", "&#203;"/*
+																		 * latin
+																		 * capital
+																		 * letter
+																		 * E
+																		 * with
+																		 * diaeresis
+																		 */, "\u00CB" },
 				{ "&Igrave;", "&#204;"/* latin capital letter I with grave */, "\u00CC" },
 				{ "&Iacute;", "&#205;"/* latin capital letter I with acute */, "\u00CD" },
-				{ "&Icirc;", "&#206;"/* latin capital letter I with circumflex */, "\u00CE" },
-				{ "&Iuml;", "&#207;"/* latin capital letter I with diaeresis */, "\u00CF" },
+				{ "&Icirc;", "&#206;"/*
+									 * latin capital letter I with circumflex
+									 */, "\u00CE" }, { "&Iuml;", "&#207;"/*
+																		 * latin
+																		 * capital
+																		 * letter
+																		 * I
+																		 * with
+																		 * diaeresis
+																		 */, "\u00CF" },
 				{ "&ETH;", "&#208;"/* latin capital letter ETH */, "\u00D0" }, { "&Ntilde;", "&#209;"/*
 																									 * latin
 																									 * capital
@@ -204,42 +246,72 @@ public final class HTMLEntity {
 																									 */, "\u00D1" },
 				{ "&Ograve;", "&#210;"/* latin capital letter O with grave */, "\u00D2" },
 				{ "&Oacute;", "&#211;"/* latin capital letter O with acute */, "\u00D3" },
-				{ "&Ocirc;", "&#212;"/* latin capital letter O with circumflex */, "\u00D4" },
-				{ "&Otilde;", "&#213;"/* latin capital letter O with tilde */, "\u00D5" },
-				{ "&Ouml;", "&#214;"/* latin capital letter O with diaeresis */, "\u00D6" },
-				{ "&times;", "&#215;"/* multiplication sign */, "\u00D7" }, { "&Oslash;", "&#216;"/*
-																								 * latin
-																								 * capital
-																								 * letter
-																								 * O
-																								 * with
-																								 * stroke
-																								 * =
-																								 * latin
-																								 * capital
-																								 * letter
-																								 * O
-																								 * slash
-																								 */, "\u00D8" },
-				{ "&Ugrave;", "&#217;"/* latin capital letter U with grave */, "\u00D9" },
+				{ "&Ocirc;", "&#212;"/*
+									 * latin capital letter O with circumflex
+									 */, "\u00D4" }, { "&Otilde;", "&#213;"/*
+																			 * latin
+																			 * capital
+																			 * letter
+																			 * O
+																			 * with
+																			 * tilde
+																			 */, "\u00D5" },
+				{ "&Ouml;", "&#214;"/*
+									 * latin capital letter O with diaeresis
+									 */, "\u00D6" }, { "&times;", "&#215;"/*
+																		 * multiplication
+																		 * sign
+																		 */, "\u00D7" },
+				{ "&Oslash;", "&#216;"/*
+									 * latin capital letter O with stroke =
+									 * latin capital letter O slash
+									 */, "\u00D8" }, { "&Ugrave;", "&#217;"/*
+																			 * latin
+																			 * capital
+																			 * letter
+																			 * U
+																			 * with
+																			 * grave
+																			 */, "\u00D9" },
 				{ "&Uacute;", "&#218;"/* latin capital letter U with acute */, "\u00DA" },
-				{ "&Ucirc;", "&#219;"/* latin capital letter U with circumflex */, "\u00DB" },
-				{ "&Uuml;", "&#220;"/* latin capital letter U with diaeresis */, "\u00DC" },
+				{ "&Ucirc;", "&#219;"/*
+									 * latin capital letter U with circumflex
+									 */, "\u00DB" }, { "&Uuml;", "&#220;"/*
+																		 * latin
+																		 * capital
+																		 * letter
+																		 * U
+																		 * with
+																		 * diaeresis
+																		 */, "\u00DC" },
 				{ "&Yacute;", "&#221;"/* latin capital letter Y with acute */, "\u00DD" },
 				{ "&THORN;", "&#222;"/* latin capital letter THORN */, "\u00DE" },
-				{ "&szlig;", "&#223;"/* latin small letter sharp s = ess-zed */, "\u00DF" },
-				{ "&agrave;", "&#224;"/*
-									 * latin small letter a with grave = latin
-									 * small letter a grave
-									 */, "\u00E0" }, { "&aacute;", "&#225;"/*
+				{ "&szlig;", "&#223;"/*
+									 * latin small letter sharp s = ess-zed
+									 */, "\u00DF" }, { "&agrave;", "&#224;"/*
 																			 * latin
 																			 * small
 																			 * letter
 																			 * a
 																			 * with
-																			 * acute
-																			 */, "\u00E1" },
-				{ "&acirc;", "&#226;"/* latin small letter a with circumflex */, "\u00E2" },
+																			 * grave
+																			 * =
+																			 * latin
+																			 * small
+																			 * letter
+																			 * a
+																			 * grave
+																			 */, "\u00E0" },
+				{ "&aacute;", "&#225;"/*
+									 * latin small letter a with acute
+									 */, "\u00E1" }, { "&acirc;", "&#226;"/*
+																		 * latin
+																		 * small
+																		 * letter
+																		 * a
+																		 * with
+																		 * circumflex
+																		 */, "\u00E2" },
 				{ "&atilde;", "&#227;"/* latin small letter a with tilde */, "\u00E3" },
 				{ "&auml;", "&#228;"/* latin small letter a with diaeresis */, "\u00E4" },
 				{ "&aring;", "&#229;"/*
@@ -258,12 +330,28 @@ public final class HTMLEntity {
 				{ "&ccedil;", "&#231;"/* latin small letter c with cedilla */, "\u00E7" },
 				{ "&egrave;", "&#232;"/* latin small letter e with grave */, "\u00E8" },
 				{ "&eacute;", "&#233;"/* latin small letter e with acute */, "\u00E9" },
-				{ "&ecirc;", "&#234;"/* latin small letter e with circumflex */, "\u00EA" },
-				{ "&euml;", "&#235;"/* latin small letter e with diaeresis */, "\u00EB" },
+				{ "&ecirc;", "&#234;"/*
+									 * latin small letter e with circumflex
+									 */, "\u00EA" }, { "&euml;", "&#235;"/*
+																		 * latin
+																		 * small
+																		 * letter
+																		 * e
+																		 * with
+																		 * diaeresis
+																		 */, "\u00EB" },
 				{ "&igrave;", "&#236;"/* latin small letter i with grave */, "\u00EC" },
 				{ "&iacute;", "&#237;"/* latin small letter i with acute */, "\u00ED" },
-				{ "&icirc;", "&#238;"/* latin small letter i with circumflex */, "\u00EE" },
-				{ "&iuml;", "&#239;"/* latin small letter i with diaeresis */, "\u00EF" },
+				{ "&icirc;", "&#238;"/*
+									 * latin small letter i with circumflex
+									 */, "\u00EE" }, { "&iuml;", "&#239;"/*
+																		 * latin
+																		 * small
+																		 * letter
+																		 * i
+																		 * with
+																		 * diaeresis
+																		 */, "\u00EF" },
 				{ "&eth;", "&#240;"/* latin small letter eth */, "\u00F0" }, { "&ntilde;", "&#241;"/*
 																									 * latin
 																									 * small
@@ -274,8 +362,16 @@ public final class HTMLEntity {
 																									 */, "\u00F1" },
 				{ "&ograve;", "&#242;"/* latin small letter o with grave */, "\u00F2" },
 				{ "&oacute;", "&#243;"/* latin small letter o with acute */, "\u00F3" },
-				{ "&ocirc;", "&#244;"/* latin small letter o with circumflex */, "\u00F4" },
-				{ "&otilde;", "&#245;"/* latin small letter o with tilde */, "\u00F5" },
+				{ "&ocirc;", "&#244;"/*
+									 * latin small letter o with circumflex
+									 */, "\u00F4" }, { "&otilde;", "&#245;"/*
+																			 * latin
+																			 * small
+																			 * letter
+																			 * o
+																			 * with
+																			 * tilde
+																			 */, "\u00F5" },
 				{ "&ouml;", "&#246;"/* latin small letter o with diaeresis */, "\u00F6" },
 				{ "&divide;", "&#247;"/* division sign */, "\u00F7" }, { "&oslash;", "&#248;"/*
 																							 * latin
@@ -293,8 +389,16 @@ public final class HTMLEntity {
 																							 */, "\u00F8" },
 				{ "&ugrave;", "&#249;"/* latin small letter u with grave */, "\u00F9" },
 				{ "&uacute;", "&#250;"/* latin small letter u with acute */, "\u00FA" },
-				{ "&ucirc;", "&#251;"/* latin small letter u with circumflex */, "\u00FB" },
-				{ "&uuml;", "&#252;"/* latin small letter u with diaeresis */, "\u00FC" },
+				{ "&ucirc;", "&#251;"/*
+									 * latin small letter u with circumflex
+									 */, "\u00FB" }, { "&uuml;", "&#252;"/*
+																		 * latin
+																		 * small
+																		 * letter
+																		 * u
+																		 * with
+																		 * diaeresis
+																		 */, "\u00FC" },
 				{ "&yacute;", "&#253;"/* latin small letter y with acute */, "\u00FD" },
 				{ "&thorn;", "&#254;"/* latin small letter thorn with */, "\u00FE" },
 				{ "&yuml;", "&#255;"/* latin small letter y with diaeresis */, "\u00FF" },
@@ -465,15 +569,17 @@ public final class HTMLEntity {
 																				 * imaginary
 																				 * part
 																				 */, "\u2111" },
-				{ "&real;", "&#8476;"/* blackletter capital R = real part symbol */, "\u211C" },
-				{ "&trade;", "&#8482;"/* trade mark sign */, "\u2122" }, { "&alefsym;", "&#8501;"/*
-																								 * alef
-																								 * symbol
-																								 * =
-																								 * first
-																								 * transfinite
-																								 * cardinal
-																								 */, "\u2135" }
+				{ "&real;", "&#8476;"/*
+									 * blackletter capital R = real part symbol
+									 */, "\u211C" }, { "&trade;", "&#8482;"/*
+																			 * trade
+																			 * mark
+																			 * sign
+																			 */, "\u2122" },
+				{ "&alefsym;", "&#8501;"/*
+										 * alef symbol = first transfinite
+										 * cardinal
+										 */, "\u2135" }
 				/* alef symbol is NOT the same as hebrew letter alef ,"\u05D0"} */
 				/* Arrows */
 				, { "&larr;", "&#8592;"/* leftwards arrow */, "\u2190" }, { "&uarr;", "&#8593;"/*
@@ -604,8 +710,12 @@ public final class HTMLEntity {
 																									 */, "\u2287" },
 				{ "&oplus;", "&#8853;"/* circled plus = direct sum */, "\u2295" },
 				{ "&otimes;", "&#8855;"/* circled times = vector product */, "\u2297" },
-				{ "&perp;", "&#8869;"/* up tack = orthogonal to = perpendicular */, "\u22A5" },
-				{ "&sdot;", "&#8901;"/* dot operator */, "\u22C5" }
+				{ "&perp;", "&#8869;"/*
+									 * up tack = orthogonal to = perpendicular
+									 */, "\u22A5" }, { "&sdot;", "&#8901;"/*
+																		 * dot
+																		 * operator
+																		 */, "\u22C5" }
 				/*
 				 * dot operator is NOT the same character as ,"\u00B7"} /*
 				 * Miscellaneous Technical
@@ -628,7 +738,9 @@ public final class HTMLEntity {
 																							 * bra
 																							 */, "\u2329" }
 				/* lang is NOT the same character as ,"\u003C"} */
-				, { "&rang;", "&#9002;"/* right-pointing angle bracket = ket */, "\u232A" }
+				, { "&rang;", "&#9002;"/*
+										 * right-pointing angle bracket = ket
+										 */, "\u232A" }
 				/* rang is NOT the same character as ,"\u003E"} */
 				/* Geometric Shapes */
 				, { "&loz;", "&#9674;"/* lozenge */, "\u25CA" }
@@ -658,9 +770,19 @@ public final class HTMLEntity {
 				 * ligature is a misnomer this is a separate character in some
 				 * languages
 				 */
-				, { "&Scaron;", "&#352;" /* latin capital letter S with caron */, "\u0160" },
-				{ "&scaron;", "&#353;" /* latin small letter s with caron */, "\u0161" },
-				{ "&Yuml;", "&#376;" /* latin capital letter Y with diaeresis */, "\u0178" }
+				, { "&Scaron;", "&#352;" /*
+										 * latin capital letter S with caron
+										 */, "\u0160" }, { "&scaron;", "&#353;" /*
+																				 * latin
+																				 * small
+																				 * letter
+																				 * s
+																				 * with
+																				 * caron
+																				 */, "\u0161" },
+				{ "&Yuml;", "&#376;" /*
+									 * latin capital letter Y with diaeresis
+									 */, "\u0178" }
 				/* Spacing Modifier Letters */
 				, { "&circ;", "&#710;" /* modifier letter circumflex accent */, "\u02C6" },
 				{ "&tilde;", "&#732;" /* small tilde */, "\u02DC" }

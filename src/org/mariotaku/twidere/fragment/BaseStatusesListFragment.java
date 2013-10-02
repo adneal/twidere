@@ -21,28 +21,13 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.cancelRetweet;
 import static org.mariotaku.twidere.util.Utils.clearListViewChoices;
+import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.getAccountScreenName;
 import static org.mariotaku.twidere.util.Utils.getActivatedAccountIds;
-import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 import static org.mariotaku.twidere.util.Utils.isMyRetweet;
 import static org.mariotaku.twidere.util.Utils.openStatus;
 import static org.mariotaku.twidere.util.Utils.setMenuForStatus;
 import static org.mariotaku.twidere.util.Utils.showOkMessage;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
-import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableStatus;
-import org.mariotaku.twidere.util.AsyncTaskManager;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.ClipboardUtils;
-import org.mariotaku.twidere.util.MultiSelectManager;
-import org.mariotaku.twidere.util.PositionManager;
-import org.mariotaku.twidere.util.ThemeUtils;
-import org.mariotaku.twidere.view.holder.StatusViewHolder;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -60,6 +45,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
+import org.mariotaku.twidere.adapter.iface.IStatusesAdapter;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableStatus;
+import org.mariotaku.twidere.util.AsyncTaskManager;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.ClipboardUtils;
+import org.mariotaku.twidere.util.MultiSelectManager;
+import org.mariotaku.twidere.util.PositionManager;
+import org.mariotaku.twidere.util.ThemeUtils;
+import org.mariotaku.twidere.view.holder.StatusViewHolder;
 
 abstract class BaseStatusesListFragment<Data> extends BasePullToRefreshListFragment implements LoaderCallbacks<Data>,
 		OnItemLongClickListener, OnMenuItemClickListener, Panes.Left, MultiSelectManager.Callback,
@@ -314,21 +314,14 @@ abstract class BaseStatusesListFragment<Data> extends BasePullToRefreshListFragm
 	@Override
 	public void onResume() {
 		super.onResume();
-
 		mListView.setFastScrollEnabled(mPreferences.getBoolean(PREFERENCE_KEY_FAST_SCROLL_THUMB, false));
-		final float text_size = mPreferences.getInt(PREFERENCE_KEY_TEXT_SIZE, getDefaultTextSize(getActivity()));
-		final boolean display_profile_image = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true);
 		final boolean display_image_preview = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_IMAGE_PREVIEW, false);
 		final boolean display_sensitive_contents = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_SENSITIVE_CONTENTS,
 				false);
 		final boolean link_highlighting = mPreferences.getBoolean(PREFERENCE_KEY_LINK_HIGHLIGHTING, false);
 		final boolean indicate_my_status = mPreferences.getBoolean(PREFERENCE_KEY_INDICATE_MY_STATUS, true);
-		final String name_display_option = mPreferences.getString(PREFERENCE_KEY_NAME_DISPLAY_OPTION,
-				NAME_DISPLAY_OPTION_BOTH);
 		final boolean link_underline_only = mPreferences.getBoolean(PREFERENCE_KEY_LINK_UNDERLINE_ONLY, false);
-		mAdapter.setDisplayProfileImage(display_profile_image);
-		mAdapter.setTextSize(text_size);
-		mAdapter.setNameDisplayOption(name_display_option);
+		configBaseAdapter(getActivity(), mAdapter);
 		mAdapter.setDisplayImagePreview(display_image_preview);
 		mAdapter.setDisplaySensitiveContents(display_sensitive_contents);
 		mAdapter.setLinkHightlightingEnabled(link_highlighting);

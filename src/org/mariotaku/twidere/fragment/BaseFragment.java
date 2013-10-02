@@ -19,18 +19,18 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.activity.BaseSupportActivity;
-import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.util.AsyncTwitterWrapper;
-import org.mariotaku.twidere.util.MultiSelectManager;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.activity.BaseSupportActivity;
+import org.mariotaku.twidere.app.TwidereApplication;
+import org.mariotaku.twidere.util.AsyncTwitterWrapper;
+import org.mariotaku.twidere.util.MultiSelectManager;
 
 public class BaseFragment extends Fragment implements Constants {
 

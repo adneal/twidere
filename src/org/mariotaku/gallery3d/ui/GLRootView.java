@@ -16,22 +16,6 @@
 
 package org.mariotaku.gallery3d.ui;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
-
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-import javax.microedition.khronos.opengles.GL11;
-
-import org.mariotaku.gallery3d.anim.CanvasAnimation;
-import org.mariotaku.gallery3d.util.ApiHelper;
-import org.mariotaku.gallery3d.util.GalleryUtils;
-import org.mariotaku.gallery3d.util.MotionEventHelper;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.util.ViewAccessor;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Matrix;
@@ -45,6 +29,22 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.View;
+
+import org.mariotaku.gallery3d.anim.CanvasAnimation;
+import org.mariotaku.gallery3d.util.ApiHelper;
+import org.mariotaku.gallery3d.util.GalleryUtils;
+import org.mariotaku.gallery3d.util.MotionEventHelper;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.util.ViewAccessor;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL11;
 
 // The root component of all <code>GLView</code>s. The rendering is done in GL
 // thread while the event handling is done in the main thread.  To synchronize

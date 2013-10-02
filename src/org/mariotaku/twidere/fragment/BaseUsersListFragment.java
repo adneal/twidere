@@ -20,24 +20,9 @@
 package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.addIntentToMenu;
+import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
 import static org.mariotaku.twidere.util.Utils.getActivatedAccountIds;
-import static org.mariotaku.twidere.util.Utils.getDefaultTextSize;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
-
-import java.util.Collections;
-import java.util.List;
-
-import org.mariotaku.popupmenu.PopupMenu;
-import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.adapter.ParcelableUsersAdapter;
-import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
-import org.mariotaku.twidere.loader.DummyParcelableUsersLoader;
-import org.mariotaku.twidere.model.Panes;
-import org.mariotaku.twidere.model.ParcelableUser;
-import org.mariotaku.twidere.util.MultiSelectManager;
-import org.mariotaku.twidere.util.NoDuplicatesArrayList;
-import org.mariotaku.twidere.util.Utils;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -53,6 +38,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
+
+import org.mariotaku.popupmenu.PopupMenu;
+import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.adapter.ParcelableUsersAdapter;
+import org.mariotaku.twidere.adapter.iface.IBaseAdapter.MenuButtonClickListener;
+import org.mariotaku.twidere.loader.DummyParcelableUsersLoader;
+import org.mariotaku.twidere.model.Panes;
+import org.mariotaku.twidere.model.ParcelableUser;
+import org.mariotaku.twidere.util.MultiSelectManager;
+import org.mariotaku.twidere.util.NoDuplicatesArrayList;
+import org.mariotaku.twidere.util.Utils;
+
+import java.util.Collections;
+import java.util.List;
 
 abstract class BaseUsersListFragment extends BasePullToRefreshListFragment implements
 		LoaderCallbacks<List<ParcelableUser>>, OnItemLongClickListener, Panes.Left, OnMenuItemClickListener,
@@ -234,13 +234,7 @@ abstract class BaseUsersListFragment extends BasePullToRefreshListFragment imple
 	public void onResume() {
 		super.onResume();
 		mLoadMoreAutomatically = mPreferences.getBoolean(PREFERENCE_KEY_LOAD_MORE_AUTOMATICALLY, false);
-		final float text_size = mPreferences.getInt(PREFERENCE_KEY_TEXT_SIZE, getDefaultTextSize(getActivity()));
-		final boolean display_profile_image = mPreferences.getBoolean(PREFERENCE_KEY_DISPLAY_PROFILE_IMAGE, true);
-		final String name_display_option = mPreferences.getString(PREFERENCE_KEY_NAME_DISPLAY_OPTION,
-				NAME_DISPLAY_OPTION_BOTH);
-		mAdapter.setDisplayProfileImage(display_profile_image);
-		mAdapter.setTextSize(text_size);
-		mAdapter.setNameDisplayOption(name_display_option);
+		configBaseAdapter(getActivity(), mAdapter);
 	}
 
 	@Override

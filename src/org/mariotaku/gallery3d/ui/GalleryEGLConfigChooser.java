@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.mariotaku.gallery3d.ui;
+
+import android.opengl.GLSurfaceView.EGLConfigChooser;
+import android.util.Log;
+
+import org.mariotaku.gallery3d.util.ApiHelper;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
-
-import org.mariotaku.gallery3d.util.ApiHelper;
-
-import android.opengl.GLSurfaceView.EGLConfigChooser;
-import android.util.Log;
 
 /*
  * The code is copied/adapted from

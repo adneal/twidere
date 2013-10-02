@@ -19,13 +19,13 @@
 
 package org.mariotaku.twidere.activity;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
 import android.os.Bundle;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
 
 public class CreateComposeShortcutActivity extends Activity implements Constants {
 

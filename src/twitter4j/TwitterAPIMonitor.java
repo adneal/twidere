@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package twitter4j;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package twitter4j;
 
 import twitter4j.management.APIStatistics;
 import twitter4j.management.APIStatisticsMBean;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Singleton instance of all Twitter API monitoring. Handles URL parsing and

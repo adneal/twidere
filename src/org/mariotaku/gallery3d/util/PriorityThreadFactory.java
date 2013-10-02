@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.mariotaku.gallery3d.util;
+
+import android.os.Process;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import android.os.Process;
 
 /**
  * A thread factory that creates threads with a given thread priority.

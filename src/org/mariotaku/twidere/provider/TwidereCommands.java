@@ -19,16 +19,16 @@
 
 package org.mariotaku.twidere.provider;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.model.ParcelableLocation;
-import org.mariotaku.twidere.util.ArrayUtils;
-import org.mariotaku.twidere.util.ParseUtils;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.model.ParcelableLocation;
+import org.mariotaku.twidere.util.ArrayUtils;
+import org.mariotaku.twidere.util.ParseUtils;
 
 public class TwidereCommands {
 

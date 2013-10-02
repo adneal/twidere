@@ -16,18 +16,19 @@
 
 package uk.co.senab.actionbarpulltorefresh.library;
 
-import java.lang.reflect.Constructor;
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
 
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher.ViewDelegate;
 import uk.co.senab.actionbarpulltorefresh.library.viewdelegates.AbsListViewDelegate;
 import uk.co.senab.actionbarpulltorefresh.library.viewdelegates.ScrollYDelegate;
 import uk.co.senab.actionbarpulltorefresh.library.viewdelegates.WebViewDelegate;
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
+
+import java.lang.reflect.Constructor;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
 class InstanceCreationUtils {
 

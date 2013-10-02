@@ -19,16 +19,17 @@
 
 package org.mariotaku.twidere.model;
 
-import java.io.Serializable;
+import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.mariotaku.jsonserializer.JSONParcel;
 import org.mariotaku.jsonserializer.JSONParcelable;
 import org.mariotaku.twidere.util.ParseUtils;
 
 import twitter4j.GeoLocation;
-import android.location.Location;
-import android.os.Parcel;
-import android.os.Parcelable;
+
+import java.io.Serializable;
 
 public class ParcelableLocation implements Serializable, Parcelable, JSONParcelable {
 

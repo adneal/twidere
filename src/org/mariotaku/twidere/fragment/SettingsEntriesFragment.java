@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.fragment;
 
-import org.mariotaku.twidere.Constants;
-import org.mariotaku.twidere.R;
-
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import org.mariotaku.twidere.Constants;
+import org.mariotaku.twidere.R;
 
 public class SettingsEntriesFragment extends PreferenceFragment implements Constants {
 

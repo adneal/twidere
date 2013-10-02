@@ -1,10 +1,10 @@
 package org.mariotaku.twidere.receiver;
 
-import org.mariotaku.twidere.activity.TestActivity;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
+import org.mariotaku.twidere.activity.TestActivity;
 
 public class TestBroadcastReceiver extends BroadcastReceiver {
 

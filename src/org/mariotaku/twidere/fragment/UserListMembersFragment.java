@@ -22,6 +22,17 @@ package org.mariotaku.twidere.fragment;
 import static org.mariotaku.twidere.util.Utils.getTwitterInstance;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+
 import org.mariotaku.popupmenu.PopupMenu;
 import org.mariotaku.popupmenu.PopupMenu.OnMenuItemClickListener;
 import org.mariotaku.twidere.R;
@@ -36,16 +47,6 @@ import org.mariotaku.twidere.util.AsyncTwitterWrapper;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.UserList;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 
 public class UserListMembersFragment extends CursorSupportUsersListFragment implements OnMenuItemClickListener {
 

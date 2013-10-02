@@ -2,26 +2,10 @@ package org.mariotaku.twidere.fragment;
 
 import static org.mariotaku.twidere.util.Utils.getActivatedAccountIds;
 import static org.mariotaku.twidere.util.Utils.openUserFavorites;
+import static org.mariotaku.twidere.util.Utils.openUserListMemberships;
 import static org.mariotaku.twidere.util.Utils.openUserLists;
 import static org.mariotaku.twidere.util.Utils.openUserProfile;
 import static org.mariotaku.twidere.util.Utils.openUserTimeline;
-
-import org.mariotaku.twidere.R;
-import org.mariotaku.twidere.activity.ColorSelectorActivity;
-import org.mariotaku.twidere.activity.EditUserProfileActivity;
-import org.mariotaku.twidere.activity.HomeActivity;
-import org.mariotaku.twidere.activity.SignInActivity;
-import org.mariotaku.twidere.adapter.AccountsDrawerAdapter;
-import org.mariotaku.twidere.adapter.AccountsDrawerAdapter.AccountAction;
-import org.mariotaku.twidere.model.Account;
-import org.mariotaku.twidere.provider.TweetStore.Accounts;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Inbox;
-import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Outbox;
-import org.mariotaku.twidere.provider.TweetStore.Mentions;
-import org.mariotaku.twidere.provider.TweetStore.Statuses;
-import org.mariotaku.twidere.view.iface.IExtendedView;
-import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,8 +35,26 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
+
+import org.mariotaku.twidere.R;
+import org.mariotaku.twidere.activity.ColorSelectorActivity;
+import org.mariotaku.twidere.activity.EditUserProfileActivity;
+import org.mariotaku.twidere.activity.HomeActivity;
+import org.mariotaku.twidere.activity.SignInActivity;
+import org.mariotaku.twidere.adapter.AccountsDrawerAdapter;
+import org.mariotaku.twidere.adapter.AccountsDrawerAdapter.AccountAction;
+import org.mariotaku.twidere.model.Account;
+import org.mariotaku.twidere.provider.TweetStore.Accounts;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Inbox;
+import org.mariotaku.twidere.provider.TweetStore.DirectMessages.Outbox;
+import org.mariotaku.twidere.provider.TweetStore.Mentions;
+import org.mariotaku.twidere.provider.TweetStore.Statuses;
+import org.mariotaku.twidere.view.iface.IExtendedView;
+import org.mariotaku.twidere.view.iface.IExtendedView.OnSizeChangedListener;
 
 public class AccountsDrawerFragment extends BaseSupportFragment implements LoaderCallbacks<Cursor>,
 		OnSizeChangedListener, OnGroupExpandListener, OnChildClickListener, OnClickListener,
@@ -141,6 +143,11 @@ public class AccountsDrawerFragment extends BaseSupportFragment implements Loade
 			}
 			case MENU_LISTS: {
 				openUserLists(getActivity(), account.account_id, account.account_id, account.screen_name);
+				closeAccountsDrawer();
+				break;
+			}
+			case MENU_LIST_MEMBERSHIPS: {
+				openUserListMemberships(getActivity(), account.account_id, account.account_id, account.screen_name);
 				closeAccountsDrawer();
 				break;
 			}

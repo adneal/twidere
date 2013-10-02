@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.nostra13.universalimageloader.cache.disc.impl;
 
-import java.io.File;
+package com.nostra13.universalimageloader.cache.disc.impl;
 
 import com.nostra13.universalimageloader.cache.disc.BaseDiscCache;
 import com.nostra13.universalimageloader.cache.disc.DiscCacheAware;
 import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DefaultConfigurationFactory;
+
+import java.io.File;
 
 /**
  * Default implementation of {@linkplain DiscCacheAware disc cache}. Cache size
