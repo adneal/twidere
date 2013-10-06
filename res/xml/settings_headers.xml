@@ -24,13 +24,13 @@
 		android:title="@string/status">
 		<extra
 			android:name="resid"
-			android:value="@xml/settings_tweet"/>
+			android:value="@xml/settings_status"/>
 	</header>
 	<header android:title="@string/settings"/>
 	<header
 		android:fragment="org.mariotaku.twidere.fragment.CustomTabsFragment"
 		android:icon="@drawable/ic_menu_home"
-		android:title="@string/custom_tabs"/>
+		android:title="@string/tabs"/>
 	<header
 		android:fragment="org.mariotaku.twidere.fragment.ExtensionsListFragment"
 		android:icon="@drawable/ic_menu_extension"

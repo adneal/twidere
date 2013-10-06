@@ -31,8 +31,6 @@ import static org.mariotaku.twidere.util.Utils.trim;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -61,7 +59,6 @@ import de.keyboardsurfer.android.widget.crouton.CroutonStyle;
 
 import org.mariotaku.twidere.R;
 import org.mariotaku.twidere.app.TwidereApplication;
-import org.mariotaku.twidere.fragment.APIUpgradeConfirmDialog;
 import org.mariotaku.twidere.fragment.BaseDialogFragment;
 import org.mariotaku.twidere.provider.TweetStore.Accounts;
 import org.mariotaku.twidere.util.AsyncTask;
@@ -142,6 +139,7 @@ public class SignInActivity extends BaseSupportActivity implements TwitterConsta
 					}
 				}
 				setSignInButton();
+				invalidateOptionsMenu();
 				break;
 			}
 			case REQUEST_SET_COLOR: {
@@ -252,7 +250,7 @@ public class SignInActivity extends BaseSupportActivity implements TwitterConsta
 			case MENU_EDIT_API: {
 				if (mTask != null && mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
 				setDefaultAPI();
-				final Intent intent = new Intent(this, EditAPIActivity.class);
+				final Intent intent = new Intent(this, APIEditorActivity.class);
 				final Bundle bundle = new Bundle();
 				bundle.putString(Accounts.REST_BASE_URL, mRestBaseURL);
 				bundle.putString(Accounts.SIGNING_REST_BASE_URL, mSigningRestBaseURL);
@@ -265,8 +263,31 @@ public class SignInActivity extends BaseSupportActivity implements TwitterConsta
 				startActivityForResult(intent, REQUEST_EDIT_API);
 				break;
 			}
+			case MENU_OPEN_IN_BROWSER: {
+				if (mAuthType != Accounts.AUTH_TYPE_OAUTH || mTask != null
+						&& mTask.getStatus() == AsyncTask.Status.RUNNING) return false;
+				saveEditedText();
+				final Intent intent = new Intent(this, AuthorizeActivity.class);
+				final Bundle bundle = new Bundle();
+				bundle.putString(Accounts.CONSUMER_KEY, mConsumerKey);
+				bundle.putString(Accounts.CONSUMER_SECRET, mConsumerSecret);
+				intent.putExtras(bundle);
+				startActivityForResult(intent, REQUEST_BROWSER_SIGN_IN);
+				break;
+			}
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(final Menu menu) {
+		final MenuItem itemBrowser = menu.findItem(MENU_OPEN_IN_BROWSER);
+		if (itemBrowser != null) {
+			final boolean is_oauth = mAuthType == Accounts.AUTH_TYPE_OAUTH;
+			itemBrowser.setVisible(is_oauth);
+			itemBrowser.setEnabled(is_oauth);
+		}
+		return super.onPrepareOptionsMenu(menu);
 	}
 
 	@Override
@@ -336,13 +357,6 @@ public class SignInActivity extends BaseSupportActivity implements TwitterConsta
 		mEditPassword.addTextChangedListener(this);
 		setSignInButton();
 		setUserColorButton();
-		if (!mPreferences.getBoolean(PREFERENCE_KEY_API_UPGRADE_CONFIRMED, false)) {
-			final FragmentManager fm = getFragmentManager();
-			final Fragment fragment = fm.findFragmentByTag(FRAGMENT_TAG_API_UPGRADE_NOTICE);
-			if (fragment == null || !fragment.isAdded()) {
-				new APIUpgradeConfirmDialog().show(getSupportFragmentManager(), FRAGMENT_TAG_API_UPGRADE_NOTICE);
-			}
-		}
 	}
 
 	private void doLogin(final boolean is_browser_sign_in, final Bundle extras) {
@@ -472,7 +486,6 @@ public class SignInActivity extends BaseSupportActivity implements TwitterConsta
 				if (values != null) {
 					mResolver.insert(Accounts.CONTENT_URI, values);
 				}
-				mPreferences.edit().putBoolean(PREFERENCE_KEY_API_UPGRADE_CONFIRMED, true).commit();
 				final Intent intent = new Intent(this, HomeActivity.class);
 				final Bundle bundle = new Bundle();
 				bundle.putLongArray(EXTRA_IDS, new long[] { mLoggedId });

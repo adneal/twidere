@@ -19,8 +19,6 @@
 
 package org.mariotaku.twidere.activity;
 
-import static org.mariotaku.twidere.util.Utils.restartActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -80,9 +78,6 @@ public class SettingsActivity extends BasePreferenceActivity implements OnShared
 
 	@Override
 	public void onSharedPreferenceChanged(final SharedPreferences preferences, final String key) {
-		if (PREFERENCE_KEY_THEME.equals(key) || PREFERENCE_KEY_SOLID_COLOR_BACKGROUND.equals(key)) {
-			restartActivity(this);
-		}
 	}
 
 	@Override
@@ -101,6 +96,11 @@ public class SettingsActivity extends BasePreferenceActivity implements OnShared
 		setIntent(getIntent().addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		mPreferences.registerOnSharedPreferenceChangeListener(this);
+	}
+
+	@Override
+	protected boolean shouldRestartWhenThemeChanged() {
+		return !isMultiPane() && !getIntent().hasExtra(EXTRA_SHOW_FRAGMENT);
 	}
 
     @Override

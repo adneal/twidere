@@ -19,11 +19,11 @@
 
 package org.mariotaku.twidere.adapter;
 
-import static org.mariotaku.twidere.util.Utils.configBaseAdapter;
+import static org.mariotaku.twidere.util.Utils.configBaseCardAdapter;
 import static org.mariotaku.twidere.util.Utils.findStatusInDatabases;
 import static org.mariotaku.twidere.util.Utils.getAccountColor;
 import static org.mariotaku.twidere.util.Utils.getAccountScreenName;
-import static org.mariotaku.twidere.util.Utils.getNameDisplayOptionInt;
+import static org.mariotaku.twidere.util.Utils.getLinkHighlightOptionInt;
 import static org.mariotaku.twidere.util.Utils.getStatusBackground;
 import static org.mariotaku.twidere.util.Utils.getUserColor;
 import static org.mariotaku.twidere.util.Utils.getUserNickname;
@@ -69,13 +69,12 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	private MenuButtonClickListener mListener;
 
 	private boolean mDisplayProfileImage, mDisplayImagePreview, mShowAccountColor, mGapDisallowed,
-			mMentionsHighlightDisabled, mDisplaySensitiveContents, mIndicateMyStatusDisabled, mLinkHighlightingEnabled,
-			mIsLastItemFiltered, mFiltersEnabled = true;
+			mMentionsHighlightDisabled, mFavoritesHighlightDisabled, mDisplaySensitiveContents,
+			mIndicateMyStatusDisabled, mIsLastItemFiltered, mFiltersEnabled, mAnimationEnabled;
 	private float mTextSize;
-	private int mNameDisplayOption, mLinkHighlightStyle;
+	private int mLinkHighlightOption;
 	private boolean mFilterIgnoreSource, mFilterIgnoreScreenName, mFilterIgnoreTextHtml, mFilterIgnoreTextPlain,
-			mNicknameOnly;
-
+			mNicknameOnly, mDisplayNameFirst;
 	private int mMaxAnimationPosition;
 
 	private StatusCursorIndices mIndices;
@@ -89,7 +88,7 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 		mDatabase = application.getSQLiteDatabase();
 		mLinkify = new TwidereLinkify(new OnLinkClickHandler(mContext));
 		mImageLoadingHandler = new ImageLoadingHandler();
-		configBaseAdapter(context, this);
+		configBaseCardAdapter(context, this);
 		setMaxAnimationPosition(-1);
 	}
 
@@ -114,13 +113,16 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 			final long user_id = cursor.getLong(mIndices.user_id);
 			final long status_timestamp = cursor.getLong(mIndices.status_timestamp);
 			final long retweet_count = cursor.getLong(mIndices.retweet_count);
+			final long retweeted_by_user_id = cursor.getLong(mIndices.retweeted_by_user_id);
+			final long in_reply_to_user_id = cursor.getLong(mIndices.in_reply_to_user_id);
 
 			final String retweeted_by_name = cursor.getString(mIndices.retweeted_by_name);
 			final String retweeted_by_screen_name = cursor.getString(mIndices.retweeted_by_screen_name);
-			final String text = mLinkHighlightingEnabled ? cursor.getString(mIndices.text_html) : cursor
-					.getString(mIndices.text_unescaped);
+			final String text = mLinkHighlightOption != LINK_HIGHLIGHT_OPTION_CODE_NONE ? cursor
+					.getString(mIndices.text_html) : cursor.getString(mIndices.text_unescaped);
 			final String screen_name = cursor.getString(mIndices.user_screen_name);
 			final String name = cursor.getString(mIndices.user_name);
+			final String in_reply_to_name = cursor.getString(mIndices.in_reply_to_name);
 			final String in_reply_to_screen_name = cursor.getString(mIndices.in_reply_to_screen_name);
 			final String account_screen_name = getAccountScreenName(mContext, account_id);
 			final String image_preview_url = cursor.getString(mIndices.image_preview_url);
@@ -135,17 +137,15 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 			final boolean is_verified = cursor.getShort(mIndices.is_verified) == 1;
 			final boolean is_protected = cursor.getShort(mIndices.is_protected) == 1;
 
-			final boolean is_retweet = !TextUtils.isEmpty(retweeted_by_name)
-					&& cursor.getShort(mIndices.is_retweet) == 1;
-			final boolean is_reply = !TextUtils.isEmpty(in_reply_to_screen_name)
-					&& cursor.getLong(mIndices.in_reply_to_status_id) > 0;
+			final boolean is_retweet = cursor.getShort(mIndices.is_retweet) == 1;
+			final boolean is_reply = cursor.getLong(mIndices.in_reply_to_status_id) > 0;
 			final boolean is_mention = TextUtils.isEmpty(text) || TextUtils.isEmpty(account_screen_name) ? false : text
 					.toLowerCase(Locale.US).contains('@' + account_screen_name.toLowerCase(Locale.US));
 			final boolean is_my_status = account_id == user_id;
 
 			holder.setUserColor(getUserColor(mContext, user_id));
-			holder.setHighlightColor(getStatusBackground(mMentionsHighlightDisabled ? false : is_mention, is_favorite,
-					is_retweet));
+			holder.setHighlightColor(getStatusBackground(!mMentionsHighlightDisabled && is_mention,
+					!mFavoritesHighlightDisabled && is_favorite, is_retweet));
 
 			holder.setAccountColorEnabled(mShowAccountColor);
 
@@ -156,7 +156,7 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 			holder.setTextSize(mTextSize);
 
 			holder.setIsMyStatus(is_my_status && !mIndicateMyStatusDisabled);
-			if (mLinkHighlightingEnabled) {
+			if (mLinkHighlightOption != LINK_HIGHLIGHT_OPTION_CODE_NONE) {
 				holder.text.setText(Html.fromHtml(text));
 				mLinkify.applyAllLinks(holder.text, account_id, is_possibly_sensitive);
 				holder.text.setMovementMethod(null);
@@ -164,25 +164,27 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 				holder.text.setText(text);
 			}
 			holder.setUserType(is_verified, is_protected);
-			holder.setNameDisplayOption(mNameDisplayOption);
+			holder.setDisplayNameFirst(mDisplayNameFirst);
+			holder.setNicknameOnly(mNicknameOnly);
 			final String nick = getUserNickname(context, user_id);
 			holder.name.setText(TextUtils.isEmpty(nick) ? name : mNicknameOnly ? nick : context.getString(
 					R.string.name_with_nickname, name, nick));
 			holder.screen_name.setText("@" + screen_name);
-			if (mLinkHighlightingEnabled) {
+			if (mLinkHighlightOption != LINK_HIGHLIGHT_OPTION_CODE_NONE) {
 				mLinkify.applyUserProfileLink(holder.name, account_id, user_id, screen_name);
 				mLinkify.applyUserProfileLink(holder.screen_name, account_id, user_id, screen_name);
 				holder.name.setMovementMethod(null);
 				holder.screen_name.setMovementMethod(null);
 			}
 			holder.time.setTime(status_timestamp);
-			holder.setStatusType(is_favorite, has_location, has_media, is_possibly_sensitive);
+			holder.setStatusType(!mFavoritesHighlightDisabled && is_favorite, has_location, has_media,
+					is_possibly_sensitive);
 
 			holder.setIsReplyRetweet(is_reply, is_retweet);
 			if (is_retweet) {
-				holder.setRetweetedBy(retweet_count, retweeted_by_name, retweeted_by_screen_name);
+				holder.setRetweetedBy(retweet_count, retweeted_by_user_id, retweeted_by_name, retweeted_by_screen_name);
 			} else if (is_reply) {
-				holder.setReplyTo(in_reply_to_screen_name);
+				holder.setReplyTo(in_reply_to_user_id, in_reply_to_name, in_reply_to_screen_name);
 			}
 
 			if (mDisplayProfileImage) {
@@ -261,7 +263,9 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 		final Object tag = view.getTag();
 		// animate the item
 		if (tag instanceof StatusViewHolder && position > mMaxAnimationPosition) {
-			view.startAnimation(((StatusViewHolder) tag).item_animation);
+			if (mAnimationEnabled) {
+				view.startAnimation(((StatusViewHolder) tag).item_animation);
+			}
 			mMaxAnimationPosition = position;
 		}
 		return view;
@@ -323,6 +327,12 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	}
 
 	@Override
+	public void setAnimationEnabled(final boolean anim) {
+		if (mAnimationEnabled == anim) return;
+		mAnimationEnabled = anim;
+	}
+
+	@Override
 	public void setData(final Cursor data) {
 		swapCursor(data);
 	}
@@ -331,6 +341,13 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	public void setDisplayImagePreview(final boolean display) {
 		if (display == mDisplayImagePreview) return;
 		mDisplayImagePreview = display;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setDisplayNameFirst(final boolean name_first) {
+		if (mDisplayNameFirst == name_first) return;
+		mDisplayNameFirst = name_first;
 		notifyDataSetChanged();
 	}
 
@@ -345,6 +362,13 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	public void setDisplaySensitiveContents(final boolean display) {
 		if (display == mDisplaySensitiveContents) return;
 		mDisplaySensitiveContents = display;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void setFavoritesHightlightDisabled(final boolean disable) {
+		if (disable == mFavoritesHighlightDisabled) return;
+		mFavoritesHighlightDisabled = disable;
 		notifyDataSetChanged();
 	}
 
@@ -382,19 +406,11 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	}
 
 	@Override
-	public void setLinkHightlightingEnabled(final boolean enable) {
-		if (mLinkHighlightingEnabled == enable) return;
-		mLinkHighlightingEnabled = enable;
-		notifyDataSetChanged();
-	}
-
-	@Override
-	public void setLinkUnderlineOnly(final boolean underline_only) {
-		final int style = underline_only ? TwidereLinkify.HIGHLIGHT_STYLE_UNDERLINE
-				: TwidereLinkify.HIGHLIGHT_STYLE_COLOR;
-		if (mLinkHighlightStyle == style) return;
-		mLinkify.setHighlightStyle(style);
-		mLinkHighlightStyle = style;
+	public void setLinkHighlightOption(final String option) {
+		final int option_int = getLinkHighlightOptionInt(option);
+		if (option_int == mLinkHighlightOption) return;
+		mLinkHighlightOption = option_int;
+		mLinkify.setHighlightOption(option_int);
 		notifyDataSetChanged();
 	}
 
@@ -413,14 +429,6 @@ public class CursorStatusesAdapter extends SimpleCursorAdapter implements IStatu
 	@Override
 	public void setMenuButtonClickListener(final MenuButtonClickListener listener) {
 		mListener = listener;
-	}
-
-	@Override
-	public void setNameDisplayOption(final String option) {
-		final int option_int = getNameDisplayOptionInt(option);
-		if (option_int == mNameDisplayOption) return;
-		mNameDisplayOption = option_int;
-		notifyDataSetChanged();
 	}
 
 	@Override

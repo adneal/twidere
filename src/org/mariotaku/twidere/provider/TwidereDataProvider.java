@@ -31,7 +31,6 @@ import static org.mariotaku.twidere.util.Utils.getTableId;
 import static org.mariotaku.twidere.util.Utils.getTableNameById;
 import static org.mariotaku.twidere.util.Utils.isFiltered;
 import static org.mariotaku.twidere.util.Utils.isNotificationsSilent;
-import static org.mariotaku.twidere.util.Utils.isOnWifi;
 import static org.mariotaku.twidere.util.Utils.notifyForUpdatedUri;
 
 import android.app.Notification;
@@ -269,7 +268,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 		mPreferences = mContext.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
 		mPermissionsManager = new PermissionsManager(mContext);
-		mImagePreloader = new ImagePreloader(app.getImageLoader());
+		mImagePreloader = new ImagePreloader(mContext, app.getImageLoader());
 		final IntentFilter filter = new IntentFilter();
 		filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTART);
 		filter.addAction(BROADCAST_HOME_ACTIVITY_ONSTOP);
@@ -300,6 +299,9 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		switch (table_id) {
 			case VIRTUAL_TABLE_ID_CACHED_IMAGES: {
 				return getCachedImageFd(uri.getQueryParameter(QUERY_PARAM_URL));
+			}
+			case VIRTUAL_TABLE_ID_CACHE_FILES: {
+				return getCacheFileFd(uri.getLastPathSegment());
 			}
 		}
 		return null;
@@ -547,8 +549,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 
 	private void displayMentionsNotification(final Context context, final ContentValues[] values) {
 		final NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-		final boolean display_screen_name = NAME_DISPLAY_OPTION_SCREEN_NAME.equals(mPreferences.getString(
-				PREFERENCE_KEY_NAME_DISPLAY_OPTION, NAME_DISPLAY_OPTION_BOTH));
+		final boolean display_screen_name = !mPreferences.getBoolean(PREFERENCE_KEY_NAME_FIRST, true);
 		final Intent delete_intent = new Intent(BROADCAST_NOTIFICATION_CLEARED);
 		final Bundle delete_extras = new Bundle();
 		delete_extras.putInt(EXTRA_NOTIFICATION_ID, NOTIFICATION_ID_MENTIONS);
@@ -578,9 +579,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		content_intent.setAction(Intent.ACTION_MAIN);
 		content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		final Bundle content_extras = new Bundle();
-		// TODO
-		// content_extras.putInt(EXTRA_INITIAL_TAB,
-		// HomeActivity.TAB_POSITION_MENTIONS);
+		content_extras.putString(EXTRA_TAB_TYPE, TAB_TYPE_MENTIONS_TIMELINE);
 		if (mNewMentions.size() == 1) {
 			final Uri.Builder uri_builder = new Uri.Builder();
 			uri_builder.scheme(SCHEME_TWIDERE);
@@ -640,8 +639,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 
 	private void displayMessagesNotification(final Context context, final ContentValues[] values) {
 		final NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-		final boolean display_screen_name = NAME_DISPLAY_OPTION_SCREEN_NAME.equals(mPreferences.getString(
-				PREFERENCE_KEY_NAME_DISPLAY_OPTION, NAME_DISPLAY_OPTION_BOTH));
+		final boolean display_screen_name = !mPreferences.getBoolean(PREFERENCE_KEY_NAME_FIRST, true);
 		final Intent delete_intent = new Intent(BROADCAST_NOTIFICATION_CLEARED);
 		final Bundle delete_extras = new Bundle();
 		delete_extras.putInt(EXTRA_NOTIFICATION_ID, NOTIFICATION_ID_DIRECT_MESSAGES);
@@ -670,9 +668,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 		content_intent.setAction(Intent.ACTION_MAIN);
 		content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 		final Bundle content_extras = new Bundle();
-		// TODO
-		// content_extras.putInt(EXTRA_INITIAL_TAB,
-		// HomeActivity.TAB_POSITION_MESSAGES);
+		content_extras.putString(EXTRA_TAB_TYPE, TAB_TYPE_DIRECT_MESSAGES);
 		if (messages_size == 1) {
 			final Uri.Builder uri_builder = new Uri.Builder();
 			final long account_id = message.account_id;
@@ -747,6 +743,14 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 	private ParcelFileDescriptor getCachedImageFd(final String url) throws FileNotFoundException {
 		final File file = mImagePreloader.getCachedImageFile(url);
 		if (file == null) return null;
+		return ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
+	}
+
+	private ParcelFileDescriptor getCacheFileFd(final String name) throws FileNotFoundException {
+		if (name == null) return null;
+		final File cacheDir = mContext.getCacheDir();
+		final File file = new File(cacheDir, name);
+		if (!file.exists()) return null;
 		return ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY);
 	}
 
@@ -847,9 +851,7 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 				content_intent.setAction(Intent.ACTION_MAIN);
 				content_intent.addCategory(Intent.CATEGORY_LAUNCHER);
 				final Bundle content_extras = new Bundle();
-				// TODO
-				// content_extras.putInt(EXTRA_INITIAL_TAB,
-				// HomeActivity.TAB_POSITION_HOME);
+				content_extras.putString(EXTRA_TAB_TYPE, TAB_TYPE_HOME_TIMELINE);
 				content_intent.putExtras(content_extras);
 				builder.setOnlyAlertOnce(true);
 				buildNotification(builder, mResources.getString(R.string.new_notifications), message, message,
@@ -875,29 +877,17 @@ public final class TwidereDataProvider extends ContentProvider implements Consta
 	}
 
 	private void preloadImages(final ContentValues... values) {
-		if (values == null || !isOnWifi(mContext) && mPreferences.getBoolean(PREFERENCE_KEY_PRELOAD_WIFI_ONLY, true))
-			return;
+		if (values == null) return;
 		for (final ContentValues v : values) {
 			if (mPreferences.getBoolean(PREFERENCE_KEY_PRELOAD_PROFILE_IMAGES, false)) {
-				final String profile_image_url = v.getAsString(Statuses.PROFILE_IMAGE_URL);
-				if (profile_image_url != null) {
-					mImagePreloader.preloadImage(profile_image_url);
-				}
-				final String sender_profile_image_url = v.getAsString(DirectMessages.SENDER_PROFILE_IMAGE_URL);
-				if (sender_profile_image_url != null) {
-					mImagePreloader.preloadImage(sender_profile_image_url);
-				}
-				final String recipient_profile_image_url = v.getAsString(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL);
-				if (recipient_profile_image_url != null) {
-					mImagePreloader.preloadImage(recipient_profile_image_url);
-				}
+				mImagePreloader.preloadImage(v.getAsString(Statuses.PROFILE_IMAGE_URL));
+				mImagePreloader.preloadImage(v.getAsString(DirectMessages.SENDER_PROFILE_IMAGE_URL));
+				mImagePreloader.preloadImage(v.getAsString(DirectMessages.RECIPIENT_PROFILE_IMAGE_URL));
 			}
 			if (mPreferences.getBoolean(PREFERENCE_KEY_PRELOAD_PREVIEW_IMAGES, false)) {
 				final String text_html = v.getAsString(Statuses.TEXT_HTML);
 				for (final PreviewImage spec : Utils.getImagesInStatus(text_html)) {
-					if (spec.image_preview_url != null) {
-						mImagePreloader.preloadImage(spec.image_preview_url);
-					}
+					mImagePreloader.preloadImage(spec.image_preview_url);
 				}
 			}
 		}

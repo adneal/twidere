@@ -39,6 +39,8 @@ public interface IStatusesAdapter<Data> extends IBaseCardAdapter {
 
 	public void setDisplaySensitiveContents(boolean display);
 
+	public void setFavoritesHightlightDisabled(boolean disable);
+
 	public void setFiltersEnabled(boolean enabled);
 
 	public void setGapDisallowed(boolean disallowed);
@@ -46,12 +48,6 @@ public interface IStatusesAdapter<Data> extends IBaseCardAdapter {
 	public void setIgnoredFilterFields(boolean text_plain, boolean text_html, boolean screen_name, boolean source);
 
 	public void setIndicateMyStatusDisabled(boolean disable);
-
-	public void setLinkHightlightingEnabled(boolean enable);
-
-	public void setLinkUnderlineOnly(boolean underline_only);
-
-	public void setMaxAnimationPosition(int position);
 
 	public void setMentionsHightlightDisabled(boolean disable);
 
