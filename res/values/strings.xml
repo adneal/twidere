@@ -516,5 +516,7 @@
 	<string name="wizard_page_finished_title">Finished</string>
 	<string name="wizard_page_finished_text">Now Twidere is ready for use.</string>
 	<string name="invalid_tab">Invalid tab</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="copied_confirmation">Text copied</string>
 
 </resources>
